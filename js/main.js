@@ -16,37 +16,129 @@ window.onload = function() {
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
-        // Load an image and call it 'logo'.
-        game.load.image( 'logo', 'assets/phaser.png' );
+        // Load a spritesheet and call it 'wolf'.
+        game.load.spritesheet('wolf', 'assets/Art/wolf.png', 64, 32);
+        // Load the background.
+        game.load.image('background', 'assets/Art/Park_Background.png');
+        // Loading the Boss
+        game.load.spritesheet('boss', 'assets/Art/Fenrir.png', 294, 250);
+        //Load some Sounds
+        game.load.audio('roar', 'assets/Audio/roar.mp3');
+        game.load.audio('bite', 'assets/Audio/dogBite.mp3');
     }
     
-    var bouncy;
+    var wolf;
+    var cursors;
+    var boss;
+    var counter = 0;
+    var biteReference;
+    var otherBiteRef;
+    var roar;
+    var bite;
     
     function create() {
-        // Create a sprite at the center of the screen using the 'logo' image.
-        bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
-        // Anchor the sprite at its center, as opposed to its top-left corner.
-        // so it will be truly centered.
-        bouncy.anchor.setTo( 0.5, 0.5 );
-        
-        // Turn on the arcade physics engine for this sprite.
-        game.physics.enable( bouncy, Phaser.Physics.ARCADE );
-        // Make it bounce off of the world bounds.
-        bouncy.body.collideWorldBounds = true;
-        
-        // Add some text using a CSS style.
-        // Center it in X, and position its top 15 pixels from the top of the world.
-        var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-        var text = game.add.text( game.world.centerX, 15, "Build something awesome.", style );
-        text.anchor.setTo( 0.5, 0.0 );
+         //Adds the Background
+        game.add.sprite(0,0, 'background');
+
+        //Starts the Physics and Impliments them on the Dog
+        game.physics.startSystem(Phaser.Physics.P2JS);
+
+        //Loading Character Sprites
+        boss = game.add.sprite(650,450, 'boss');
+        wolf = game.add.sprite(35,450, 'wolf');
+
+        //Loading In Audio
+        roar = game.add.audio('roar');
+        bite = game.add.audio('bite');
+
+        //Adds the Animations
+        wolf.animations.add('walkRight', [6,7,8,9,10]);
+        wolf.animations.add('walkLeft', [21, 22, 23, 24, 25]);
+        wolf.animations.add('biteRight', [11,12,13,14,10]);
+        wolf.animations.add('biteLeft', [26,27,28,29,20]);
+        boss.animations.add('health');
+
+        //Enabling Physics on the Characters.
+        game.physics.p2.enable(wolf);
+        game.physics.p2.enable(boss);
+        boss.body.setRectangle(220,140);
+
+        //Keeping the boss still
+        wolf.body.fixedRotation = true;
+        boss.body.fixedRotation = true;
+        boss.body.immovable = true;
+        boss.body.moves = false;
+        boss.body.force = 0;
+        boss.body.static = true;
+
+        //Allowing Cursor Inputs
+        cursors = game.input.keyboard.createCursorKeys();
+
+        //References for Sprites and sounds.
+        biteReference = wolf.animations.play('biteRight');
+        otherBiteRef = wolf.animations.play('biteLeft');
+        wolf.animations.play('walkRight');
+
+        boss.body.onBeginContact.add(bossHit, this);
+    }
+
+    function bossHit(){
+        if((biteReference.isPlaying || otherBiteRef.isPlaying) && boss.visible){
+            counter = counter + 1;
+            wolf.body.x = 35;
+            wolf.body.y = 450;
+            wolf.body.static = true;
+            roar.play();
+        }
+
+        if(counter > 3){
+            boss.visible = false;
+        }
+
+        else{
+            boss.frame = counter;
+        }
     }
     
     function update() {
-        // Accelerate the 'logo' sprite towards the cursor,
-        // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
-        // in X or Y.
-        // This function returns the rotation angle that makes it visually match its
-        // new trajectory.
-        bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, this.game.input.activePointer, 500, 500, 500 );
+        //Settting Character Velocities to Zero
+        wolf.body.setZeroVelocity();
+        boss.body.setZeroVelocity();
+
+        //Movement
+        //If left is pressed move left and play running Animation
+        //If right is pressed Mmove right and play Animation
+        //If "A" is pressed do the bite Animation
+        if (cursors.left.isDown)
+        {
+            wolf.body.moveLeft(350);
+            if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
+                wolf.animations.play('biteLeft', 10);
+                bite.play();
+            }
+            else{
+                wolf.animations.play('walkLeft', 10);
+            }
+        }
+        else if (cursors.right.isDown)
+        {
+            wolf.body.moveRight(350);
+            if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
+                wolf.animations.play('biteRight', 10);
+                bite.play();
+            }
+            else{
+                wolf.animations.play('walkRight', 10);
+            }
+        }
+        else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
+            wolf.animations.play('biteRight', 10);\
+            bite.play();
+        }
+
+        //Having to wait for the boss to stop Roaring in order to move.
+        if(!roar.isPlaying){
+            wolf.body.static = false;
+        }
     }
 };
