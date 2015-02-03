@@ -132,7 +132,7 @@ window.onload = function() {
             }
         }
         else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
-            wolf.animations.play('biteRight', 10);\
+            wolf.animations.play('biteRight', 10);
             bite.play();
         }
 
