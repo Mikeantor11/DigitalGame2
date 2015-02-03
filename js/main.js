@@ -140,5 +140,6 @@ window.onload = function() {
         if(!roar.isPlaying){
             wolf.body.static = false;
         }
+        //change
     }
 };
