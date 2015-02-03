@@ -114,7 +114,9 @@ window.onload = function() {
             wolf.body.moveLeft(350);
             if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
                 wolf.animations.play('biteLeft', 10);
-                bite.play();
+                if(!bit.isPlaying){
+                    bite.play();    
+                }    
             }
             else{
                 wolf.animations.play('walkLeft', 10);
@@ -125,7 +127,10 @@ window.onload = function() {
             wolf.body.moveRight(350);
             if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
                 wolf.animations.play('biteRight', 10);
-                bite.play();
+
+                if(!bit.isPlaying){
+                    bite.play();    
+                }    
             }
             else{
                 wolf.animations.play('walkRight', 10);
@@ -133,13 +138,15 @@ window.onload = function() {
         }
         else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
             wolf.animations.play('biteRight', 10);
-            bite.play();
+
+            if(!bit.isPlaying){
+                bite.play();    
+            }            
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
             wolf.body.static = false;
         }
-        //change
     }
 };
