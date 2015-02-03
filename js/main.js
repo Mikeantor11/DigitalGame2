@@ -114,7 +114,7 @@ window.onload = function() {
             wolf.body.moveLeft(350);
             if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
                 wolf.animations.play('biteLeft', 10);
-                if(!bit.isPlaying){
+                if(!bite.isPlaying){
                     bite.play();    
                 }    
             }
@@ -128,7 +128,7 @@ window.onload = function() {
             if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
                 wolf.animations.play('biteRight', 10);
 
-                if(!bit.isPlaying){
+                if(!bite.isPlaying){
                     bite.play();    
                 }    
             }
@@ -139,7 +139,7 @@ window.onload = function() {
         else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
             wolf.animations.play('biteRight', 10);
 
-            if(!bit.isPlaying){
+            if(!bite.isPlaying){
                 bite.play();    
             }            
         }
