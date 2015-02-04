@@ -56,15 +56,6 @@ window.onload = function() {
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
-       exp1 = game.add.sprite(150,400, 'explosion');
-        exp2 = game.add.sprite(250,400, 'explosion');
-        exp3 = game.add.sprite(350,400, 'explosion');
-        exp4 = game.add.sprite(450,400, 'explosion');
-
-        exp1.kill();
-        exp2.kill();
-        exp3.kill();
-        exp4.kill();
 
         //Loading In Audio
         roar = game.add.audio('roar');
@@ -119,36 +110,6 @@ window.onload = function() {
             boss.frame = counter;
         }
     }
-
-    function explosionTrigger(num){
-        var possibilities = [1,2,3,4];
-        var selection;
-        for(var i = 0; i < num+1; i ++){
-            selection = game.rnd.integerInRange(0, possibilities.total);
-            selection = possibilities[selection];
-            if(selection === 1){
-                exp1.revive();
-                game.physics.p2.enable(exp1);
-                exp1.body.onBeginContact.add(wolf.kill(), this);
-            }
-            if(selection === 2){
-                exp2.revive();
-                game.physics.p2.enable(exp2);
-                exp2.body.onBeginContact.add(wolf.kill(), this);
-            }
-            if(selection === 3){
-                exp3.revive();
-                game.physics.p2.enable(exp3);
-                exp3.body.onBeginContact.add(wolf.kill(), this);
-            }
-            if(selection === 4){
-                exp4.revive();
-                game.physics.p2.enable(exp4);
-                exp4.body.onBeginContact.add(wolf.kill(), this);
-            }
-            possibilities.splice(selection, selection);
-        }
-    }
    
     function update() {
         //Settting Character Velocities to Zero
@@ -195,34 +156,7 @@ window.onload = function() {
         }
 
         if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
-            //explosionTrigger(counter);
-            //var possibilities = [1,2,3,4];
-            selection = 2;
-            //for(var i = 0; i < counter+1; i ++){
-                //selection = game.rnd.integerInRange(0, possibilities.total);
-                //selection = possibilities[selection];
-                if(selection == 1){
-                    exp1 = game.add.sprite(150,400, 'explosion');
-                    game.physics.p2.enable(exp1);
-                    exp1.body.onBeginContact.add(wolf.kill(), this);
-                }
-                if(selection === 2){
-                    exp2.revive();
-                    game.physics.p2.enable(exp2);
-                    exp2.body.onBeginContact.add(wolf.kill(), this);
-                }
-                if(selection == 3){
-                    exp3 = game.add.sprite(350,400, 'explosion');
-                    game.physics.p2.enable(exp3);
-                    exp3.body.onBeginContact.add(wolf.kill(), this);
-                }
-                if(selection == 4){
-                    exp4 = game.add.sprite(450,400, 'explosion');
-                    game.physics.p2.enable(exp4);
-                    exp4.body.onBeginContact.add(wolf.kill(), this);
-                }
-                possibilities.splice(selection, selection);
-        //}
+            exp1 = game.add.sprite(200,200, 'explosion');
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
