@@ -51,7 +51,7 @@ window.onload = function() {
 
         //Starts the Physics and Impliments them on the Dog
         game.physics.startSystem(Phaser.Physics.P2JS);
-        game.physics.p2.gravity.y = 1000;
+        game.physics.p2.gravity.y = 200;
 
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
@@ -132,6 +132,7 @@ window.onload = function() {
         //Settting Character Velocities to Zero
         wolf.body.setZeroVelocity();
         boss.body.setZeroVelocity();
+        wolf.body.moveDown(300);
 
         //Movement
         //If left is pressed move left and play running Animation
