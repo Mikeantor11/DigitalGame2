@@ -59,7 +59,7 @@ window.onload = function() {
         exp2 = game.add.sprite(250,350, 'explosion');
         exp3 = game.add.sprite(350,350, 'explosion');
         exp4 = game.add.sprite(450,350, 'explosion');
-        random = new RandomDataGenerator();
+        random = game.add.RandomDataGenerator();
 
         exp1.kill();
         exp2.kill();
