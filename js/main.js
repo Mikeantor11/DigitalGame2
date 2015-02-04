@@ -59,12 +59,12 @@ window.onload = function() {
         exp2 = game.add.sprite(250,350, 'explosion');
         exp3 = game.add.sprite(350,350, 'explosion');
         exp4 = game.add.sprite(450,350, 'explosion');
-
+/*
         exp1.kill();
         exp2.kill();
         exp3.kill();
         exp4.kill();
-
+*/
         //Loading In Audio
         roar = game.add.audio('roar');
         bite = game.add.audio('bite');
