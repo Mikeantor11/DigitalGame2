@@ -55,7 +55,7 @@ window.onload = function() {
 
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
-        wolf = game.add.sprite(35,400, 'wolf');
+        wolf = game.add.sprite(35,450, 'wolf');
         exp1 = game.add.sprite(250,450, 'explosion');
         floor = game.add.sprite(1,500, 'floor');
 
