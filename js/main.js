@@ -184,7 +184,7 @@ window.onload = function() {
             wolf.body.velocity.y = -250;
         }
 
-		if(game.input.keyboard.isDown(Phaser,Keyboard.T)){
+		if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
 			wolf.body.y = 450;
 		}
 	
