@@ -55,16 +55,18 @@ window.onload = function() {
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
-        exp1 = game.add.sprite(150,350, 'explosion');
-        exp2 = game.add.sprite(250,350, 'explosion');
-        exp3 = game.add.sprite(350,350, 'explosion');
-        exp4 = game.add.sprite(450,350, 'explosion');
-/*
+        exp1 = game.add.sprite(150,400, 'explosion');
+        exp2 = game.add.sprite(250,400, 'explosion');
+        exp3 = game.add.sprite(350,400, 'explosion');
+        exp4 = game.add.sprite(450,400, 'explosion');
+
         exp1.kill();
         exp2.kill();
         exp3.kill();
         exp4.kill();
-*/
+
+        exp1.revive();
+
         //Loading In Audio
         roar = game.add.audio('roar');
         bite = game.add.audio('bite');
