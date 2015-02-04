@@ -170,7 +170,7 @@ window.onload = function() {
             wolf.body.velocity.x = 0;
         }
 
-        if(game.input.keyboard.isDown(Phaser.Keyboard.A) && wolf.animations.currentAnim != ('biteRight' || 'biteLeft')){
+        if(game.input.keyboard.isDown(Phaser.Keyboard.A) && wolf.animations.currentAnim != 'biteLeft'){
             wolf.animations.play('biteRight', 10);
 
             if(!bite.isPlaying){
