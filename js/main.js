@@ -125,13 +125,11 @@ window.onload = function() {
         else{
             boss.frame = counter;
         }
+        wolf.revive();
     }
 
-    var text = "Inside killHim";
-    var style = { font: "65px Arial", fill: "#ff0044", align: "center"};
     function killHim(){
         wolf.kill();
-        var t = game.add.text(game.world.centerX, 0, text, style);
     }
    
     function update() {
