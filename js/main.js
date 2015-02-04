@@ -36,7 +36,10 @@ window.onload = function() {
     var roar;
     var bite;
     var BGM;
-    var explosion;
+    var exp1;
+    var exp2;
+    var exp3;
+    var exp4;
     
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
@@ -51,11 +54,25 @@ window.onload = function() {
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
+        exp1 = game.add.sprite(250,450, 'explosion');
+        exp2 = game.add.sprite(350,450, 'explosion');
+        exp3 = game.add.sprite(450,450, 'explosion');
+        exp4 = game.add.sprite(550,450, 'explosion');
+
+        exp1.animations.add('explode');
+        exp2.animations.add('explode');
+        exp3.animations.add('explode');
+        exp4.animations.add('explode');
+
+        exp1.kill();
+        exp2.kill();
+        exp3.kill();
+        exp4.kill();
+
 
         //Loading In Audio
         roar = game.add.audio('roar');
         bite = game.add.audio('bite');
-
 
         //Adds the Animations
         wolf.animations.add('walkRight', [6,7,8,9,10]);
@@ -167,10 +184,10 @@ window.onload = function() {
             }
         }*/
 
-        explosion = game.add.sprite(400, 400, 'explosion');
-        for(var i = 0;i < 10; i++){
-            explosion.frame = 5;
-        }
+        exp1.play();
+        exp2.play();
+        exp3.play();
+        exp4.play();
 
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
