@@ -55,7 +55,7 @@ window.onload = function() {
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
         exp1 = game.add.sprite(250,400, 'explosion');
-        exp1.body.static = true;
+        
 
         //Loading In Audio
         roar = game.add.audio('roar');
@@ -81,6 +81,7 @@ window.onload = function() {
         boss.body.moves = false;
         boss.body.force = 0;
         boss.body.static = true;
+        exp1.body.static = true;
 
         //Allowing Cursor Inputs
         cursors = game.input.keyboard.createCursorKeys();
