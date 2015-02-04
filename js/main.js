@@ -59,7 +59,6 @@ window.onload = function() {
         exp2 = game.add.sprite(250,350, 'explosion');
         exp3 = game.add.sprite(350,350, 'explosion');
         exp4 = game.add.sprite(450,350, 'explosion');
-        random = new Phaser.RandomDataGenerator();
 
         exp1.kill();
         exp2.kill();
@@ -124,7 +123,7 @@ window.onload = function() {
         var possibilities = new ArraySet([1,2,3,4]);
         var selection;
         for(var i = 0; i < num+1; i ++){
-            selection = random.between(0, possibilities.total - 1);
+            selection = game.rnd.integerInRange(0, possibilities.total);
             selection = possibilities[selection];
             if(selection === 1){
                 exp1.revive();
