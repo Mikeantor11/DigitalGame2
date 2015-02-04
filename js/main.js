@@ -174,7 +174,9 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown){
-            wolf.body.velocity.y = -200;
+            while(wolf.x > 300){
+                wolf.body.moveUp(350);
+            }
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
