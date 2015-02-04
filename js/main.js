@@ -167,8 +167,10 @@ window.onload = function() {
             }
         }*/
 
-        explosion = game.add.sprite(400, 450, 'explosion');
-        explosion.frame = 5;
+        explosion = game.add.sprite(400, 400, 'explosion');
+        for(var i = 0;i < 10; i++){
+            explosion.frame = 5;
+        }
 
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
