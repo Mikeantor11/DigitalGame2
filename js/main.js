@@ -188,6 +188,7 @@ window.onload = function() {
         if(!roar.isPlaying){
             wolf.body.static = false;
         }
-        wolf.visible = true;
+        wolf.body.x = 35;
+        wolf.body.y = 450;	
     }
 };
