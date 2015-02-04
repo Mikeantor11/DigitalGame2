@@ -130,7 +130,7 @@ window.onload = function() {
    
     function update() {
         //Settting Character Velocities to Zero
-        //wolf.body.setZeroVelocity();
+        wolf.body.setZeroVelocity();
         boss.body.setZeroVelocity();
         //wolf.body.moveDown(300);
 
@@ -174,7 +174,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown){
-            while(wolf.x > 300){
+            while(wolf.body.x > 300){
                 wolf.body.moveUp(350);
             }
         }
