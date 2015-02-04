@@ -161,11 +161,13 @@ window.onload = function() {
             }            
         }
 
-        if(!roar.isPlaying){
+        /*if(!roar.isPlaying){
             for(var i = 0; i < counter; i++){
                 explosionTrigger();
             }
-        }
+        }*/
+
+        explosion = game.add.sprite(400, 450, 'explosion');
 
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
