@@ -20,7 +20,7 @@ window.onload = function() {
         game.load.spritesheet('wolf', 'assets/Art/wolf.png', 64, 32);
         game.load.image('background', 'assets/Art/Park_Background.png');
         game.load.spritesheet('boss', 'assets/Art/Fenrir.png', 294, 250);
-        game.load.spritesheet('explosion', 'assets/Art/explosion.png', 150, 150);
+        game.load.image('explosion', 'assets/Art/explosion0.png', 150, 150);
         //Load some Sounds
         game.load.audio('roar', 'assets/Audio/roar.mp3');
         game.load.audio('bite', 'assets/Audio/dogBite.mp3');
@@ -40,6 +40,7 @@ window.onload = function() {
     var exp2;
     var exp3;
     var exp4;
+    var random;
     
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
@@ -54,26 +55,16 @@ window.onload = function() {
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
-        exp1 = game.add.sprite(250,350, 'explosion');
-        exp2 = game.add.sprite(350,350, 'explosion');
-        exp3 = game.add.sprite(450,350, 'explosion');
-        exp4 = game.add.sprite(550,350, 'explosion');
-
-        exp1.animations.add('explode');
-        exp2.animations.add('explode');
-        exp3.animations.add('explode');
-        exp4.animations.add('explode');
+        exp1 = game.add.sprite(150,350, 'explosion');
+        exp2 = game.add.sprite(250,350, 'explosion');
+        exp3 = game.add.sprite(350,350, 'explosion');
+        exp4 = game.add.sprite(450,350, 'explosion');
+        random = new RandomDataGenerator();
 
         exp1.kill();
         exp2.kill();
         exp3.kill();
         exp4.kill();
-
-        exp1.revive();
-        exp2.revive();
-        exp3.revive();
-        exp4.revive();
-
 
         //Loading In Audio
         roar = game.add.audio('roar');
@@ -129,14 +120,34 @@ window.onload = function() {
         }
     }
 
-    function explosionTrigger(){
-        explosion = game.add.sprite(100, 450, 'explosion');
-        game.physics.p2.enable(explosion);
-        for(var j = 0;j < 20; j++){
-            explosion.frame = j;
-            explosion.body.setCircle((j+1)*5);
+    function explosionTrigger(var num){
+        var possibilities = new ArraySet([1,2,3,4]);
+        var selection;
+        for(var i = 0; i < num+1; i ++){
+            selection = random.between(0, possibilities.total - 1);
+            selection = possibilities[selection];
+            if(selection === 1){
+                exp1.revive();
+                game.physics.p2.enable(exp1);
+                exp1.body.onBeginContact.add(wolf.kill(), this);
+            }
+            if(selection === 2){
+                exp2.revive();
+                game.physics.p2.enable(exp2);
+                exp2.body.onBeginContact.add(wolf.kill(), this);
+            }
+            if(selection === 3{
+                exp3.revive();
+                game.physics.p2.enable(exp3);
+                exp3.body.onBeginContact.add(wolf.kill(), this);
+            }
+            if(selection === 4){
+                exp4.revive();
+                game.physics.p2.enable(exp4);
+                exp4.body.onBeginContact.add(wolf.kill(), this);
+            }
+            possibilities.remove(selection);
         }
-        explosion.destroy();
     }
     
     function update() {
@@ -179,23 +190,13 @@ window.onload = function() {
             wolf.animations.play('biteRight', 10);
 
             if(!bite.isPlaying){
-                bite.play();
-
-        exp1.play();
-        exp2.play();
-        exp3.play();
-        exp4.play();    
+                bite.play(); 
             }            
         }
 
-        /*if(!roar.isPlaying){
-            for(var i = 0; i < counter; i++){
-                explosionTrigger();
-            }
-        }*/
-
-        
-
+        if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
+                explosionTrigger(counter);
+        }
 
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
