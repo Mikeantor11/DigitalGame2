@@ -128,7 +128,7 @@ window.onload = function() {
     }
 
     function killHim(){
-        if(wolf.body.x > 50 || wolf.body.x < 20){
+        if(wolf.body.x > 200){
             wolf.kill();
         }
     }
