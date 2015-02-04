@@ -156,7 +156,7 @@ window.onload = function() {
         }
 
         if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
-            game.add.sprite(200,200, 'explosion');
+            var exp5 = game.add.sprite(200,200, 'explosion');
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
