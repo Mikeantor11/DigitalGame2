@@ -174,7 +174,7 @@ window.onload = function() {
 
         if(game.input.keyboard.isDown(Phaser.Keyboard.A) && wolf.animations.currentAnim != 'biteLeft'){
             wolf.animations.play('biteRight', 10);
-            wolf.revive();
+
             if(!bite.isPlaying){
                 bite.play(); 
             }            
@@ -188,5 +188,6 @@ window.onload = function() {
         if(!roar.isPlaying){
             wolf.body.static = false;
         }
+        wolf.visible = true;
     }
 };
