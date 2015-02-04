@@ -128,7 +128,9 @@ window.onload = function() {
     }
 
     function killHim(){
-        wolf.kill();
+        if(wolf.body.x != 35){
+            wolf.kill();
+        }
     }
    
     function update() {
@@ -180,7 +182,7 @@ window.onload = function() {
             }            
         }
 
-        if(cursors.up.isDown && wolf.body.touching.down){
+        if(cursors.up.isDown){
             wolf.body.velocity.y = -250;
         }
 
