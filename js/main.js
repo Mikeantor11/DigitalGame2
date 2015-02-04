@@ -108,12 +108,13 @@ window.onload = function() {
     }
 
     function explosionTrigger(){
-        explosion = game.add.sprite(game.world.randomX, 450, 'explosion');
+        explosion = game.add.sprite(100, 450, 'explosion');
         game.physics.p2.enable(explosion);
         for(var j = 0;j < 20; j++){
             explosion.frame = j;
             explosion.body.setCircle((j+1)*5);
         }
+        explosion.destroy();
     }
     
     function update() {
