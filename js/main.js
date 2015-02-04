@@ -130,7 +130,7 @@ window.onload = function() {
    
     function update() {
         //Settting Character Velocities to Zero
-        //wolf.body.setZeroVelocity();
+        wolf.body.setZeroVelocity();
         boss.body.setZeroVelocity();
 
         //Movement
