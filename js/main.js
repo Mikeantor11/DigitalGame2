@@ -132,7 +132,7 @@ window.onload = function() {
         //Settting Character Velocities to Zero
         wolf.body.setZeroVelocity();
         boss.body.setZeroVelocity();
-        //wolf.body.moveDown(300);
+        wolf.body.moveDown(300);
 
         //Movement
         //If left is pressed move left and play running Animation
@@ -174,9 +174,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown){
-            while(wolf.body.x > 300){
-                wolf.body.moveUp(350);
-            }
+            wolf.body.moveUp(350);
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
