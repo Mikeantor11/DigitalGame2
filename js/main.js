@@ -20,7 +20,8 @@ window.onload = function() {
         game.load.spritesheet('wolf', 'assets/Art/wolf.png', 64, 32);
         game.load.image('background', 'assets/Art/Park_Background.png');
         game.load.spritesheet('boss', 'assets/Art/Fenrir.png', 294, 250);
-        game.load.image('explosion', 'assets/Art/explosion0.png', 150, 150);
+        game.load.image('explosion', 'assets/Art/explosion0.png');
+        game.load.image('floor', 'assets/Art/floor.png');
         //Load some Sounds
         game.load.audio('roar', 'assets/Audio/roar.mp3');
         game.load.audio('bite', 'assets/Audio/dogBite.mp3');
@@ -39,6 +40,7 @@ window.onload = function() {
     var exp1;
     var random;
     var selection;
+    var floor;
     
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
@@ -49,13 +51,13 @@ window.onload = function() {
 
         //Starts the Physics and Impliments them on the Dog
         game.physics.startSystem(Phaser.Physics.P2JS);
-        game.physics.p2.gravity.y = 100;
+        game.physics.p2.gravity.y = 200;
 
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
         exp1 = game.add.sprite(250,400, 'explosion');
-        
+        floor = game.add.sprite(0,400, 'floor');
 
         //Loading In Audio
         roar = game.add.audio('roar');
@@ -72,6 +74,7 @@ window.onload = function() {
         game.physics.p2.enable(wolf);
         game.physics.p2.enable(boss);
         game.physics.p2.enable(exp1);
+        game.physics.p2.enable(floor);
         boss.body.setRectangle(220,140);
 
         //Keeping the boss still
