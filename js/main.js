@@ -65,8 +65,6 @@ window.onload = function() {
         exp3.kill();
         exp4.kill();
 
-        exp1.revive();
-
         //Loading In Audio
         roar = game.add.audio('roar');
         bite = game.add.audio('bite');
@@ -196,7 +194,34 @@ window.onload = function() {
         }
 
         if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
-                explosionTrigger(counter);
+            //explosionTrigger(counter);
+            var possibilities = [1,2,3,4];
+            var selection;
+            for(var i = 0; i < counter+1; i ++){
+                selection = game.rnd.integerInRange(0, possibilities.total);
+                selection = possibilities[selection];
+                if(selection === 1){
+                    exp1.revive();
+                    game.physics.p2.enable(exp1);
+                    exp1.body.onBeginContact.add(wolf.kill(), this);
+                }
+                if(selection === 2){
+                    exp2.revive();
+                    game.physics.p2.enable(exp2);
+                    exp2.body.onBeginContact.add(wolf.kill(), this);
+                }
+                if(selection === 3){
+                    exp3.revive();
+                    game.physics.p2.enable(exp3);
+                    exp3.body.onBeginContact.add(wolf.kill(), this);
+                }
+                if(selection === 4){
+                    exp4.revive();
+                    game.physics.p2.enable(exp4);
+                    exp4.body.onBeginContact.add(wolf.kill(), this);
+                }
+                possibilities.splice(selection, selection);
+        }
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
