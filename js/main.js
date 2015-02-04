@@ -38,6 +38,9 @@ window.onload = function() {
     var bite;
     
     function create() {
+        var BGM = game.add.audio('BGM', 0.25, true);
+        BGM.play();
+
          //Adds the Background
         game.add.sprite(0,0, 'background');
 
@@ -51,8 +54,7 @@ window.onload = function() {
         //Loading In Audio
         roar = game.add.audio('roar');
         bite = game.add.audio('bite');
-        var BGM = game.add.audio('BGM');
-        BGM.play('',0.5);
+
 
         //Adds the Animations
         wolf.animations.add('walkRight', [6,7,8,9,10]);
