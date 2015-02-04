@@ -128,7 +128,7 @@ window.onload = function() {
     }
 
     function killHim(){
-        wolf.kill();
+        //wolf.kill();
     }
    
     function update() {
