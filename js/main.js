@@ -55,10 +55,10 @@ window.onload = function() {
         game.physics.p2.gravity.x = 0;
 
         //Loading Character Sprites
+        floor = game.add.sprite(1,500, 'floor');
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
         exp1 = game.add.sprite(250,450, 'explosion');
-        floor = game.add.sprite(1,500, 'floor');
 
         //Loading In Audio
         roar = game.add.audio('roar');
@@ -175,7 +175,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown){
-            wolf.body.moveUp(350);
+            wolf.body.moveUp(250);
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
