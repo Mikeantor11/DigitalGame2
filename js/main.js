@@ -26,6 +26,8 @@ window.onload = function() {
         game.load.audio('roar', 'assets/Audio/roar.mp3');
         game.load.audio('bite', 'assets/Audio/dogBite.mp3');
         game.load.audio('BGM', 'assets/Audio/BGM.mp3');
+        var BGM = game.add.audio('BGM', 0.25, true);
+        BGM.play();
     }
     
     var wolf;
@@ -38,8 +40,7 @@ window.onload = function() {
     var bite;
     
     function create() {
-        var BGM = game.add.audio('BGM', 0.25, true);
-        BGM.play();
+        
 
          //Adds the Background
         game.add.sprite(0,0, 'background');
