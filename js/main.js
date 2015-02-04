@@ -55,7 +55,7 @@ window.onload = function() {
 
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
-        wolf = game.add.sprite(35,450, 'wolf');
+        wolf = game.add.sprite(35,400, 'wolf');
         exp1 = game.add.sprite(250,450, 'explosion');
         floor = game.add.sprite(1,500, 'floor');
 
@@ -130,9 +130,9 @@ window.onload = function() {
    
     function update() {
         //Settting Character Velocities to Zero
-        wolf.body.setZeroVelocity();
+        //wolf.body.setZeroVelocity();
         boss.body.setZeroVelocity();
-        wolf.body.moveDown(300);
+        //wolf.body.moveDown(300);
 
         //Movement
         //If left is pressed move left and play running Animation
@@ -174,7 +174,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown){
-            while(wolf.x < 300){
+            while(wolf.x > 300){
                 wolf.body.moveUp(350);
             }
         }
