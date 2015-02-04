@@ -52,7 +52,7 @@ window.onload = function() {
         roar = game.add.audio('roar');
         bite = game.add.audio('bite');
         var BGM = game.add.audio('BGM');
-        BGM.play(,0.5);
+        BGM.play('',0.5);
 
         //Adds the Animations
         wolf.animations.add('walkRight', [6,7,8,9,10]);
