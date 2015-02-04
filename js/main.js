@@ -174,7 +174,11 @@ window.onload = function() {
             wolf.animations.play('biteRight', 10);
 
             if(!bite.isPlaying){
-                bite.play();    
+                bite.play();
+                exp1.play();
+        exp2.play();
+        exp3.play();
+        exp4.play();    
             }            
         }
 
@@ -184,10 +188,7 @@ window.onload = function() {
             }
         }*/
 
-        exp1.play();
-        exp2.play();
-        exp3.play();
-        exp4.play();
+
 
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
