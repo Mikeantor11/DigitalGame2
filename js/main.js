@@ -41,7 +41,7 @@ window.onload = function() {
     var exp3;
     var exp4;
     var random;
-    var selection
+    var selection;
     
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
