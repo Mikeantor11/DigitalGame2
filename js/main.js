@@ -195,10 +195,10 @@ window.onload = function() {
 
         if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
             //explosionTrigger(counter);
-            var possibilities = [1,2,3,4];
-            var selection;
+            //var possibilities = [1,2,3,4];
+            var selection = 2;
             //for(var i = 0; i < counter+1; i ++){
-                selection = game.rnd.integerInRange(0, possibilities.total);
+                //selection = game.rnd.integerInRange(0, possibilities.total);
                 //selection = possibilities[selection];
                 if(selection == 1){
                     exp1 = game.add.sprite(150,400, 'explosion');
