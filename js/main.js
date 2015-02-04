@@ -136,7 +136,7 @@ window.onload = function() {
                 game.physics.p2.enable(exp2);
                 exp2.body.onBeginContact.add(wolf.kill(), this);
             }
-            if(selection === 3{
+            if(selection === 3){
                 exp3.revive();
                 game.physics.p2.enable(exp3);
                 exp3.body.onBeginContact.add(wolf.kill(), this);
