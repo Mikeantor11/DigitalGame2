@@ -25,6 +25,7 @@ window.onload = function() {
         //Load some Sounds
         game.load.audio('roar', 'assets/Audio/roar.mp3');
         game.load.audio('bite', 'assets/Audio/dogBite.mp3');
+        game.load.audio('BGM', 'assets/Audio/BGM.mp3');
     }
     
     var wolf;
@@ -50,6 +51,8 @@ window.onload = function() {
         //Loading In Audio
         roar = game.add.audio('roar');
         bite = game.add.audio('bite');
+        var BGM = game.add.audio('BGM');
+        BGM.play(,0.5);
 
         //Adds the Animations
         wolf.animations.add('walkRight', [6,7,8,9,10]);
@@ -78,6 +81,7 @@ window.onload = function() {
         biteReference = wolf.animations.play('biteRight');
         otherBiteRef = wolf.animations.play('biteLeft');
         wolf.animations.play('walkRight');
+
 
         boss.body.onBeginContact.add(bossHit, this);
     }
