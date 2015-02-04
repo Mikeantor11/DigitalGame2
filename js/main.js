@@ -197,7 +197,7 @@ window.onload = function() {
             //explosionTrigger(counter);
             var possibilities = [1,2,3,4];
             var selection;
-            for(var i = 0; i < counter+1; i ++){
+            //for(var i = 0; i < counter+1; i ++){
                 selection = game.rnd.integerInRange(0, possibilities.total);
                 selection = possibilities[selection];
                 if(selection === 1){
@@ -221,7 +221,7 @@ window.onload = function() {
                     exp4.body.onBeginContact.add(wolf.kill(), this);
                 }
                 possibilities.splice(selection, selection);
-        }
+        //}
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
