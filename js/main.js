@@ -54,10 +54,10 @@ window.onload = function() {
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
-        exp1 = game.add.sprite(250,450, 'explosion');
-        exp2 = game.add.sprite(350,450, 'explosion');
-        exp3 = game.add.sprite(450,450, 'explosion');
-        exp4 = game.add.sprite(550,450, 'explosion');
+        exp1 = game.add.sprite(250,350, 'explosion');
+        exp2 = game.add.sprite(350,350, 'explosion');
+        exp3 = game.add.sprite(450,350, 'explosion');
+        exp4 = game.add.sprite(550,350, 'explosion');
 
         exp1.animations.add('explode');
         exp2.animations.add('explode');
@@ -68,6 +68,11 @@ window.onload = function() {
         exp2.kill();
         exp3.kill();
         exp4.kill();
+
+        exp1.revive();
+        exp2.revive();
+        exp3.revive();
+        exp4.revive();
 
 
         //Loading In Audio
@@ -174,7 +179,12 @@ window.onload = function() {
             wolf.animations.play('biteRight', 10);
 
             if(!bite.isPlaying){
-                bite.play();    
+                bite.play();
+
+        exp1.play();
+        exp2.play();
+        exp3.play();
+        exp4.play();    
             }            
         }
 
@@ -184,15 +194,8 @@ window.onload = function() {
             }
         }*/
 
-        exp1.revive();
-        exp2.revive();
-        exp3.revive();
-        exp4.revive();
         
-        exp1.play();
-        exp2.play();
-        exp3.play();
-        exp4.play();
+
 
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
