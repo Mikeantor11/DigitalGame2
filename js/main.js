@@ -200,22 +200,22 @@ window.onload = function() {
             //for(var i = 0; i < counter+1; i ++){
                 selection = game.rnd.integerInRange(0, possibilities.total);
                 //selection = possibilities[selection];
-                if(selection === 1){
+                if(selection == 1){
                     exp1 = game.add.sprite(150,400, 'explosion');
                     game.physics.p2.enable(exp1);
                     exp1.body.onBeginContact.add(wolf.kill(), this);
                 }
-                if(selection === 2){
+                if(selection == 2){
                     exp2 = game.add.sprite(250,400, 'explosion');
                     game.physics.p2.enable(exp2);
                     exp2.body.onBeginContact.add(wolf.kill(), this);
                 }
-                if(selection === 3){
+                if(selection == 3){
                     exp3 = game.add.sprite(350,400, 'explosion');
                     game.physics.p2.enable(exp3);
                     exp3.body.onBeginContact.add(wolf.kill(), this);
                 }
-                if(selection === 4){
+                if(selection == 4){
                     exp4 = game.add.sprite(450,400, 'explosion');
                     game.physics.p2.enable(exp4);
                     exp4.body.onBeginContact.add(wolf.kill(), this);
