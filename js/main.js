@@ -55,6 +55,7 @@ window.onload = function() {
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
         exp1 = game.add.sprite(250,400, 'explosion');
+        exp1.body.static = true;
 
         //Loading In Audio
         roar = game.add.audio('roar');
@@ -106,6 +107,7 @@ window.onload = function() {
             var exp5 = game.add.sprite((250 + (100*counter)),400, 'explosion');
             game.physics.p2.enable(exp5);
             exp5.body.onBeginContact.add(killHim);
+            exp5.body.static = true;
         }
 
         if(counter > 3){
