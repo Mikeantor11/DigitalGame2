@@ -77,6 +77,7 @@ window.onload = function() {
         game.physics.p2.enable(exp1);
         game.physics.p2.enable(floor);
         boss.body.setRectangle(220,140);
+        exp1.body.setCircle(20);
 
         //Keeping the boss still
         wolf.body.fixedRotation = true;
@@ -114,6 +115,7 @@ window.onload = function() {
             game.physics.p2.enable(exp5);
             exp5.body.onBeginContact.add(killHim);
             exp5.body.static = true;
+            exp5.body.setCircle(20);
         }
 
         if(counter > 3){
