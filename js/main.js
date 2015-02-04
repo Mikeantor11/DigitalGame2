@@ -49,11 +49,12 @@ window.onload = function() {
 
         //Starts the Physics and Impliments them on the Dog
         game.physics.startSystem(Phaser.Physics.P2JS);
+        game.physics.p2.gravity.y = 100;
 
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
-        exp1 = game.add.sprite(200,200, 'explosion');
+        exp1 = game.add.sprite(250,400, 'explosion');
 
         //Loading In Audio
         roar = game.add.audio('roar');
@@ -100,6 +101,11 @@ window.onload = function() {
             wolf.body.y = 450;
             wolf.body.static = true;
             roar.play();
+
+            //Spawning a New Explosion
+            var exp5 = game.add.sprite((250 + (100*counter)),400, 'explosion');
+            game.physics.p2.enable(exp5);
+            exp5.body.onBeginContact.add(killHim);
         }
 
         if(counter > 3){
@@ -109,10 +115,6 @@ window.onload = function() {
         else{
             boss.frame = counter;
         }
-
-        var exp5 = game.add.sprite(200,200, 'explosion');
-        game.physics.p2.enable(exp5);
-        exp5.body.onBeginContact.add(killHim);
     }
 
     function killHim(){
@@ -161,6 +163,10 @@ window.onload = function() {
             if(!bite.isPlaying){
                 bite.play(); 
             }            
+        }
+
+        if(cursors.up.isDown){
+            wolf.body.velocity.y = -200;
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
