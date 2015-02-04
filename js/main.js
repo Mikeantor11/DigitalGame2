@@ -120,7 +120,7 @@ window.onload = function() {
     }
 
     function explosionTrigger(num){
-        var possibilities = new ArraySet([1,2,3,4]);
+        var possibilities = [1,2,3,4];
         var selection;
         for(var i = 0; i < num+1; i ++){
             selection = game.rnd.integerInRange(0, possibilities.total);
@@ -145,7 +145,7 @@ window.onload = function() {
                 game.physics.p2.enable(exp4);
                 exp4.body.onBeginContact.add(wolf.kill(), this);
             }
-            possibilities.remove(selection);
+            possibilities.splice(selection, selection);
         }
     }
    
