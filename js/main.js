@@ -90,7 +90,7 @@ window.onload = function() {
 
 
         boss.body.onBeginContact.add(bossHit, this);
-        exp1.body.onBeginContact.add(wolf.kill());
+        exp1.body.onBeginContact.add(killHim, this);
     }
 
     function bossHit(){
@@ -112,7 +112,11 @@ window.onload = function() {
 
         var exp5 = game.add.sprite(200,200, 'explosion');
         game.physics.p2.enable(exp5);
-        exp5.body.onBeginContact.add(wolf.kill());
+        exp5.body.onBeginContact.add(killHim);
+    }
+
+    function killHim(){
+        wolf.kill();
     }
    
     function update() {
