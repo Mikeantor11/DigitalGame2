@@ -190,7 +190,8 @@ window.onload = function() {
         }
         if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
         	wolf.body.x = 35;
-        	wolf.body.y = 450;	
+        	wolf.body.y = 450;
+        	wolf.revive();
         }
     }
 };
