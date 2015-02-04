@@ -57,7 +57,7 @@ window.onload = function() {
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
         exp1 = game.add.sprite(250,400, 'explosion');
-        floor = game.add.sprite(1,300, 'floor');
+        floor = game.add.sprite(1,500, 'floor');
 
         //Loading In Audio
         roar = game.add.audio('roar');
