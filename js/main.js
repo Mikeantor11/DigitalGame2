@@ -37,9 +37,6 @@ window.onload = function() {
     var bite;
     var BGM;
     var exp1;
-    var exp2;
-    var exp3;
-    var exp4;
     var random;
     var selection;
     
@@ -56,6 +53,7 @@ window.onload = function() {
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
+        exp1 = game.add.sprite(200,200, 'explosion');
 
         //Loading In Audio
         roar = game.add.audio('roar');
@@ -71,6 +69,7 @@ window.onload = function() {
         //Enabling Physics on the Characters.
         game.physics.p2.enable(wolf);
         game.physics.p2.enable(boss);
+        game.physics.p2.enable(exp1);
         boss.body.setRectangle(220,140);
 
         //Keeping the boss still
@@ -91,6 +90,7 @@ window.onload = function() {
 
 
         boss.body.onBeginContact.add(bossHit, this);
+        exp1.body.onBeginContact.add(wolf.kill());
     }
 
     function bossHit(){
@@ -109,6 +109,10 @@ window.onload = function() {
         else{
             boss.frame = counter;
         }
+
+        var exp5 = game.add.sprite(200,200, 'explosion');
+        game.physics.p2.enable(exp5);
+        exp5.body.onBeginContact.add(wolf.kill());
     }
    
     function update() {
@@ -153,10 +157,6 @@ window.onload = function() {
             if(!bite.isPlaying){
                 bite.play(); 
             }            
-        }
-
-        if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
-            var exp5 = game.add.sprite(200,200, 'explosion');
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
