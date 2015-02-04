@@ -120,7 +120,7 @@ window.onload = function() {
         }
     }
 
-    function explosionTrigger(var num){
+    function explosionTrigger(num){
         var possibilities = new ArraySet([1,2,3,4]);
         var selection;
         for(var i = 0; i < num+1; i ++){
