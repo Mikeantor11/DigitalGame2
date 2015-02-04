@@ -127,10 +127,11 @@ window.onload = function() {
         }
     }
 
+    var text = "Inside killHim";
+    var style = { font: "65px Arial", fill: "#ff0044", align: "center"};
     function killHim(){
-        if(wolf.body.x > 200){
-            wolf.kill();
-        }
+        wolf.kill();
+        var t = game.add.text(game.world.centerX, 0, text, style);
     }
    
     function update() {
