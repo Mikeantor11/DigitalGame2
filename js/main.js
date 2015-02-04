@@ -41,6 +41,7 @@ window.onload = function() {
     var exp3;
     var exp4;
     var random;
+    var selection
     
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
@@ -196,7 +197,7 @@ window.onload = function() {
         if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
             //explosionTrigger(counter);
             //var possibilities = [1,2,3,4];
-            var selection = 2;
+            selection = 2;
             //for(var i = 0; i < counter+1; i ++){
                 //selection = game.rnd.integerInRange(0, possibilities.total);
                 //selection = possibilities[selection];
@@ -205,7 +206,7 @@ window.onload = function() {
                     game.physics.p2.enable(exp1);
                     exp1.body.onBeginContact.add(wolf.kill(), this);
                 }
-                if(selection == 2){
+                if(selection === 2){
                     exp2.revive();
                     game.physics.p2.enable(exp2);
                     exp2.body.onBeginContact.add(wolf.kill(), this);
