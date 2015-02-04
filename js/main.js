@@ -16,18 +16,15 @@ window.onload = function() {
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
-        // Load a spritesheet and call it 'wolf'.
+        // Load the art
         game.load.spritesheet('wolf', 'assets/Art/wolf.png', 64, 32);
-        // Load the background.
         game.load.image('background', 'assets/Art/Park_Background.png');
-        // Loading the Boss
         game.load.spritesheet('boss', 'assets/Art/Fenrir.png', 294, 250);
+        game.load.spritesheet('explosion', 'assets/Art/explosion.png', 150, 150);
         //Load some Sounds
         game.load.audio('roar', 'assets/Audio/roar.mp3');
         game.load.audio('bite', 'assets/Audio/dogBite.mp3');
         game.load.audio('BGM', 'assets/Audio/BGM.mp3');
-        var BGM = game.add.audio('BGM', 0.25, true);
-        BGM.play();
     }
     
     var wolf;
@@ -38,9 +35,12 @@ window.onload = function() {
     var otherBiteRef;
     var roar;
     var bite;
+    var BGM;
+    var explosion;
     
     function create() {
-        
+        BGM = game.add.audio('BGM', 0.25, true);
+        BGM.play();
 
          //Adds the Background
         game.add.sprite(0,0, 'background');
@@ -106,6 +106,15 @@ window.onload = function() {
             boss.frame = counter;
         }
     }
+
+    function explosionTrigger(){
+        explosion = game.add.sprite(game.world.randomX, 450, 'explosion');
+        game.physics.p2.enable(explosion);
+        for(var j = 0;j < 20; j++){
+            explosion.frame = j;
+            explosion.body.setCircle((j+1)*5);
+        }
+    }
     
     function update() {
         //Settting Character Velocities to Zero
@@ -149,6 +158,12 @@ window.onload = function() {
             if(!bite.isPlaying){
                 bite.play();    
             }            
+        }
+
+        if(!roar.isPlaying){
+            for(var i = 0; i < counter; i++){
+                explosionTrigger();
+            }
         }
 
         //Having to wait for the boss to stop Roaring in order to move.
