@@ -118,7 +118,7 @@ window.onload = function() {
             boss.frame = counter;
         }
     }
-/*
+
     function explosionTrigger(num){
         var possibilities = new ArraySet([1,2,3,4]);
         var selection;
@@ -148,7 +148,7 @@ window.onload = function() {
             possibilities.remove(selection);
         }
     }
-*/    
+   
     function update() {
         //Settting Character Velocities to Zero
         wolf.body.setZeroVelocity();
@@ -192,11 +192,11 @@ window.onload = function() {
                 bite.play(); 
             }            
         }
-/*
+
         if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
                 explosionTrigger(counter);
         }
-*/
+
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
             wolf.body.static = false;
