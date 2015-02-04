@@ -21,7 +21,7 @@ window.onload = function() {
         game.load.image('background', 'assets/Art/Park_Background.png');
         game.load.spritesheet('boss', 'assets/Art/Fenrir.png', 294, 250);
         game.load.image('explosion', 'assets/Art/explosion0.png');
-        game.load.image('floor', 'assets/Art/floor.png');
+        game.load.image('floor', 'assets/Art/Floor.png');
         //Load some Sounds
         game.load.audio('roar', 'assets/Audio/roar.mp3');
         game.load.audio('bite', 'assets/Audio/dogBite.mp3');
