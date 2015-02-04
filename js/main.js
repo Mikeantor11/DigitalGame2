@@ -188,7 +188,9 @@ window.onload = function() {
         if(!roar.isPlaying){
             wolf.body.static = false;
         }
-        wolf.body.x = 35;
-        wolf.body.y = 450;	
+        if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
+        	wolf.body.x = 35;
+        	wolf.body.y = 450;	
+        }
     }
 };
