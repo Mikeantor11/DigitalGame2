@@ -174,7 +174,7 @@ window.onload = function() {
 
         if(game.input.keyboard.isDown(Phaser.Keyboard.A) && wolf.animations.currentAnim != 'biteLeft'){
             wolf.animations.play('biteRight', 10);
-
+            wolf.revive();
             if(!bite.isPlaying){
                 bite.play(); 
             }            
@@ -187,7 +187,6 @@ window.onload = function() {
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
             wolf.body.static = false;
-            wolf.revive();
         }
     }
 };
