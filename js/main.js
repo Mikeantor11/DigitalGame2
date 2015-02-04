@@ -179,7 +179,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown){
-            wolf.body.velocity.y = 250;
+            wolf.body.velocity.y = -250;
         }
         else{
             wolf.body.velocity.y = 0;
