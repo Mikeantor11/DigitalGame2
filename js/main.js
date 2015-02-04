@@ -174,7 +174,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown){
-            while(wolf.x > 300){
+            while(wolf.x < 300){
                 wolf.body.moveUp(350);
             }
         }
