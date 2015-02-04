@@ -125,7 +125,6 @@ window.onload = function() {
         else{
             boss.frame = counter;
         }
-        wolf.revive();
     }
 
     function killHim(){
@@ -188,6 +187,7 @@ window.onload = function() {
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
             wolf.body.static = false;
+            wolf.revive();
         }
     }
 };
