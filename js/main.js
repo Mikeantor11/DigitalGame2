@@ -113,7 +113,7 @@ window.onload = function() {
             //Spawning a New Explosion
             var exp5 = game.add.sprite((250 + (100*counter)),430, 'explosion');
             game.physics.p2.enable(exp5);
-            exp5.body.onBeginContact.add(killHim);
+            exp5.body.onBeginContact.add(killHim, this);
             exp5.body.static = true;
             exp5.body.setCircle(20);
         }
