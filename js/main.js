@@ -191,6 +191,6 @@ window.onload = function() {
     }
     
     function render(){
-    	game.debug.sprite(wolf, 32, 32);
+    	game.debug.spriteInfo(wolf, 32, 32);
     }
 };
