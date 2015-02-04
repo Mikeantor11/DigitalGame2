@@ -51,7 +51,7 @@ window.onload = function() {
 
         //Starts the Physics and Impliments them on the Dog
         game.physics.startSystem(Phaser.Physics.P2JS);
-        game.physics.p2.gravity.y = 300;
+        game.physics.p2.gravity.y = 1000;
 
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
