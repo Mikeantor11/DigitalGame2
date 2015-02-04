@@ -13,7 +13,7 @@ window.onload = function() {
     
     "use strict";
     
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update, render: render } );
     
     function preload() {
         // Load the art
@@ -128,7 +128,7 @@ window.onload = function() {
     }
 
     function killHim(){
-        //wolf.kill();
+        wolf.kill();
     }
    
     function update() {
@@ -187,11 +187,10 @@ window.onload = function() {
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
             wolf.body.static = false;
-        }
-        if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
-        	wolf.body.x = 35;
-        	wolf.body.y = 450;
-        	wolf.revive();
-        }
+        }  	
+    }
+    
+    function render(){
+    	game.debug.sprite(wolf, 32, 32);
     }
 };
