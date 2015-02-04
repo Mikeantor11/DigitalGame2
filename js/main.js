@@ -181,9 +181,6 @@ window.onload = function() {
         if(cursors.up.isDown){
             wolf.body.velocity.y = -250;
         }
-        else{
-            wolf.body.velocity.y = 0;
-        }
 
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
