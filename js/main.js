@@ -55,7 +55,7 @@ window.onload = function() {
         //Loading Character Sprites
         boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
-/*        exp1 = game.add.sprite(150,400, 'explosion');
+       exp1 = game.add.sprite(150,400, 'explosion');
         exp2 = game.add.sprite(250,400, 'explosion');
         exp3 = game.add.sprite(350,400, 'explosion');
         exp4 = game.add.sprite(450,400, 'explosion');
@@ -64,7 +64,7 @@ window.onload = function() {
         exp2.kill();
         exp3.kill();
         exp4.kill();
-*/
+
         //Loading In Audio
         roar = game.add.audio('roar');
         bite = game.add.audio('bite');
@@ -206,7 +206,7 @@ window.onload = function() {
                     exp1.body.onBeginContact.add(wolf.kill(), this);
                 }
                 if(selection == 2){
-                    exp2 = game.add.sprite(250,400, 'explosion');
+                    exp2.revive();
                     game.physics.p2.enable(exp2);
                     exp2.body.onBeginContact.add(wolf.kill(), this);
                 }
