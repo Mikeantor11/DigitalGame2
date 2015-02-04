@@ -180,7 +180,7 @@ window.onload = function() {
             }            
         }
 
-        if(cursors.up.isDown){
+        if(cursors.up.isDown && wolf.body.touching.down){
             wolf.body.velocity.y = -250;
         }
 
