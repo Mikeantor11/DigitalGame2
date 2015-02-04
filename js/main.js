@@ -184,6 +184,10 @@ window.onload = function() {
             wolf.body.velocity.y = -250;
         }
 
+		if(game.input.keyboard.isDown(Phaser,Keyboard.T)){
+			wolf.body.y = 450;
+		}
+	
         //Having to wait for the boss to stop Roaring in order to move.
         if(!roar.isPlaying){
             wolf.body.static = false;
