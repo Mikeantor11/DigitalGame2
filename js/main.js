@@ -44,6 +44,7 @@ window.onload = function() {
     var lavaCollisionGroup;
     var time;
     var last = 0;
+    var gravityVar = 0;
 
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
@@ -170,6 +171,8 @@ window.onload = function() {
         wolf.body.y = 450;
         counter = 2;
         score = 0;
+        game.physics.p2.gravity.y = 200;
+        gravityVar = 0;
         balls.removeAll(true, true);
         game.time.reset();
         for (var i = 0; i <4; i++){
@@ -236,7 +239,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown && counter > 0){
-            wolf.body.velocity.y = -250;
+            wolf.body.velocity.y = -250 - (50 * gravityVar);
             counter--;
             floor.destroy();
         }
