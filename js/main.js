@@ -106,11 +106,11 @@ window.onload = function() {
 
         for (var i = 0; i <4; i++){
             var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) < 50)
+            while(Math.abs(xPos - wolf.body.x) < 100)
             {
                 xPos = game.world.randomX;
             }
-            var ball = balls.create(game.world.randomX, 0, 'ball');
+            var ball = balls.create(xPos, 0, 'ball');
             ball.body.setCircle(10);
 
             ball.body.setCollisionGroup(ballCollisionGroup);
@@ -130,30 +130,30 @@ window.onload = function() {
             counter++;
             score = score + 10;
             balls.removeAll(true, true);
-            for (var i = 0; i <4; i++){ 
-                var xPos = game.world.randomX;
-                while(Math.abs(xPos - wolf.body.x) < 50)
-                {
-                    xPos = game.world.randomX;
-                }
-                var ball = balls.create(game.world.randomX, 0, 'ball');
-                ball.body.setCircle(10);
-
-                ball.body.setCollisionGroup(ballCollisionGroup);
-
-                ball.body.collides(wolfCollisionGroup);
-                ball.mass = 0.5;
+            for (var i = 0; i <4; i++){
+            var xPos = game.world.randomX;
+            while(Math.abs(xPos - wolf.body.x) < 100)
+            {
+                xPos = game.world.randomX;
             }
+            var ball = balls.create(xPos, 0, 'ball');
+            ball.body.setCircle(10);
+
+            ball.body.setCollisionGroup(ballCollisionGroup);
+
+            ball.body.collides(wolfCollisionGroup);
+            ball.mass = 0.5;
+        }
     }
 
     function moreBalls(){
         for (var i = 0; i <4; i++){
             var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) < 50)
+            while(Math.abs(xPos - wolf.body.x) < 100)
             {
                 xPos = game.world.randomX;
             }
-            var ball = balls.create(game.world.randomX, 0, 'ball');
+            var ball = balls.create(xPos, 0, 'ball');
             ball.body.setCircle(10);
 
             ball.body.setCollisionGroup(ballCollisionGroup);
@@ -173,7 +173,7 @@ window.onload = function() {
         game.time.reset();
         for (var i = 0; i <4; i++){
             var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) < 50)
+            while(Math.abs(xPos - wolf.body.x) < 100)
             {
                 xPos = game.world.randomX;
             }
@@ -253,5 +253,9 @@ window.onload = function() {
         time = Math.floor(this.game.time.totalElapsedSeconds());
         game.debug.text('Seconds Survived: ' + time, 32, 32);
         game.debug.text('Score: ' + score, 32, 45);
+        game.debug.text('Jump with the Up Arrow', 700, 32);
+        game.debug.text('Move with Left and Right Arrows', 700, 45);
+        game.debug.text('Press R to reset the game.', 700, 58);
+        game.debug.text('Watch out tho, it may be harder to start!', 700, 71);
     }
 };
