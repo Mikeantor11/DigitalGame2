@@ -44,7 +44,7 @@ window.onload = function() {
     var lavaCollisionGroup;
     var time;
     var last = 0;
-    
+
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
         BGM.play();
@@ -147,6 +147,13 @@ window.onload = function() {
             ball.mass = 0.5;
         }
     }
+
+    function restart(){
+        wolf.resetPosition();
+        score = 0;
+        balls.removeAll(true, true);
+        game.time.reset();
+    }
    
     function update() {
         //Movement
@@ -202,7 +209,9 @@ window.onload = function() {
             killWolf();
         }
 
-        //game.time.events.loop(2000, moreBalls, this);
+        if(game.input.keyboard.isDown(Phaser.Keyboard.R)){
+            restart();
+        }
     }
 
     function render() {
