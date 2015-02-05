@@ -53,7 +53,7 @@ window.onload = function() {
         //Starts the Physics and Impliments them on the Dog
         game.physics.startSystem(Phaser.Physics.P2JS);
         game.physics.p2.setImpactEvents(true);
-        game.physics.p2.gravity.y = 500;
+        game.physics.p2.gravity.y = 200;
 
         //Collision Groups
         wolfCollisionGroup = game.physics.p2.createCollisionGroup();
@@ -97,7 +97,7 @@ window.onload = function() {
 
         wolf.body.collides(ballCollisionGroup, ateBall, this);
         //wolf.body.collides(lavaCollisionGroup, killWolf, this);
-        wolf.body.rotation = 0;
+        wolf.body.fixedRotation = true;
 
         //Keeping objects still
         floor.body.static = true;
