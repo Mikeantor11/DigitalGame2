@@ -97,6 +97,7 @@ window.onload = function() {
 
         wolf.body.collides(ballCollisionGroup, ateBall, this);
         //wolf.body.collides(lavaCollisionGroup, killWolf, this);
+        wolf.body.rotation = 0;
 
         //Keeping objects still
         floor.body.static = true;
