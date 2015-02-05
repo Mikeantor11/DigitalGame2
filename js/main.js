@@ -189,7 +189,8 @@ window.onload = function() {
     }
 
     function render() {
-        game.debug.text('Time Survived: ' + this.game.time.totalElapsedSeconds().substring(0,0), 32, 32);
+        var time = floor(this.game.time.totalElapsedSeconds());
+        game.debug.text('Time Survived: ' + time, 32, 32);
         game.debug.text('Score: ' + score, 32, 45);
     }
 };
