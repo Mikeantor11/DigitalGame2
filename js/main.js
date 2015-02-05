@@ -46,6 +46,7 @@ window.onload = function() {
     var gravityVar = 0;
 
     function create() {
+        //Loading in and Playing the Background Music
         BGM = game.add.audio('BGM', 0.25, true);
         BGM.play();
 
@@ -62,6 +63,7 @@ window.onload = function() {
         ballCollisionGroup = game.physics.p2.createCollisionGroup();
         game.physics.p2.updateBoundsCollisionGroup();
 
+        //Creating the Group for the Baseballs
         balls = game.add.group();
         balls.enableBody = true;
         balls.physicsBodyType = Phaser.Physics.P2JS;
@@ -113,7 +115,6 @@ window.onload = function() {
             ball.body.setCollisionGroup(ballCollisionGroup);
 
             ball.body.collides(wolfCollisionGroup);
-            ball.mass = 0.5;
         }
 
         game.time.events.loop(2000, moreBalls, this);
@@ -126,7 +127,7 @@ window.onload = function() {
     function ateBall(){
             counter++;
             score = score + 10;
-            game.physics.p2.gravity.y = game.physics.p2.gravity.y + 100;
+            game.physics.p2.gravity.y = game.physics.p2.gravity.y + 50;
             balls.removeAll(true, true);
             for (var i = 0; i <4; i++){
             var xPos = game.world.randomX;
@@ -140,7 +141,6 @@ window.onload = function() {
             ball.body.setCollisionGroup(ballCollisionGroup);
 
             ball.body.collides(wolfCollisionGroup);
-            ball.mass = 0.5;
         }
     }
 
@@ -157,7 +157,6 @@ window.onload = function() {
             ball.body.setCollisionGroup(ballCollisionGroup);
 
             ball.body.collides(wolfCollisionGroup);
-            ball.mass = 0.5;
         }
     }
 
@@ -183,7 +182,6 @@ window.onload = function() {
             ball.body.setCollisionGroup(ballCollisionGroup);
 
             ball.body.collides(wolfCollisionGroup);
-            ball.mass = 0.5;
         }
         wolf.body.mass = 1;
         wolf.body.inertia = 1;
@@ -235,7 +233,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown && counter > 0){
-            wolf.body.velocity.y = -250 - (100 * gravityVar);
+            wolf.body.velocity.y = -250 - (50 * gravityVar);
             counter--;
         }
 
