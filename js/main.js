@@ -60,7 +60,7 @@ window.onload = function() {
         ballCollisionGroup = game.physics.p2.createCollisionGroup();
         game.physics.p2.updateBoundsCollisionGroup();
 
-        balls - game.add.group();
+        balls = game.add.group();
         balls.enableBody = true;
         balls.physicsBodyType = Phaser.Physics.P2JS;
 
