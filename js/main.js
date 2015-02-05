@@ -43,6 +43,7 @@ window.onload = function() {
     var lava;
     var lavaCollisionGroup;
     var time;
+    var last;
     
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
@@ -200,7 +201,8 @@ window.onload = function() {
             killWolf();
         }
 
-        if(time / 2 === Math.floor(time/2)){
+        if(this.game.time.elapsedSince(last) === 2){
+            last = time;
             moreBalls();
         }
     }
