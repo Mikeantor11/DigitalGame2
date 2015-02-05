@@ -113,6 +113,8 @@ window.onload = function() {
         biteReference = wolf.animations.play('biteRight');
         otherBiteRef = wolf.animations.play('biteLeft');
         wolf.animations.play('walkRight');
+
+        game.time.events.loop(2000, moreBalls, this);
     }
 
     function killWolf(){
@@ -201,7 +203,7 @@ window.onload = function() {
             killWolf();
         }
 
-        game.time.events.loop(2000, moreBalls, this);
+        //game.time.events.loop(2000, moreBalls, this);
     }
 
     function render() {
