@@ -181,5 +181,9 @@ window.onload = function() {
             counter--;
             floor.destroy();
         }
+
+        if(wolf.body.y > 500){
+            killWolf();
+        }
     }
 };
