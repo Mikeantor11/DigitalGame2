@@ -13,15 +13,15 @@ window.onload = function() {
     
     "use strict";
     
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update, render: render } );
+    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
         // Load the art
         game.load.spritesheet('wolf', 'assets/Art/wolf.png', 64, 32);
         game.load.image('background', 'assets/Art/Park_Background.png');
-        game.load.spritesheet('boss', 'assets/Art/Fenrir.png', 294, 250);
-        game.load.image('explosion', 'assets/Art/explosion0.png');
         game.load.image('floor', 'assets/Art/Floor.png');
+        game.load.image('lava', 'assets/Art/lava.png');
+        game.load.image('ball', 'assets/Art/baseball.png');
         //Load some Sounds
         game.load.audio('roar', 'assets/Audio/roar.mp3');
         game.load.audio('bite', 'assets/Audio/dogBite.mp3');
@@ -30,17 +30,18 @@ window.onload = function() {
     
     var wolf;
     var cursors;
-    var boss;
-    var counter = 0;
+    var counter = 1;
     var biteReference;
     var otherBiteRef;
-    var roar;
     var bite;
     var BGM;
-    var exp1;
-    var random;
-    var selection;
     var floor;
+    var balls;
+    var wolfCollisionGroup;
+    var ballCollisionGroup;
+    var score = 0;
+    var lava;
+    var lavaCollisionGroup;
     
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
@@ -51,17 +52,33 @@ window.onload = function() {
 
         //Starts the Physics and Impliments them on the Dog
         game.physics.startSystem(Phaser.Physics.P2JS);
+        game.phhysics.p2.setImpactEvents(true);
         game.physics.p2.gravity.y = 500;
-        game.physics.p2.gravity.x = 0;
+
+        //Collision Groups
+        wolfCollisionGroup = game.physics.p2.createCollisionGroup();
+        ballCollisionGroup = game.physics.p2.createCollisionGroup();
+        game.physics.p2.updateBoundsCollisionGroup();
+
+        balls - game.add.group();
+        balls.enableBody = true;
+        balls.physicsBodyType = Phaser.Physics.P2JS;
+
+        for (var i = 0; i <4; i++){
+            var ball = balls.create(game.world.randomX, 0, 'ball');
+            ball.body.setCircle(10);
+
+            ball.body.setCollisionGroup(ballCollisionGroup);
+
+            ball.body.collides(wolfCollisionGroup);
+        }
 
         //Loading Character Sprites
         floor = game.add.sprite(1,500, 'floor');
-        boss = game.add.sprite(650,450, 'boss');
         wolf = game.add.sprite(35,450, 'wolf');
-        exp1 = game.add.sprite(250,430, 'explosion');
+        lava = game.add.sprite(0, 500, 'lava');
 
         //Loading In Audio
-        roar = game.add.audio('roar');
         bite = game.add.audio('bite');
 
         //Adds the Animations
@@ -69,24 +86,19 @@ window.onload = function() {
         wolf.animations.add('walkLeft', [21, 22, 23, 24, 25]);
         wolf.animations.add('biteRight', [11,12,13,14,10]);
         wolf.animations.add('biteLeft', [26,27,28,29,20]);
-        boss.animations.add('health');
 
         //Enabling Physics on the Characters.
         game.physics.p2.enable(wolf);
-        game.physics.p2.enable(boss);
-        game.physics.p2.enable(exp1);
         game.physics.p2.enable(floor);
-        boss.body.setRectangle(220,140);
-        exp1.body.setCircle(20);
+        game.physics.p2.enable(lava);
 
-        //Keeping the boss still
-        wolf.body.fixedRotation = true;
-        boss.body.fixedRotation = true;
-        boss.body.immovable = true;
-        boss.body.moves = false;
-        boss.body.force = 0;
-        boss.body.static = true;
-        exp1.body.static = true;
+        wolf.body.setCollisionGroup(wolfCollisionGroup);
+        lava.body.setCollisionGroup(lavaCollisionGroup);
+
+        wolf.body.collides(ballCollisionGroup, ateBall, this);
+        wolf.body.collides(lavaCollisionGroup, killWolf, this);
+
+        //Keeping objects still
         floor.body.static = true;
 
         //Allowing Cursor Inputs
@@ -96,46 +108,23 @@ window.onload = function() {
         biteReference = wolf.animations.play('biteRight');
         otherBiteRef = wolf.animations.play('biteLeft');
         wolf.animations.play('walkRight');
-
-
-        boss.body.onBeginContact.add(bossHit, this);
-        exp1.body.onBeginContact.add(killHim, this);
     }
 
-    function bossHit(){
-        if((biteReference.isPlaying || otherBiteRef.isPlaying) && boss.visible){
-            counter = counter + 1;
-            wolf.body.x = 35;
-            wolf.body.y = 450;
-            wolf.body.static = true;
-            roar.play();
-
-            //Spawning a New Explosion
-            var exp5 = game.add.sprite((250 + (100*counter)),430, 'explosion');
-            game.physics.p2.enable(exp5);
-            exp5.body.onBeginContact.add(killHim, this);
-            exp5.body.static = true;
-            exp5.body.setCircle(20);
-        }
-
-        if(counter > 3){
-            boss.visible = false;
-        }
-
-        else{
-            boss.frame = counter;
-        }
-    }
-
-    function killHim(){
+    function killWolf(){
         wolf.kill();
+    }
+
+    function ateBall(){
+        counter++;
+        score = score + 10;
+        var ball = balls.create(game.world.randomX, 0, 'ball');
+        ball.body.setCircle(10);
+        ball.body.setCollisionGroup(ballCollisionGroup);
+        ball.body.collides(wolfCollisionGroup);
     }
    
     function update() {
         //Settting Character Velocities to Zero
-        //wolf.body.setZeroVelocity();
-        boss.body.setZeroVelocity();
-        //wolf.body.moveDown(300);
 
         //Movement
         //If left is pressed move left and play running Animation
@@ -180,21 +169,10 @@ window.onload = function() {
             }            
         }
 
-        if(cursors.up.isDown){
+        if(cursors.up.isDown && counter > 0){
             wolf.body.velocity.y = -250;
+            counter--;
+            floor.destroy();
         }
-
-		if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
-			wolf.body.y = 450;
-		}
-	
-        //Having to wait for the boss to stop Roaring in order to move.
-        if(!roar.isPlaying){
-            wolf.body.static = false;
-        }  	
-    }
-    
-    function render(){
-    	game.debug.spriteInfo(wolf, 32, 32);
     }
 };
