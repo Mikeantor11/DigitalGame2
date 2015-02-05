@@ -124,6 +124,7 @@ window.onload = function() {
     function ateBall(){
             counter++;
             score = score + 10;
+            balls.removeAll(true, true);
             for (var i = 0; i <4; i++){ 
                 var ball = balls.create(game.world.randomX, 0, 'ball');
                 ball.body.setCircle(10);
@@ -136,7 +137,6 @@ window.onload = function() {
     }
 
     function moreBalls(){
-        balls.removeAll(true, true);
         for (var i = 0; i <4; i++){
             var ball = balls.create(game.world.randomX, 0, 'ball');
             ball.body.setCircle(10);
