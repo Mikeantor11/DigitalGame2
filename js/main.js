@@ -72,7 +72,7 @@ window.onload = function() {
         wolf = game.add.sprite(300,450, 'wolf');
         lava = game.add.sprite(300, 600, 'lava');
 
-        //Loading In Audio
+        //Loading In Bite Audio
         bite = game.add.audio('bite');
 
         //Adds the Animations
@@ -85,11 +85,11 @@ window.onload = function() {
         game.physics.p2.enable(wolf);
         game.physics.p2.enable(lava);
 
+        //Sets the Wolf to it's Collision Group
         wolf.body.setCollisionGroup(wolfCollisionGroup);
-        //lava.body.setCollisionGroup(lavaCollisionGroup);
 
+        //Setting what happens when the Wolf hits a ball
         wolf.body.collides(ballCollisionGroup, ateBall, this);
-        //wolf.body.collides(lavaCollisionGroup, killWolf, this);
         wolf.body.fixedRotation = true;
 
         //Keeping objects still
@@ -233,7 +233,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown && counter > 0){
-            wolf.body.velocity.y = -250 - (50 * gravityVar);
+            wolf.body.velocity.y = -250 - (75 * gravityVar);
             counter--;
         }
 
