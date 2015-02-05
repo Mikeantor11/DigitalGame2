@@ -121,7 +121,7 @@ window.onload = function() {
             }
 
         //Sets more balls to fall every 2 seconds
-        game.time.events.loop(2000, moreBalls, this);
+        game.time.events.loop(1000, moreBalls, this);
     }
 
     //A function to all to kill the Wolf it it hits the Lava
@@ -129,11 +129,22 @@ window.onload = function() {
         wolf.kill();
     }
 
+    //Called if the Wolf hits a Ball
     function ateBall(){
+            //Allow the User to have another Jump
             counter++;
+
+            //Increase the Score
             score = score + 10;
+
+            //Increases the Gravity
             game.physics.p2.gravity.y = game.physics.p2.gravity.y + 50;
+
+            //Removes the other Balls from the screen
             balls.removeAll(true, true);
+
+            //Spawns a new Set of Balls, Making sure their not to close to the Wolf
+            //Or the Previous Ball
             var pastX;
             for (var i = 0; i <4; i++){
                 var xPos = game.world.randomX;
@@ -196,7 +207,7 @@ window.onload = function() {
             }
         wolf.body.mass = 1;
         wolf.body.inertia = 1;
-        game.time.events.loop(2000, moreBalls, this);
+        game.time.events.loop(1000, moreBalls, this);
     }
    
     function update() {
