@@ -42,6 +42,7 @@ window.onload = function() {
     var score = 0;
     var lava;
     var lavaCollisionGroup;
+    var time;
     
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
@@ -132,6 +133,18 @@ window.onload = function() {
             }
         }
     }
+
+    function moreBalls(){
+        for (var i = 0; i <4; i++){
+            var ball = balls.create(game.world.randomX, 0, 'ball');
+            ball.body.setCircle(10);
+
+            ball.body.setCollisionGroup(ballCollisionGroup);
+
+            ball.body.collides(wolfCollisionGroup);
+            ball.mass = 0.5;
+        }
+    }
    
     function update() {
         //Movement
@@ -186,11 +199,15 @@ window.onload = function() {
         if(wolf.body.y > 500){
             killWolf();
         }
+
+        if(time / 2 === Math.floor(time/2)){
+            moreBalls();
+        }
     }
 
     function render() {
-        var time = Math.floor(this.game.time.totalElapsedSeconds());
-        game.debug.text('Time Survived: ' + time, 32, 32);
+        time = Math.floor(this.game.time.totalElapsedSeconds());
+        game.debug.text('Seconds Survived: ' + time, 32, 32);
         game.debug.text('Score: ' + score, 32, 45);
     }
 };
