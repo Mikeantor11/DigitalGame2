@@ -129,6 +129,7 @@ window.onload = function() {
     function ateBall(){
             counter++;
             score = score + 10;
+            game.physics.p2.gravity.y = game.physics.p2.gravity.y + 100;
             balls.removeAll(true, true);
             for (var i = 0; i <4; i++){
             var xPos = game.world.randomX;
@@ -256,7 +257,6 @@ window.onload = function() {
         game.debug.text('Jump with the Up Arrow.', 475, 32);
         game.debug.text('Move with Left and Right Arrows.', 475, 45);
         game.debug.text('Press R to reset the game.', 475, 58);
-        game.debug.text('Watch out tho, it may be harder to start!', 475, 71);
         game.debug.text('Collect as many balls as you can without falling in the lava!', 32, 550);
         game.debug.text('You can only jump once until you collect another ball.', 32, 563);
     }
