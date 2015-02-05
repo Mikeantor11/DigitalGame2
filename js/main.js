@@ -173,11 +173,11 @@ window.onload = function() {
         game.time.reset();
         for (var i = 0; i <4; i++){
             var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) > 50)
+            while(Math.abs(xPos - wolf.body.x) < 50)
             {
                 xPos = game.world.randomX;
             }
-            var ball = balls.create(game.world.randomX, 0, 'ball');
+            var ball = balls.create(xPos, 0, 'ball');
             ball.body.setCircle(10);
 
             ball.body.setCollisionGroup(ballCollisionGroup);
