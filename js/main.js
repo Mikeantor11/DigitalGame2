@@ -71,6 +71,7 @@ window.onload = function() {
             ball.body.setCollisionGroup(ballCollisionGroup);
 
             ball.body.collides(wolfCollisionGroup);
+            ball.mass = 0.5;
         }
 
         //Loading Character Sprites
@@ -119,10 +120,15 @@ window.onload = function() {
         if(bite.isPlaying){
             counter++;
             score = score + 10;
-            var ball = balls.create(game.world.randomX, 0, 'ball');
-            ball.body.setCircle(10);
-            ball.body.setCollisionGroup(ballCollisionGroup);
-            ball.body.collides(wolfCollisionGroup);
+            for (var i = 0; i <4; i++){
+                var ball = balls.create(game.world.randomX, 0, 'ball');
+                ball.body.setCircle(10);
+
+                ball.body.setCollisionGroup(ballCollisionGroup);
+
+                ball.body.collides(wolfCollisionGroup);
+                ball.mass = 0.5;
+            }
         }
     }
    
