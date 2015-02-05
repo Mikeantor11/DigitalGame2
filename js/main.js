@@ -76,7 +76,7 @@ window.onload = function() {
         //Loading Character Sprites
         floor = game.add.sprite(1,500, 'floor');
         wolf = game.add.sprite(35,450, 'wolf');
-        lava = game.add.sprite(0, 500, 'lava');
+        lava = game.add.sprite(1, 600, 'lava');
 
         //Loading In Audio
         bite = game.add.audio('bite');
@@ -124,8 +124,6 @@ window.onload = function() {
     }
    
     function update() {
-        //Settting Character Velocities to Zero
-
         //Movement
         //If left is pressed move left and play running Animation
         //If right is pressed Mmove right and play Animation
