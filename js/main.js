@@ -236,9 +236,8 @@ window.onload = function() {
    
     function update() {
         //Movement
+
         //If left is pressed move left and play running Animation
-        //If right is pressed Mmove right and play Animation
-        //If "A" is pressed do the bite Animation
         if (cursors.left.isDown)
         {
             wolf.body.velocity.x = -350;
@@ -252,6 +251,8 @@ window.onload = function() {
                 wolf.animations.play('walkLeft', 10);
             }
         }
+
+        //If right is pressed Move right and play running Animation
         else if (cursors.right.isDown)
         {
             wolf.body.velocity.x = 350;
@@ -266,10 +267,13 @@ window.onload = function() {
                 wolf.animations.play('walkRight', 10);
             }
         }
+
+        //If left nor right is pressed stop moving
         else{
             wolf.body.velocity.x = 0;
         }
 
+        //If "A" is pressed do the bite Animation
         if(game.input.keyboard.isDown(Phaser.Keyboard.A) && wolf.animations.currentAnim != 'biteLeft'){
             wolf.animations.play('biteRight', 10);
 
@@ -277,23 +281,28 @@ window.onload = function() {
                 bite.play(); 
             }            
         }
-
+        //If up is pressed jump and decrement the Jump counter
         if(cursors.up.isDown && counter > 0){
             wolf.body.velocity.y = -250 - (100 * gravityVar);
             counter--;
         }
 
+        //If the Wolf falls into the lava kill it
         if(wolf.body.y > 500){
             killWolf();
         }
 
+        //If R is pressed Reset the game
         if(game.input.keyboard.isDown(Phaser.Keyboard.R)){
             restart();
         }
     }
 
     function render() {
+        //Create a cleaner Timer
         time = Math.floor(this.game.time.totalElapsedSeconds());
+
+        //Text displayed on the screen
         game.debug.text('Seconds Survived: ' + time, 32, 32);
         game.debug.text('Score: ' + score, 32, 45);
         game.debug.text('Jump with the Up Arrow.', 475, 32);
