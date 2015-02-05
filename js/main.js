@@ -152,9 +152,11 @@ window.onload = function() {
         wolf.revive();
         wolf.body.x = 300;
         wolf.body.y = 450;
+        counter = 1;
         score = 0;
         balls.removeAll(true, true);
         game.time.reset();
+        game.time.events.loop(2000, moreBalls, this);
     }
    
     function update() {
