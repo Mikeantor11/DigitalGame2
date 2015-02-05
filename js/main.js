@@ -43,7 +43,7 @@ window.onload = function() {
     var lava;
     var lavaCollisionGroup;
     var time;
-    var last;
+    var last = 0;
     
     function create() {
         BGM = game.add.audio('BGM', 0.25, true);
