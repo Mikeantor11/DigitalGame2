@@ -90,7 +90,10 @@ window.onload = function() {
 
         //Setting what happens when the Wolf hits a ball
         wolf.body.collides(ballCollisionGroup, ateBall, this);
+
+        //Stopping the Wolf from rotating and Allowing it to fall slower
         wolf.body.fixedRotation = true;
+        wolf.body.mass = 0.5;
 
         //Keeping objects still
         lava.body.static = true;
@@ -120,7 +123,7 @@ window.onload = function() {
                 pastX = xPos;
             }
 
-        //Sets more balls to fall every 2 seconds
+        //Sets more balls to fall every second
         game.time.events.loop(1000, moreBalls, this);
     }
 
@@ -162,6 +165,8 @@ window.onload = function() {
             }
     }
 
+    //Spawns a new Set of Balls, Making sure their not to close to the Wolf
+    //Or the Previous Ball
     function moreBalls(){
         var pastX;
             for (var i = 0; i <4; i++){
@@ -180,16 +185,31 @@ window.onload = function() {
             }
     }
 
+    //Resets the game
     function restart(){
+        //Revives and Resets the Wolf
         wolf.revive();
         wolf.body.x = 300;
         wolf.body.y = 450;
+
+        //Allowing for 2 jumps so that you can counter the inertia gained and still have a jump.
         counter = 2;
+        
+        //Reseting the score
         score = 0;
+
+        //Resetting the gravity
         game.physics.p2.gravity.y = 200;
         gravityVar = 0;
+
+        //Clears the screen of all balls
         balls.removeAll(true, true);
+
+        //Resets the time
         game.time.reset();
+
+        //Spawns a new Set of Balls, Making sure their not to close to the Wolf
+        //Or the Previous Ball
         var pastX;
             for (var i = 0; i <4; i++){
                 var xPos = game.world.randomX;
@@ -205,8 +225,12 @@ window.onload = function() {
                 ball.body.collides(wolfCollisionGroup);
                 pastX = xPos;
             }
-        wolf.body.mass = 1;
+
+        //Trying to reset the Wolf Mass and Inertia
+        wolf.body.mass = 0.5;
         wolf.body.inertia = 1;
+
+        //Sets more balls to fall every second
         game.time.events.loop(1000, moreBalls, this);
     }
    
