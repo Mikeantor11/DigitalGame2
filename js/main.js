@@ -103,23 +103,28 @@ window.onload = function() {
         otherBiteRef = wolf.animations.play('biteLeft');
         wolf.animations.play('walkRight');
 
-        for (var i = 0; i <4; i++){
-            var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) < 100)
-            {
-                xPos = game.world.randomX;
+        //Spawns Initial Balls Falling
+        var pastX;
+            for (var i = 0; i <4; i++){
+                var xPos = game.world.randomX;
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 50)
+                {
+                    xPos = game.world.randomX;
+                }
+                var ball = balls.create(xPos, 0, 'ball');
+                ball.body.setCircle(10);
+
+                ball.body.setCollisionGroup(ballCollisionGroup);
+
+                ball.body.collides(wolfCollisionGroup);
+                pastX = xPos;
             }
-            var ball = balls.create(xPos, 0, 'ball');
-            ball.body.setCircle(10);
 
-            ball.body.setCollisionGroup(ballCollisionGroup);
-
-            ball.body.collides(wolfCollisionGroup);
-        }
-
+        //Sets more balls to fall every 2 seconds
         game.time.events.loop(2000, moreBalls, this);
     }
 
+    //A function to all to kill the Wolf it it hits the Lava
     function killWolf(){
         wolf.kill();
     }
@@ -129,35 +134,39 @@ window.onload = function() {
             score = score + 10;
             game.physics.p2.gravity.y = game.physics.p2.gravity.y + 50;
             balls.removeAll(true, true);
+            var pastX;
             for (var i = 0; i <4; i++){
-            var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) < 100)
-            {
-                xPos = game.world.randomX;
+                var xPos = game.world.randomX;
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 50)
+                {
+                    xPos = game.world.randomX;
+                }
+                var ball = balls.create(xPos, 0, 'ball');
+                ball.body.setCircle(10);
+
+                ball.body.setCollisionGroup(ballCollisionGroup);
+
+                ball.body.collides(wolfCollisionGroup);
+                pastX = xPos;
             }
-            var ball = balls.create(xPos, 0, 'ball');
-            ball.body.setCircle(10);
-
-            ball.body.setCollisionGroup(ballCollisionGroup);
-
-            ball.body.collides(wolfCollisionGroup);
-        }
     }
 
     function moreBalls(){
-        for (var i = 0; i <4; i++){
-            var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) < 100)
-            {
-                xPos = game.world.randomX;
+        var pastX;
+            for (var i = 0; i <4; i++){
+                var xPos = game.world.randomX;
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 50)
+                {
+                    xPos = game.world.randomX;
+                }
+                var ball = balls.create(xPos, 0, 'ball');
+                ball.body.setCircle(10);
+
+                ball.body.setCollisionGroup(ballCollisionGroup);
+
+                ball.body.collides(wolfCollisionGroup);
+                pastX = xPos;
             }
-            var ball = balls.create(xPos, 0, 'ball');
-            ball.body.setCircle(10);
-
-            ball.body.setCollisionGroup(ballCollisionGroup);
-
-            ball.body.collides(wolfCollisionGroup);
-        }
     }
 
     function restart(){
@@ -170,19 +179,21 @@ window.onload = function() {
         gravityVar = 0;
         balls.removeAll(true, true);
         game.time.reset();
-        for (var i = 0; i <4; i++){
-            var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) < 100)
-            {
-                xPos = game.world.randomX;
+        var pastX;
+            for (var i = 0; i <4; i++){
+                var xPos = game.world.randomX;
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 50)
+                {
+                    xPos = game.world.randomX;
+                }
+                var ball = balls.create(xPos, 0, 'ball');
+                ball.body.setCircle(10);
+
+                ball.body.setCollisionGroup(ballCollisionGroup);
+
+                ball.body.collides(wolfCollisionGroup);
+                pastX = xPos;
             }
-            var ball = balls.create(xPos, 0, 'ball');
-            ball.body.setCircle(10);
-
-            ball.body.setCollisionGroup(ballCollisionGroup);
-
-            ball.body.collides(wolfCollisionGroup);
-        }
         wolf.body.mass = 1;
         wolf.body.inertia = 1;
         game.time.events.loop(2000, moreBalls, this);
@@ -233,7 +244,7 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown && counter > 0){
-            wolf.body.velocity.y = -250 - (75 * gravityVar);
+            wolf.body.velocity.y = -250 - (100 * gravityVar);
             counter--;
         }
 
