@@ -131,6 +131,11 @@ window.onload = function() {
             score = score + 10;
             balls.removeAll(true, true);
             for (var i = 0; i <4; i++){ 
+                var xPos = game.world.randomX;
+                while(Math.abs(xPos - wolf.body.x) < 50)
+                {
+                    xPos = game.world.randomX;
+                }
                 var ball = balls.create(game.world.randomX, 0, 'ball');
                 ball.body.setCircle(10);
 
@@ -143,6 +148,11 @@ window.onload = function() {
 
     function moreBalls(){
         for (var i = 0; i <4; i++){
+            var xPos = game.world.randomX;
+            while(Math.abs(xPos - wolf.body.x) < 50)
+            {
+                xPos = game.world.randomX;
+            }
             var ball = balls.create(game.world.randomX, 0, 'ball');
             ball.body.setCircle(10);
 
@@ -163,7 +173,7 @@ window.onload = function() {
         game.time.reset();
         for (var i = 0; i <4; i++){
             var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) < 50)
+            while(Math.abs(xPos - wolf.body.x) > 50)
             {
                 xPos = game.world.randomX;
             }
