@@ -102,6 +102,7 @@ window.onload = function() {
 
         //Keeping objects still
         floor.body.static = true;
+        lava.body.static = true;
 
         //Allowing Cursor Inputs
         cursors = game.input.keyboard.createCursorKeys();
