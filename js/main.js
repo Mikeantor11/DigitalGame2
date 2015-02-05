@@ -78,7 +78,7 @@ window.onload = function() {
 
         //Loading Character Sprites
         floor = game.add.sprite(1,500, 'floor');
-        wolf = game.add.sprite(35,450, 'wolf');
+        wolf = game.add.sprite(300,450, 'wolf');
         lava = game.add.sprite(300, 600, 'lava');
 
         //Loading In Audio
@@ -150,7 +150,8 @@ window.onload = function() {
 
     function restart(){
         wolf.revive();
-        wolf.resetPosition();
+        wolf.body.x = 300;
+        wolf.body.y = 450;
         score = 0;
         balls.removeAll(true, true);
         game.time.reset();
