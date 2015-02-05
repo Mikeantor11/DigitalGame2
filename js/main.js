@@ -116,12 +116,14 @@ window.onload = function() {
     }
 
     function ateBall(){
-        counter++;
-        score = score + 10;
-        var ball = balls.create(game.world.randomX, 0, 'ball');
-        ball.body.setCircle(10);
-        ball.body.setCollisionGroup(ballCollisionGroup);
-        ball.body.collides(wolfCollisionGroup);
+        if(bite.isPlaying){
+            counter++;
+            score = score + 10;
+            var ball = balls.create(game.world.randomX, 0, 'ball');
+            ball.body.setCircle(10);
+            ball.body.setCollisionGroup(ballCollisionGroup);
+            ball.body.collides(wolfCollisionGroup);
+        }
     }
    
     function update() {
