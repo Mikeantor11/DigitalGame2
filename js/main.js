@@ -283,7 +283,7 @@ window.onload = function() {
         }
         //If up is pressed jump and decrement the Jump counter
         if(cursors.up.isDown && counter > 0){
-            wolf.body.velocity.y = -250 - (100 * Math.floor(score/50);
+            wolf.body.velocity.y = -250 - (100 * Math.floor(score/50));
             counter--;
         }
 
