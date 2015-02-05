@@ -19,7 +19,6 @@ window.onload = function() {
         // Load the art
         game.load.spritesheet('wolf', 'assets/Art/wolf.png', 64, 32);
         game.load.image('background', 'assets/Art/Park_Background.png');
-        game.load.image('floor', 'assets/Art/Floor.png');
         game.load.image('lava', 'assets/Art/lava.png');
         game.load.image('ball', 'assets/Art/baseball.png');
         //Load some Sounds
@@ -28,6 +27,7 @@ window.onload = function() {
         game.load.audio('BGM', 'assets/Audio/BGM.mp3');
     }
     
+    //Variables Used throughout the program
     var wolf;
     var cursors;
     var counter = 1;
@@ -35,7 +35,6 @@ window.onload = function() {
     var otherBiteRef;
     var bite;
     var BGM;
-    var floor;
     var balls;
     var wolfCollisionGroup;
     var ballCollisionGroup;
@@ -68,7 +67,6 @@ window.onload = function() {
         balls.physicsBodyType = Phaser.Physics.P2JS;
 
         //Loading Character Sprites
-        floor = game.add.sprite(1,500, 'floor');
         wolf = game.add.sprite(300,450, 'wolf');
         lava = game.add.sprite(300, 600, 'lava');
 
@@ -83,7 +81,6 @@ window.onload = function() {
 
         //Enabling Physics on the Characters.
         game.physics.p2.enable(wolf);
-        game.physics.p2.enable(floor);
         game.physics.p2.enable(lava);
 
         wolf.body.setCollisionGroup(wolfCollisionGroup);
@@ -94,7 +91,6 @@ window.onload = function() {
         wolf.body.fixedRotation = true;
 
         //Keeping objects still
-        floor.body.static = true;
         lava.body.static = true;
 
         //Allowing Cursor Inputs
@@ -239,9 +235,8 @@ window.onload = function() {
         }
 
         if(cursors.up.isDown && counter > 0){
-            wolf.body.velocity.y = -250 - (50 * gravityVar);
+            wolf.body.velocity.y = -250 - (100 * gravityVar);
             counter--;
-            floor.destroy();
         }
 
         if(wolf.body.y > 500){
