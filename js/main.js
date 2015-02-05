@@ -141,7 +141,7 @@ window.onload = function() {
             score = score + 10;
 
             //Increases the Gravity
-            game.physics.p2.gravity.y = game.physics.p2.gravity.y + 50;
+            game.physics.p2.gravity.y = game.physics.p2.gravity.y + (50 * Math.floor(score/50));
 
             //Removes the other Balls from the screen
             balls.removeAll(true, true);
@@ -283,7 +283,7 @@ window.onload = function() {
         }
         //If up is pressed jump and decrement the Jump counter
         if(cursors.up.isDown && counter > 0){
-            wolf.body.velocity.y = -250 - (100 * gravityVar);
+            wolf.body.velocity.y = -250 - (100 * Math.floor(score/50);
             counter--;
         }
 
