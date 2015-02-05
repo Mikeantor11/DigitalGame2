@@ -66,21 +66,6 @@ window.onload = function() {
         balls.enableBody = true;
         balls.physicsBodyType = Phaser.Physics.P2JS;
 
-        for (var i = 0; i <4; i++){
-            var xPos = game.world.randomX;
-            while(Math.abs(xPos - wolf.body.x) < 50)
-            {
-                xPos = game.world.randomX;
-            }
-            var ball = balls.create(game.world.randomX, 0, 'ball');
-            ball.body.setCircle(10);
-
-            ball.body.setCollisionGroup(ballCollisionGroup);
-
-            ball.body.collides(wolfCollisionGroup);
-            ball.mass = 0.5;
-        }
-
         //Loading Character Sprites
         floor = game.add.sprite(1,500, 'floor');
         wolf = game.add.sprite(300,450, 'wolf');
@@ -118,6 +103,21 @@ window.onload = function() {
         biteReference = wolf.animations.play('biteRight');
         otherBiteRef = wolf.animations.play('biteLeft');
         wolf.animations.play('walkRight');
+
+        for (var i = 0; i <4; i++){
+            var xPos = game.world.randomX;
+            while(Math.abs(xPos - wolf.body.x) < 50)
+            {
+                xPos = game.world.randomX;
+            }
+            var ball = balls.create(game.world.randomX, 0, 'ball');
+            ball.body.setCircle(10);
+
+            ball.body.setCollisionGroup(ballCollisionGroup);
+
+            ball.body.collides(wolfCollisionGroup);
+            ball.mass = 0.5;
+        }
 
         game.time.events.loop(2000, moreBalls, this);
     }
