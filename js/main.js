@@ -13,7 +13,7 @@ window.onload = function() {
     
     "use strict";
     
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update, render: render } );
     
     function preload() {
         // Load the art
@@ -186,5 +186,10 @@ window.onload = function() {
         if(wolf.body.y > 500){
             killWolf();
         }
+    }
+
+    function render() {
+        game.debug.text('Time Survived: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+        game.debug.text('Score: ' + score, 32, 42);
     }
 };
