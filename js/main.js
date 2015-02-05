@@ -202,7 +202,7 @@ window.onload = function() {
         }
 
         if(this.game.time.elapsedSecondsSince(last) >= 2){
-            last = time;
+            last = this.game.time.totalElapsedSeconds();
             moreBalls();
         }
     }
