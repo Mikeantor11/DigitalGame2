@@ -114,10 +114,8 @@ window.onload = function() {
 
         game.paused = true;
 
-        while(game.paused){
-            if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
-                game.paused = false;
-            }
+        if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
+            game.paused = false;
         }
     }
 
