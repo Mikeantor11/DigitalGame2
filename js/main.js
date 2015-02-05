@@ -77,7 +77,7 @@ window.onload = function() {
         //Loading Character Sprites
         floor = game.add.sprite(1,500, 'floor');
         wolf = game.add.sprite(35,450, 'wolf');
-        lava = game.add.sprite(200, 600, 'lava');
+        lava = game.add.sprite(300, 600, 'lava');
 
         //Loading In Audio
         bite = game.add.audio('bite');
@@ -183,11 +183,14 @@ window.onload = function() {
             wolf.body.velocity.y = -250;
             counter--;
             floor.destroy();
-            game.paused = false;
         }
 
         if(wolf.body.y > 500){
             killWolf();
+        }
+
+        if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
+            game.paused = false;
         }
     }
 };
