@@ -189,7 +189,7 @@ window.onload = function() {
     }
 
     function render() {
-        var time = floor(this.game.time.totalElapsedSeconds());
+        var time = Math.floor(this.game.time.totalElapsedSeconds());
         game.debug.text('Time Survived: ' + time, 32, 32);
         game.debug.text('Score: ' + score, 32, 45);
     }
