@@ -149,6 +149,7 @@ window.onload = function() {
     }
 
     function restart(){
+        wolf.revive();
         wolf.resetPosition();
         score = 0;
         balls.removeAll(true, true);
