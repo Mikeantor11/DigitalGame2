@@ -257,5 +257,7 @@ window.onload = function() {
         game.debug.text('Move with Left and Right Arrows', 700, 45);
         game.debug.text('Press R to reset the game.', 700, 58);
         game.debug.text('Watch out tho, it may be harder to start!', 700, 71);
+        game.debug.text('Collect as many balls as you can without falling in the lava!', 32, 550);
+        game.debug.text('You can only jump once until you collect another ball.', 32, 563);
     }
 };
