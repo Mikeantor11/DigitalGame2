@@ -111,8 +111,6 @@ window.onload = function() {
         biteReference = wolf.animations.play('biteRight');
         otherBiteRef = wolf.animations.play('biteLeft');
         wolf.animations.play('walkRight');
-
-        game.paused = true;
     }
 
     function killWolf(){
@@ -187,10 +185,6 @@ window.onload = function() {
 
         if(wolf.body.y > 500){
             killWolf();
-        }
-
-        if(game.input.keyboard.isDown(Phaser.Keyboard.T)){
-            game.paused = false;
         }
     }
 };
