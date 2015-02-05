@@ -156,6 +156,17 @@ window.onload = function() {
         score = 0;
         balls.removeAll(true, true);
         game.time.reset();
+        for (var i = 0; i <4; i++){
+            var ball = balls.create(game.world.randomX, 0, 'ball');
+            ball.body.setCircle(10);
+
+            ball.body.setCollisionGroup(ballCollisionGroup);
+
+            ball.body.collides(wolfCollisionGroup);
+            ball.mass = 0.5;
+        }
+        wolf.body.mass = 1;
+        wolf.body.inertia = 1;
         game.time.events.loop(2000, moreBalls, this);
     }
    
