@@ -201,7 +201,7 @@ window.onload = function() {
             killWolf();
         }
 
-        if(this.game.time.elapsedSecondsSince(last) < 2){
+        if(this.game.time.elapsedSecondsSince(last) > 2000){
             last = this.game.time.totalElapsedSeconds();
             moreBalls();
         }
