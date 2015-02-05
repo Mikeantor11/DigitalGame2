@@ -52,7 +52,7 @@ window.onload = function() {
 
         //Starts the Physics and Impliments them on the Dog
         game.physics.startSystem(Phaser.Physics.P2JS);
-        game.phhysics.p2.setImpactEvents(true);
+        game.physics.p2.setImpactEvents(true);
         game.physics.p2.gravity.y = 500;
 
         //Collision Groups
