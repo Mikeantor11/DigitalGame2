@@ -20,7 +20,7 @@ window.onload = function() {
         game.load.spritesheet('wolf', 'assets/Art/wolf.png', 64, 32);
         game.load.image('background', 'assets/Art/Park_Background.png');
         game.load.image('floor', 'assets/Art/Floor.png');
-        game.load.image('lava', 'assets/Art/lava.png');
+        game.load.image('lava', 'assets/Art/explosion0.png');
         game.load.image('ball', 'assets/Art/baseball.png');
         //Load some Sounds
         game.load.audio('roar', 'assets/Audio/roar.mp3');
