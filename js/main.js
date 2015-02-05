@@ -253,10 +253,10 @@ window.onload = function() {
         time = Math.floor(this.game.time.totalElapsedSeconds());
         game.debug.text('Seconds Survived: ' + time, 32, 32);
         game.debug.text('Score: ' + score, 32, 45);
-        game.debug.text('Jump with the Up Arrow', 500, 32);
-        game.debug.text('Move with Left and Right Arrows', 500, 45);
-        game.debug.text('Press R to reset the game.', 500, 58);
-        game.debug.text('Watch out tho, it may be harder to start!', 500, 71);
+        game.debug.text('Jump with the Up Arrow.', 475, 32);
+        game.debug.text('Move with Left and Right Arrows.', 475, 45);
+        game.debug.text('Press R to reset the game.', 475, 58);
+        game.debug.text('Watch out tho, it may be harder to start!', 475, 71);
         game.debug.text('Collect as many balls as you can without falling in the lava!', 32, 550);
         game.debug.text('You can only jump once until you collect another ball.', 32, 563);
     }
