@@ -67,6 +67,11 @@ window.onload = function() {
         balls.physicsBodyType = Phaser.Physics.P2JS;
 
         for (var i = 0; i <4; i++){
+            var xPos = game.world.randomX;
+            while(Math.abs(xPos - wolf.body.x) < 50)
+            {
+                xPos = game.world.randomX;
+            }
             var ball = balls.create(game.world.randomX, 0, 'ball');
             ball.body.setCircle(10);
 
@@ -152,11 +157,16 @@ window.onload = function() {
         wolf.revive();
         wolf.body.x = 300;
         wolf.body.y = 450;
-        counter = 1;
+        counter = 2;
         score = 0;
         balls.removeAll(true, true);
         game.time.reset();
         for (var i = 0; i <4; i++){
+            var xPos = game.world.randomX;
+            while(Math.abs(xPos - wolf.body.x) < 50)
+            {
+                xPos = game.world.randomX;
+            }
             var ball = balls.create(game.world.randomX, 0, 'ball');
             ball.body.setCircle(10);
 
