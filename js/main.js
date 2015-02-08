@@ -41,16 +41,24 @@ window.onload = function () {
     var chocolateCount = 0;
     var roseCount = 0;
     var heartText;
+    var cursorText;
+    var cardText;
+    var chocolateText;
+    var roseText;
 
     function create() {
         var style = { font: "20px Arial", fill: "#FFFFFF", align: "center" };
-        
+
         heartButton = game.add.button(20, 20, 'heart', heartClick);
         cursorButton = game.add.button(325, 50, 'cursorButton', cursorBuy);
         cardButton = game.add.button(325, 100, 'cardButton', cardBuy);
         chocolateButton = game.add.button(325, 150, 'chocolateButton', chocolateBuy);
         roseButton = game.add.button(325, 200, 'roseButton', roseBuy);
         heartText = game.add.text(20, 150, "Hearts: " + heartTotal, style);
+        cursorText = game.add.text(580, 70, cursorCount, style);
+        cardText = game.add.text(580, 120, cardCount, style);
+        chocolateText = game.add.text(580, 170, chocolateCount, style);
+        roseText = game.add.text(580, 220, roseCount, style);
     }
 
     function heartClick() {
@@ -91,5 +99,9 @@ window.onload = function () {
 
     function update() {
         heartText.setText("Hearts: " + heartTotal);
+        cursorText.setText(cursorCount);
+        cardText.setText(cardCount);
+        chocolateText.setText(chocolateCount);
+        roseText.setText(roseCount);
     }
 };
