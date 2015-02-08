@@ -37,7 +37,4 @@ window.onload = function() {
    
     function update() {
     }
-
-    function render() {
-    }
 };
