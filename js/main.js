@@ -40,6 +40,7 @@ window.onload = function () {
     var cardCount = 0;
     var chocolateCount = 0;
     var roseCount = 0;
+    var heartText;
 
     function create() {
         heartButton = game.add.button(20, 20, 'heart', heartClick);
@@ -47,6 +48,7 @@ window.onload = function () {
         cardButton = game.add.button(325, 100, 'cardButton', cardBuy);
         chocolateButton = game.add.button(325, 150, 'chocolateButton', chocolateBuy);
         roseButton = game.add.button(325, 200, 'roseButton', roseBuy);
+        heartText = game.add.text(20, 60, "Hearts: " + heartTotal);
     }
 
     function heartClick() {
@@ -86,5 +88,6 @@ window.onload = function () {
     }
 
     function update() {
+        heartText.setText("Hearts: " + heartTotal);
     }
 };
