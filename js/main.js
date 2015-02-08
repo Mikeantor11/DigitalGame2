@@ -22,6 +22,7 @@ window.onload = function () {
         game.load.image('chocolateButton', 'assets/Art/chocoButton.png');
         game.load.image('roseButton', 'assets/Art/roseButton.png');
         game.load.image('heart', 'assets/Art/heart_2.png');
+        game.load.image('kittens', 'assets/Art/kittensInABox.png');
     }
 
     //Global Variables
@@ -49,6 +50,7 @@ window.onload = function () {
     var cardText2;
     var chocolateText2;
     var roseText2;
+    var kittens;
 
     function create() {
         var style = { font: "20px Arial", fill: "#FFFFFF", align: "center" };
@@ -67,6 +69,7 @@ window.onload = function () {
         cardText2 = game.add.text(275, 70, cardPrice, style);
         chocolateText2 = game.add.text(275, 120, chocolatePrice, style);
         roseText2 = game.add.text(275, 170, rosePrice, style);
+        kittens = game.add.image(0, 400, "kittens");
         
         game.time.events.loop(1000, updateHearts, this);
     }
