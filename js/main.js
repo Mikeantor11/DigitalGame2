@@ -28,17 +28,51 @@ window.onload = function() {
     var heartButton;
     var heartTotal = 0;
     var text;
+    var cursorButton;
+    var cardButton;
+    var chocolateButton;
+    var roseButton;
+    var cursorPrice = 10;
+    var cardPrice = 50;
+    var chocolatePrice = 100;
+    var rosePrice = 300;
+    var cursorCount = 0;
+    var cardCount = 0;
+    var chocolateCount = 0;
+    var roseCount = 0;
     
     function create() {
-        heartButton = game.add.button(0,0, 'heart', heartClick);
-        text = game.add.text(400, 400, heartTotal);
+        heartButton = game.add.button(20,20, 'heart', heartClick);
+        cursorButton = game.add.button(325,50, 'cursorButton', cursorBuy);
+        cardButton = game.add.button(325,100, 'cardButton', cardBuy);
+        chocolateButton = game.add.button(325,150, 'chocolateButton', chocolateBuy);
+        roseButton = game.add.button(325,200, 'roseButton', roseBuy);
     }
    
    function heartClick(){
        heartTotal++;
    }
    
+   function cursorBuy(){
+       cursorCount++;
+       cursorPrice = cursorPrice + 5;
+   }
+   
+   function cardBuy(){
+       cardCount++;
+       cardPrice = cardPrice + 10;
+   }
+   
+   function chocolateBuy(){
+       chocolateCount++;
+       chocolatePrice = chocolatePrice + 25;
+   }
+   
+   function roseBuy(){
+       roseCount++;
+       rosePrice = rosePrice + 50;
+   }
+   
     function update() {
-        text.setText(heartTotal);
     }
 };
