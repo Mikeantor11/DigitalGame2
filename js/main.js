@@ -112,7 +112,7 @@ window.onload = function () {
     }
 
     function update() {
-        heartText.setText("Hearts: " + heartTotal.Math.floor());
+        heartText.setText("Hearts: " + Math.floor(heartTotal));
         cursorText.setText(cursorCount);
         cardText.setText(cardCount);
         chocolateText.setText(chocolateCount);
