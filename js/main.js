@@ -45,6 +45,10 @@ window.onload = function () {
     var cardText;
     var chocolateText;
     var roseText;
+    var cursorText2;
+    var cardText2;
+    var chocolateText2;
+    var roseText2;
 
     function create() {
         var style = { font: "20px Arial", fill: "#FFFFFF", align: "center" };
@@ -59,6 +63,10 @@ window.onload = function () {
         cardText = game.add.text(580, 120, cardCount, style);
         chocolateText = game.add.text(580, 170, chocolateCount, style);
         roseText = game.add.text(580, 220, roseCount, style);
+        cursorText2 = game.add.text(500, 70, cursorPrice, style);
+        cardText2 = game.add.text(500, 120, cardPrice, style);
+        chocolateText2 = game.add.text(500, 170, chocolatePrice, style);
+        roseText2 = game.add.text(500, 220, rosePrice, style);
     }
 
     function heartClick() {
@@ -103,5 +111,9 @@ window.onload = function () {
         cardText.setText(cardCount);
         chocolateText.setText(chocolateCount);
         roseText.setText(roseCount);
+        cursorText2.setText(cursorPrice);
+        cardText2.setText(cardPrice);
+        chocolateText2.setText(chocolatePrice);
+        roseText2.setText(rosePrice);
     }
 };
