@@ -90,12 +90,13 @@ window.onload = function () {
     }
 
     function upTheLove() {
-        if ((cursorCount + cardCount + chocolateCount + roseCount) > 5) {
+       /* if ((cursorCount + cardCount + chocolateCount + roseCount) > 5) {
             love = love + Math.floor(Math.random() * 20) + 1;
         }
         else{
             love = love + Math.floor(Math.random() * 10) + 1;
-        }
+        }*/
+        love = love + Math.floor(Math.random() * ((cursorCount + cardCount + chocolateCount + roseCount))*2) + 1;
     }
 
     function updateHearts() {
