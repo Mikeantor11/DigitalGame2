@@ -16,7 +16,7 @@ window.onload = function() {
     var game = new Phaser.Game( 600, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
-        game.load.spriteSheet('heartButton', 'assets/Art/heartSpriteSheet.png');
+        game.load.spritesheet('heartButton', 'assets/Art/heartSpriteSheet.png');
         game.load.image('cursorButton', 'assets/Art/cursorButton.png');
         game.load.image('cardButton', 'assets/Art/cardButtong.png');
         game.load.image('chocolateButton', 'assets/Art/chocoButton.png');
