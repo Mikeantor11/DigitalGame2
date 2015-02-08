@@ -97,7 +97,7 @@ window.onload = function () {
         else{
             love = love + Math.floor(Math.random() * 10) + 1;
         }*/
-        love = love + Math.floor(Math.random() * ((cursorCount + cardCount + chocolateCount + roseCount))*4) + 1;
+        love = love + Math.floor(Math.random() * ((cursorCount + cardCount + chocolateCount + roseCount))*5) + 1;
     }
 
     function updateHearts() {
