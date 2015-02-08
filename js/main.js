@@ -43,14 +43,14 @@ window.onload = function () {
     var heartText;
 
     function create() {
-        var style = { font: "15px Arial", fill: "#FFFFFF", align: "left" };
+        var style = { font: "20px Arial", fill: "#FFFFFF", align: "center" };
         
         heartButton = game.add.button(20, 20, 'heart', heartClick);
         cursorButton = game.add.button(325, 50, 'cursorButton', cursorBuy);
         cardButton = game.add.button(325, 100, 'cardButton', cardBuy);
         chocolateButton = game.add.button(325, 150, 'chocolateButton', chocolateBuy);
         roseButton = game.add.button(325, 200, 'roseButton', roseBuy);
-        heartText = game.add.text(20, 100, "Hearts: " + heartTotal, style);
+        heartText = game.add.text(20, 150, "Hearts: " + heartTotal, style);
     }
 
     function heartClick() {
