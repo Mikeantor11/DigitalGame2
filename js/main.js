@@ -69,7 +69,7 @@ window.onload = function () {
         cardText2 = game.add.text(275, 70, cardPrice, style);
         chocolateText2 = game.add.text(275, 120, chocolatePrice, style);
         roseText2 = game.add.text(275, 170, rosePrice, style);
-        kittens = game.add.image(0, 400, "kittens");
+        kittens = game.add.image(0, 200, "kittens");
         
         game.time.events.loop(1000, updateHearts, this);
     }
