@@ -68,10 +68,10 @@ window.onload = function () {
         cardText = game.add.text(580, 70, cardCount, style);
         chocolateText = game.add.text(580, 120, chocolateCount, style);
         roseText = game.add.text(580, 170, roseCount, style);
-        cursorText2 = game.add.text(275, 20, cursorPrice, style);
-        cardText2 = game.add.text(275, 70, cardPrice, style);
-        chocolateText2 = game.add.text(275, 120, chocolatePrice, style);
-        roseText2 = game.add.text(275, 170, rosePrice, style);
+        cursorText2 = game.add.text(280, 20, cursorPrice, style);
+        cardText2 = game.add.text(280, 70, cardPrice, style);
+        chocolateText2 = game.add.text(280, 120, chocolatePrice, style);
+        roseText2 = game.add.text(280, 170, rosePrice, style);
         kittens = game.add.button(0, 200, "kittens", feedKitens);
         loveText = game.add.text(0, 180, "Show the Kittens your love: " + love, style);
 
@@ -97,7 +97,7 @@ window.onload = function () {
         else{
             love = love + Math.floor(Math.random() * 10) + 1;
         }*/
-        love = love + Math.floor(Math.random() * ((cursorCount + cardCount + chocolateCount + roseCount))*2) + 1;
+        love = love + Math.floor(Math.random() * ((cursorCount + cardCount + chocolateCount + roseCount))*4) + 1;
     }
 
     function updateHearts() {
