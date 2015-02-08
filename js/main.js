@@ -51,6 +51,8 @@ window.onload = function () {
     var chocolateText2;
     var roseText2;
     var kittens;
+    var love = 0;
+    var loveText;
 
     function create() {
         var style = { font: "20px Arial", fill: "#FFFFFF", align: "center" };
@@ -69,13 +71,26 @@ window.onload = function () {
         cardText2 = game.add.text(275, 70, cardPrice, style);
         chocolateText2 = game.add.text(275, 120, chocolatePrice, style);
         roseText2 = game.add.text(275, 170, rosePrice, style);
-        kittens = game.add.image(0, 200, "kittens");
+        kittens = game.add.button(0, 200, "kittens", feedKitens);
+        loveText = game.add.text(20, 180, "Show the Kittens your love: " + love);
         
         game.time.events.loop(1000, updateHearts, this);
+        game.time.events.loop(2000, upTheLove, this);
     }
 
     function heartClick() {
         heartTotal++;
+    }
+    
+    function feedKitens(){
+        if(love >= 10){
+            love = love - 10;
+            heartTotal = heartTotal - 10;
+        }
+    }
+    
+    function upTheLove(){
+        love = love + Math.floor(Math.random() * 20) + 1;
     }
     
     function updateHearts(){
@@ -124,6 +139,6 @@ window.onload = function () {
         cardText2.setText(cardPrice);
         chocolateText2.setText(chocolatePrice);
         roseText2.setText(rosePrice);
-        
+        loveText.setText("Show the Kittens your love: " + love);
     }
 };
