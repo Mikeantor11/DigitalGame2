@@ -18,7 +18,7 @@ window.onload = function() {
     function preload() {
         game.load.spritesheet('heartButton', 'assets/Art/heartSpriteSheet.png');
         game.load.image('cursorButton', 'assets/Art/cursorButton.png');
-        game.load.image('cardButton', 'assets/Art/cardButtong.png');
+        game.load.image('cardButton', 'assets/Art/cardButton.png');
         game.load.image('chocolateButton', 'assets/Art/chocoButton.png');
         game.load.image('roseButton', 'assets/Art/roseButton.png');
     }
