@@ -63,10 +63,10 @@ window.onload = function () {
         cardText = game.add.text(580, 120, cardCount, style);
         chocolateText = game.add.text(580, 170, chocolateCount, style);
         roseText = game.add.text(580, 220, roseCount, style);
-        cursorText2 = game.add.text(300, 70, cursorPrice, style);
-        cardText2 = game.add.text(300, 120, cardPrice, style);
-        chocolateText2 = game.add.text(300, 170, chocolatePrice, style);
-        roseText2 = game.add.text(400, 220, rosePrice, style);
+        cursorText2 = game.add.text(275, 70, cursorPrice, style);
+        cardText2 = game.add.text(275, 120, cardPrice, style);
+        chocolateText2 = game.add.text(275, 170, chocolatePrice, style);
+        roseText2 = game.add.text(275, 220, rosePrice, style);
         
         game.time.events.loop(1000, updateHearts, this);
     }
@@ -76,7 +76,7 @@ window.onload = function () {
     }
     
     function updateHearts(){
-        heartTotal = heartTotal + ((1*cursorCount) + (5*cardCount) + (10*chocolateCount) + (50*roseCount));
+        heartTotal = heartTotal + ((0.5*cursorCount) + (3*cardCount) + (5*chocolateCount) + (20*roseCount));
     }
 
     function cursorBuy() {
@@ -112,7 +112,7 @@ window.onload = function () {
     }
 
     function update() {
-        heartText.setText("Hearts: " + heartTotal);
+        heartText.setText("Hearts: " + heartTotal.math.floor());
         cursorText.setText(cursorCount);
         cardText.setText(cardCount);
         chocolateText.setText(chocolateCount);
