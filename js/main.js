@@ -54,19 +54,19 @@ window.onload = function () {
         var style = { font: "20px Arial", fill: "#FFFFFF", align: "center" };
 
         heartButton = game.add.button(20, 20, 'heart', heartClick);
-        cursorButton = game.add.button(325, 50, 'cursorButton', cursorBuy);
-        cardButton = game.add.button(325, 100, 'cardButton', cardBuy);
-        chocolateButton = game.add.button(325, 150, 'chocolateButton', chocolateBuy);
-        roseButton = game.add.button(325, 200, 'roseButton', roseBuy);
+        cursorButton = game.add.button(325, 0, 'cursorButton', cursorBuy);
+        cardButton = game.add.button(325, 50, 'cardButton', cardBuy);
+        chocolateButton = game.add.button(325, 100, 'chocolateButton', chocolateBuy);
+        roseButton = game.add.button(325, 150, 'roseButton', roseBuy);
         heartText = game.add.text(20, 150, "Hearts: " + heartTotal, style);
-        cursorText = game.add.text(580, 70, cursorCount, style);
-        cardText = game.add.text(580, 120, cardCount, style);
-        chocolateText = game.add.text(580, 170, chocolateCount, style);
-        roseText = game.add.text(580, 220, roseCount, style);
-        cursorText2 = game.add.text(275, 70, cursorPrice, style);
-        cardText2 = game.add.text(275, 120, cardPrice, style);
-        chocolateText2 = game.add.text(275, 170, chocolatePrice, style);
-        roseText2 = game.add.text(275, 220, rosePrice, style);
+        cursorText = game.add.text(580, 20, cursorCount, style);
+        cardText = game.add.text(580, 70, cardCount, style);
+        chocolateText = game.add.text(580, 120, chocolateCount, style);
+        roseText = game.add.text(580, 170, roseCount, style);
+        cursorText2 = game.add.text(275, 20, cursorPrice, style);
+        cardText2 = game.add.text(275, 70, cardPrice, style);
+        chocolateText2 = game.add.text(275, 120, chocolatePrice, style);
+        roseText2 = game.add.text(275, 170, rosePrice, style);
         
         game.time.events.loop(1000, updateHearts, this);
     }
@@ -76,7 +76,7 @@ window.onload = function () {
     }
     
     function updateHearts(){
-        heartTotal = heartTotal + ((0.5*cursorCount) + (3*cardCount) + (5*chocolateCount) + (20*roseCount));
+        heartTotal = heartTotal + ((0.5*cursorCount) + (3*cardCount) + (5*chocolateCount) + (10*roseCount));
     }
 
     function cursorBuy() {
