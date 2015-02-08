@@ -23,6 +23,7 @@ window.onload = function () {
         game.load.image('roseButton', 'assets/Art/roseButton.png');
         game.load.image('heart', 'assets/Art/heart_2.png');
         game.load.image('kittens', 'assets/Art/kittensInABox.png');
+        game.load.image('lose', 'assets/Art/kittenWhyYouNoLove.png');
     }
 
     //Global Variables
@@ -146,5 +147,9 @@ window.onload = function () {
         chocolateText2.setText(chocolatePrice);
         roseText2.setText(rosePrice);
         loveText.setText("Show the Kittens your love: " + love);
+        
+        if (love > 200){
+            game.add.image(0,0, 'lose');
+        }
     }
 };
