@@ -1,7 +1,7 @@
-window.onload = function() {
+window.onload = function () {
     // You might want to start with a template that uses GameStates:
     //     https://github.com/photonstorm/phaser/tree/master/resources/Project%20Templates/Basic
-    
+
     // You can copy-and-paste the code from any of the examples at http://examples.phaser.io here.
     // You will need to change the fourth parameter to "new Phaser.Game()" from
     // 'phaser-example' to 'game', which is the id of the HTML element where we
@@ -10,11 +10,11 @@ window.onload = function() {
     // You will need to change the paths you pass to "game.load.image()" or any other
     // loading functions to reflect where you are putting the assets.
     // All loading functions will typically all be found inside "preload()".
-    
+
     "use strict";
-    
-    var game = new Phaser.Game( 600, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
-    
+
+    var game = new Phaser.Game(600, 600, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
+
     function preload() {
         game.load.spritesheet('heartButton', 'assets/Art/heartSpritesheet.png');
         game.load.image('cursorButton', 'assets/Art/cursorButton.png');
@@ -40,39 +40,51 @@ window.onload = function() {
     var cardCount = 0;
     var chocolateCount = 0;
     var roseCount = 0;
-    
+
     function create() {
-        heartButton = game.add.button(20,20, 'heart', heartClick);
-        cursorButton = game.add.button(325,50, 'cursorButton', cursorBuy);
-        cardButton = game.add.button(325,100, 'cardButton', cardBuy);
-        chocolateButton = game.add.button(325,150, 'chocolateButton', chocolateBuy);
-        roseButton = game.add.button(325,200, 'roseButton', roseBuy);
+        heartButton = game.add.button(20, 20, 'heart', heartClick);
+        cursorButton = game.add.button(325, 50, 'cursorButton', cursorBuy);
+        cardButton = game.add.button(325, 100, 'cardButton', cardBuy);
+        chocolateButton = game.add.button(325, 150, 'chocolateButton', chocolateBuy);
+        roseButton = game.add.button(325, 200, 'roseButton', roseBuy);
     }
-   
-   function heartClick(){
-       heartTotal++;
-   }
-   
-   function cursorBuy(){
-       cursorCount++;
-       cursorPrice = cursorPrice + 5;
-   }
-   
-   function cardBuy(){
-       cardCount++;
-       cardPrice = cardPrice + 10;
-   }
-   
-   function chocolateBuy(){
-       chocolateCount++;
-       chocolatePrice = chocolatePrice + 25;
-   }
-   
-   function roseBuy(){
-       roseCount++;
-       rosePrice = rosePrice + 50;
-   }
-   
+
+    function heartClick() {
+        heartTotal++;
+    }
+
+    function cursorBuy() {
+        if (heartTotal >= cursorPrice) {
+            cursorCount++;
+            heartTotal = heartTotal - cursorPrice;
+            cursorPrice = cursorPrice + 5;
+        }
+    }
+
+    function cardBuy() {
+        if (heartTotal >= cardPrice) {
+            cardCount++;
+            heartTotal = heartTotal - cardPrice;
+            cardPrice = cardPrice + 5;
+        }
+    }
+
+    function chocolateBuy() {
+        if (heartTotal >= chocolatePrice) {
+            chocolateCount++;
+            heartTotal = heartTotal - chocolatePrice;
+            chocolatePrice = chocolatePrice + 5;
+        }
+    }
+
+    function roseBuy() {
+        if (heartTotal >= rosePrice) {
+            roseCount++;
+            heartTotal = heartTotal - rosePrice;
+            rosePrice = rosePrice + 5;
+        }
+    }
+
     function update() {
     }
 };
