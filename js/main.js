@@ -29,7 +29,23 @@ window.onload = function() {
     
     function create() {
         heartButton = game.add.button(0,0, 'heartButton', heartClick, this, 1, 0, 2);
+        
+        heartButton.onInputOver.add(over, this);
+        heartButton.onInputOut.add(out, this);
+        heartButton.onInputDown.add(down, this);
     }
+   
+   function over(){
+       
+   }
+   
+   function out(){
+       
+   }
+   
+   function down(){
+       
+   }
    
    function heartClick(){
        heartTotal++;
