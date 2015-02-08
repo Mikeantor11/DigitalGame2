@@ -21,36 +21,24 @@ window.onload = function() {
         game.load.image('cardButton', 'assets/Art/cardButton.png');
         game.load.image('chocolateButton', 'assets/Art/chocoButton.png');
         game.load.image('roseButton', 'assets/Art/roseButton.png');
+        game.load.image('heart', 'assets/Art/heart_2.png');
     }
 
     //Global Variables
     var heartButton;
     var heartTotal = 0;
+    var text;
     
     function create() {
-        heartButton = game.add.button(0,0, 'heartButton', heartClick, this, 1, 0, 2);
-        
-        heartButton.onInputOver.add(over, this);
-        heartButton.onInputOut.add(out, this);
-        heartButton.onInputDown.add(down, this);
+        heartButton = game.add.button(0,0, 'heart', heartClick);
+        text = game.add.text(400, 400, heartTotal);
     }
-   
-   function over(){
-       
-   }
-   
-   function out(){
-       
-   }
-   
-   function down(){
-       
-   }
    
    function heartClick(){
        heartTotal++;
    }
    
     function update() {
+        text.setText(heartTotal);
     }
 };
