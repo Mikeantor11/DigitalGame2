@@ -36,11 +36,18 @@ window.onload = function () {
         plat2 = game.add.sprite(200,450, 'platform');
         plat3 = game.add.sprite(500,400, 'platform');
         
+        game.physics.arcade.enableBody(police);
+        game.physics.arcade.enableBody(plat1);
+        game.physics.arcade.enableBody(plat2);
+        game.physics.arcade.enableBody(plat3);
+        
+        /*
         game.physics.enable(police, Phaser.Physics.ARCADE);
         game.physics.enable(plat1, Phaser.Physics.ARCADE);
         game.physics.enable(plat2, Phaser.Physics.ARCADE);
         game.physics.enable(plat3, Phaser.Physics.ARCADE);
         police.body.collideWorldBounds = true;
+        */
         
         police.animations.add('walkRight', [0,1,2]);
         police.animations.add('walkLeft', [3,4,5]);
