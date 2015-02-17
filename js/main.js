@@ -52,6 +52,7 @@ window.onload = function () {
         police.animations.add('walkRight', [0,1,2]);
         police.animations.add('walkLeft', [3,4,5]);
         police.body.bounce.y = 0.2;
+        police.body.setSize(20,35)
         plat1.body.moves = false;
         plat2.body.moves = false;
         plat3.body.moves = false;
