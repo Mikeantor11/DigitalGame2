@@ -78,7 +78,9 @@ window.onload = function () {
             police.animations.play('walkRight', 10);
             police.body.velocity.x = 300;
         }
-        police.body.velocity.x = 0;
+        else{
+            police.body.velocity.x = 0;
+        }
         
         if(cursors.up.isDown && police.body.onFloor()){
             police.body.velocity.y = -200;
