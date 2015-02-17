@@ -50,11 +50,11 @@ window.onload = function () {
 
     function update() {
         if(cursors.left.isDown){
-            police.animation.play('walkLeft', 10);
+            police.animations.play('walkLeft', 10);
             police.body.velocity.x = -350;
         }
         else if(cursors.right.isDown){
-            police.animation.play('walkRight', 10);
+            police.animations.play('walkRight', 10);
             police.body.velocity.x = 350;
         }
         else{
