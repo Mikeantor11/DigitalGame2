@@ -82,7 +82,7 @@ window.onload = function () {
             police.body.velocity.x = 0;
         }
         
-        if(cursors.up.isDown && police.body.onFloor()){
+        if(cursors.up.isDown && police.body.touching.down){
             police.body.velocity.y = -200;
         }
         
