@@ -88,6 +88,6 @@ window.onload = function () {
         }
         
         game.physics.arcade.collide(police, [plat1, plat2, plat3]);
-        game.physics.arcade.collide([plat1, plat2, plat3], police);
+        //game.physics.arcade.collide([plat1, plat2, plat3], police);
     }
 };
