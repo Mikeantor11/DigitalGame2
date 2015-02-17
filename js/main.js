@@ -32,7 +32,7 @@ window.onload = function () {
         game.physics.arcade.gravity.y = 200;
         
         police = game.add.sprite(100,733, 'police');
-        plat1 = game.add.sprite(75,750, 'platform');
+        plat1 = game.add.image(75,750, 'platform');
         plat2 = game.add.sprite(200,650, 'platform');
         plat3 = game.add.sprite(500,600, 'platform');
         
