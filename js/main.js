@@ -42,8 +42,8 @@ window.onload = function () {
         game.physics.enable(plat3, Phaser.Physics.ARCADE);
         police.body.collideWorldBounds = true;
         
-        police.animation.add('walkRight', [1,2,3]);
-        police.animation.add('walkLeft', [3,4,5]);
+        police.animations.add('walkRight', [0,1,2]);
+        police.animations.add('walkLeft', [3,4,5]);
         
         cursors = game.input.keyboard.createCursorKeys();
     }
