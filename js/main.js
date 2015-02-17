@@ -31,10 +31,10 @@ window.onload = function () {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.gravity.y = 200;
         
-        police = game.add.sprite(100,733, 'police');
-        plat1 = game.add.spirte(75,650, 'platform');
-        plat2 = game.add.sprite(200,550, 'platform');
-        plat3 = game.add.sprite(500,500, 'platform');
+        police = game.add.sprite(100,533, 'police');
+        plat1 = game.add.spirte(75,550, 'platform');
+        plat2 = game.add.sprite(200,450, 'platform');
+        plat3 = game.add.sprite(500,400, 'platform');
         
         game.physics.enable(police, Phaser.Physics.ARCADE);
         game.physics.enable(plat1, Phaser.Physics.ARCADE);
