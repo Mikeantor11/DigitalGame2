@@ -48,6 +48,10 @@ window.onload = function () {
         plat2.body.moves = false;
         plat3.body.moves = false;
         
+        plat1.body.collidesWorldBounds = true;
+        plat2.body.collidesWorldBounds = true;
+        plat3.body.collideesWorldBounds = true;
+        
         cursors = game.input.keyboard.createCursorKeys();
     }
 
