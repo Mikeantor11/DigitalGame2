@@ -44,6 +44,9 @@ window.onload = function () {
         
         police.animations.add('walkRight', [0,1,2]);
         police.animations.add('walkLeft', [3,4,5]);
+        plat1.body.moves = false;
+        plat2.body.moves = false;
+        plat3.body.moves = false;
         
         cursors = game.input.keyboard.createCursorKeys();
     }
@@ -51,18 +54,18 @@ window.onload = function () {
     function update() {
         if(cursors.left.isDown){
             police.animations.play('walkLeft', 10);
-            police.body.velocity.x = -350;
+            police.body.velocity.x = -250;
         }
         else if(cursors.right.isDown){
             police.animations.play('walkRight', 10);
-            police.body.velocity.x = 350;
+            police.body.velocity.x = 250;
         }
         else{
             police.body.velocity.x = 0;
         }
         
         if(cursors.up.isDown && police.body.onFloor()){
-            police.body.velocity.y = -250;
+            police.body.velocity.y = -150;
         }
     }
 };
