@@ -36,9 +36,9 @@ window.onload = function () {
         plat2 = game.add.sprite(200,650, 'platform');
         plat3 = game.add.sprite(500,600, 'platform');
         
-        //police.body.collideWorldBounds = true;
-        //police.animation.add('walkRight', [0,1,2]);
-        //police.animation.add('walkLeft', [3,4,5]);
+        zpolice.body.collideWorldBounds = true;
+        police.animation.add('walkRight', [0,1,2]);
+        police.animation.add('walkLeft', [3,4,5]);
         
         game.physics.enable(police, Phaser.Physics.ARCADE);
         game.physics.enable(plat1, Phaser.Physics.ARCADE);
