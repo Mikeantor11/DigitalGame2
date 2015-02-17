@@ -36,7 +36,7 @@ window.onload = function () {
         plat2 = game.add.sprite(200,200, 'platform');
         plat3 = game.add.sprite(600,250, 'platform');
         
-        //police.body.collideWorldBounds = true;
+       police.body.collideWorldBounds = true;
         police.animation.add('walkRight', [0,1,2]);
         police.animation.add('walkLeft', [3,4,5]);
         
@@ -60,7 +60,7 @@ window.onload = function () {
         }
         else if(cursors.right.isDown){
             police.animation.play('walkRight', 10);
-            police.body.velocity.x = 350
+            police.body.velocity.x = 350;
         }
         else{
             police.body.velocity.x = 0;
