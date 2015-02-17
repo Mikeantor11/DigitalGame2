@@ -32,9 +32,9 @@ window.onload = function () {
         game.physics.arcade.gravity.y = 200;
         
         police = game.add.sprite(100,733, 'police');
-        plat1 = game.add.image(75,750, 'platform');
-        plat2 = game.add.sprite(200,650, 'platform');
-        plat3 = game.add.sprite(500,600, 'platform');
+        plat1 = game.add.spirte(75,650, 'platform');
+        plat2 = game.add.sprite(200,550, 'platform');
+        plat3 = game.add.sprite(500,500, 'platform');
         
         game.physics.enable(police, Phaser.Physics.ARCADE);
         game.physics.enable(plat1, Phaser.Physics.ARCADE);
@@ -44,7 +44,7 @@ window.onload = function () {
         
         police.animations.add('walkRight', [0,1,2]);
         police.animations.add('walkLeft', [3,4,5]);
-        //plat1.body.moves = false;
+        plat1.body.moves = false;
         plat2.body.moves = false;
         plat3.body.moves = false;
         
