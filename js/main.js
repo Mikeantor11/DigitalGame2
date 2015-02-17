@@ -52,6 +52,10 @@ window.onload = function () {
         plat2.body.collidesWorldBounds = true;
         plat3.body.collideesWorldBounds = true;
         
+        game.physics.arcade.collide(police, plat1);
+        game.physics.arcade.collide(police, plat2);
+        game.physics.arcade.collide(police, plat3);
+        
         cursors = game.input.keyboard.createCursorKeys();
     }
 
