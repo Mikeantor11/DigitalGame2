@@ -54,18 +54,18 @@ window.onload = function () {
     function update() {
         if(cursors.left.isDown){
             police.animations.play('walkLeft', 10);
-            police.body.velocity.x = -250;
+            police.body.velocity.x = -300;
         }
         else if(cursors.right.isDown){
             police.animations.play('walkRight', 10);
-            police.body.velocity.x = 250;
+            police.body.velocity.x = 300;
         }
         else{
             police.body.velocity.x = 0;
         }
         
         if(cursors.up.isDown && police.body.onFloor()){
-            police.body.velocity.y = -150;
+            police.body.velocity.y = -200;
         }
     }
 };
