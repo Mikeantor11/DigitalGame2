@@ -81,5 +81,8 @@ window.onload = function () {
         if(cursors.up.isDown && police.body.onFloor()){
             police.body.velocity.y = -200;
         }
+        
+        game.physics.arcade.collide(police, [plat1, plat2, plat3]);
+        game.physics.arcade.collide([plat1, plat2, plat3], police);
     }
 };
