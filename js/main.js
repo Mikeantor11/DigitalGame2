@@ -31,10 +31,10 @@ window.onload = function () {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.gravity.y = 200;
         
-        police = game.add.sprite(100,67, 'police');
-        plat1 = game.add.sprite(75,50, 'platform');
-        plat2 = game.add.sprite(200,200, 'platform');
-        plat3 = game.add.sprite(600,250, 'platform');
+        police = game.add.sprite(100,733, 'police');
+        plat1 = game.add.sprite(75,750, 'platform');
+        plat2 = game.add.sprite(200,650, 'platform');
+        plat3 = game.add.sprite(500,600, 'platform');
         
         police.body.collideWorldBounds = true;
         police.animation.add('walkRight', [0,1,2]);
