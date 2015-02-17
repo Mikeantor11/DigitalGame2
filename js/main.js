@@ -36,14 +36,14 @@ window.onload = function () {
         plat2 = game.add.sprite(200,650, 'platform');
         plat3 = game.add.sprite(500,600, 'platform');
         
-        police.body.collideWorldBounds = true;
+        //police.body.collideWorldBounds = true;
         police.animation.add('walkRight', [0,1,2]);
         police.animation.add('walkLeft', [3,4,5]);
         
-        game.physics.arcade.enable(police);
-        game.physics.arcade.enable(plat1);
-        game.physics.arcade.enable(plat2);
-        game.physics.arcade.enable(plat3);
+        game.physics.enable(police, Phaser.Physics.ARCADE);
+        game.physics.enable(plat1, Phaser.Physics.ARCADE);
+        game.physics.enable(plat2, Phaser.Physics.ARCADE);
+        game.physics.enable(plat3, Phaser.Physics.ARCADE);
         
         cursors = game.input.keyboard.createCursorKeys();
     }
