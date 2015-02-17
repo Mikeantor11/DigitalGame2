@@ -36,7 +36,7 @@ window.onload = function () {
         plat2 = game.add.sprite(200,200, 'platform');
         plat3 = game.add.sprite(600,250, 'platform');
         
-       police.body.collideWorldBounds = true;
+        police.body.collideWorldBounds = true;
         police.animation.add('walkRight', [0,1,2]);
         police.animation.add('walkLeft', [3,4,5]);
         
@@ -46,11 +46,6 @@ window.onload = function () {
         game.physics.arcade.enable(plat3);
         
         cursors = game.input.keyboard.createCursorKeys();
-        
-        
-        plat1.body.static = true;
-        plat2.body.static = true;
-        plat3.body.static = true;
     }
 
     function update() {
