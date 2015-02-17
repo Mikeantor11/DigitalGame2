@@ -64,9 +64,6 @@ window.onload = function () {
         plat2.body.allowGravity = false;
         plat3.body.allowGravity = false;
         
-        game.physics.arcade.collide(police, [plat1, plat2, plat3]);
-        game.physics.arcade.collide([plat1, plat2, plat3], police);
-        
         cursors = game.input.keyboard.createCursorKeys();
     }
 
