@@ -38,8 +38,11 @@ window.onload = function () {
     var goal;
     var cursors;
     var counter = 0;
+    var style;
 
     function create() {
+        
+        style = {font: "50px Arial", fill: "#FFFFFF", align: "center"};
         
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.gravity.y = 200;
@@ -97,6 +100,10 @@ window.onload = function () {
     function collision(){
         counter++;
     }
+    
+    function win(){
+        game.add.text(100,100, "You Win!!!", style);
+    }
 
     function update() {
         if(cursors.left.isDown){
@@ -119,5 +126,6 @@ window.onload = function () {
         police.body.mass = 1;
         
         game.physics.arcade.collide(police, [plat1, plat2, plat3, plat4, plat5, plat6, plat7, plat8, plat9, plat10, plat11], collision, null, this);
+        game.physics.overlap(police, goal, win, null, this);
     }
 };
