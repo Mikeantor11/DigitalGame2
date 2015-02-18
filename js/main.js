@@ -53,9 +53,18 @@ window.onload = function () {
         police.animations.add('walkLeft', [3,4,5]);
         police.body.bounce.y = 0.2;
         police.body.setSize(20,35);
-        plat1.body.immovable = true;
-        plat2.body.immovable = true;
-        plat3.body.immovable = true;
+        plat1.body.moves = false;
+        plat2.body.moves = false;
+        plat3.body.moves = false;
+        
+        police.body.collideWorldBounds = true;
+        plat1.body.collidesWorldBounds = true;
+        plat2.body.collidesWorldBounds = true;
+        plat3.body.collideesWorldBounds = true;
+        
+        plat1.body.allowGravity = false;
+        plat2.body.allowGravity = false;
+        plat3.body.allowGravity = false;
         
         cursors = game.input.keyboard.createCursorKeys();
     }
