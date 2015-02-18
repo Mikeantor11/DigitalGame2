@@ -19,6 +19,7 @@ window.onload = function () {
         game.load.image('platform', 'assets/Art/platform.png');
         game.load.spritesheet('police', 'assets/Art/policeOfficer.png', 16, 31);
         game.load.image('seeThru', 'assets/Art/invisibleTile.png');
+        game.load.image('glass', 'assets/Art/magnifyingGlass.png');
     }
 
     var police;
@@ -29,6 +30,11 @@ window.onload = function () {
     var plat5;
     var plat6;
     var plat7;
+    var plat8;
+    var plat9;
+    var plat10;
+    var plat11;
+    var goal;
     var cursors;
     var counter = 0;
 
@@ -45,8 +51,11 @@ window.onload = function () {
         plat5 = game.add.sprite(600, 250, 'seeThru');
         plat6 = game.add.sprite(0, 350, 'seeThru');
         plat7 = game.add.sprite(700, 150, 'seeThru');
+        plat10 = game.add.sprite(50, 0, 'seeThru');
+        goal = game.add.sprite(0, 0, 'glass');
         
         game.physics.arcade.enableBody(police);
+        game.physics.arcade.enableBody(goal);
         game.physics.arcade.enable(plat1);
         game.physics.arcade.enable(plat2);
         game.physics.arcade.enable(plat3);
@@ -54,11 +63,14 @@ window.onload = function () {
         game.physics.arcade.enable(plat5);
         game.physics.arcade.enable(plat6);
         game.physics.arcade.enable(plat7);
+        game.physics.arcade.enable(plat10);
         
         police.animations.add('walkRight', [0,1,2]);
         police.animations.add('walkLeft', [3,4,5]);
-        police.body.bounce.y = 0.2;
+        police.body.bounce.y = 0.1;
+        goal.body.bounce.y = 1.0;
         police.body.setSize(20,35);
+        police.body.collideWorldBounds = true;
         plat1.body.moves = false;
         plat2.body.moves = false;
         plat3.body.moves = false;
@@ -66,6 +78,7 @@ window.onload = function () {
         plat5.body.moves = false;
         plat6.body.moves = false;
         plat7.body.moves = false;
+        plat10.body.moves = false;
 
         cursors = game.input.keyboard.createCursorKeys();
     }
@@ -94,6 +107,6 @@ window.onload = function () {
         
         police.body.mass = 1;
         
-        game.physics.arcade.collide(police, [plat1, plat2, plat3, plat4, plat5, plat6, plat7], collision, null, this);
+        game.physics.arcade.collide(police, [plat1, plat2, plat3, plat4, plat5, plat6, plat7, plat10], collision, null, this);
     }
 };
