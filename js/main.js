@@ -37,9 +37,9 @@ window.onload = function () {
         plat3 = game.add.sprite(500,400, 'platform');
         
         game.physics.arcade.enableBody(police);
-        game.physics.arcade.enableBody(plat1);
-        game.physics.arcade.enableBody(plat2);
-        game.physics.arcade.enableBody(plat3);
+        game.physics.arcade.enable(plat1);
+        game.physics.arcade.enable(plat2);
+        game.physics.arcade.enable(plat3);
         
         /*
         game.physics.enable(police, Phaser.Physics.ARCADE);
@@ -53,18 +53,9 @@ window.onload = function () {
         police.animations.add('walkLeft', [3,4,5]);
         police.body.bounce.y = 0.2;
         police.body.setSize(20,35);
-        plat1.body.moves = false;
-        plat2.body.moves = false;
-        plat3.body.moves = false;
-        
-        police.body.collideWorldBounds = true;
-        plat1.body.collidesWorldBounds = true;
-        plat2.body.collidesWorldBounds = true;
-        plat3.body.collideesWorldBounds = true;
-        
-        plat1.body.allowGravity = false;
-        plat2.body.allowGravity = false;
-        plat3.body.allowGravity = false;
+        plat1.body.immoves = true;
+        plat2.body.immoves = true;
+        plat3.body.immoves = true;
         
         cursors = game.input.keyboard.createCursorKeys();
     }
