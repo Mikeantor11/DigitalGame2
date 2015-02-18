@@ -53,9 +53,9 @@ window.onload = function () {
         police.animations.add('walkLeft', [3,4,5]);
         police.body.bounce.y = 0.2;
         police.body.setSize(20,35);
-        plat1.body.immoves = true;
-        plat2.body.immoves = true;
-        plat3.body.immoves = true;
+        plat1.body.immovable = true;
+        plat2.body.immovable = true;
+        plat3.body.immovable = true;
         
         cursors = game.input.keyboard.createCursorKeys();
     }
