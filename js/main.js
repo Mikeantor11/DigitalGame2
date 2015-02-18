@@ -79,18 +79,18 @@ window.onload = function () {
     function update() {
         if(cursors.left.isDown){
             police.animations.play('walkLeft', 10);
-            police.body.velocity.x = -300;
+            police.body.velocity.x = -150;
         }
         else if(cursors.right.isDown){
             police.animations.play('walkRight', 10);
-            police.body.velocity.x = 300;
+            police.body.velocity.x = 150;
         }
         else{
             police.body.velocity.x = 0;
         }
         
         if(cursors.up.isDown && counter > 0){
-            police.body.velocity.y = -200;
+            police.body.velocity.y = -300;
             counter = 0;
         }
         
