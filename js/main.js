@@ -90,7 +90,7 @@ window.onload = function () {
         }
         
         if(cursors.up.isDown && counter > 0){
-            police.body.velocity.y = -300;
+            police.body.velocity.y = -150;
             counter = 0;
         }
         
