@@ -42,7 +42,7 @@ window.onload = function () {
 
     function create() {
         
-        style = {font: "50px Arial", fill: "#FFFFFF", align: "center"};
+        style = {font: "100px Arial", fill: "#FFFFFF", align: "center"};
         
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.gravity.y = 200;
