@@ -94,6 +94,8 @@ window.onload = function () {
             counter = 0;
         }
         
+        police.body.mass = 1;
+        
         game.physics.arcade.collide(police, [plat1, plat2, plat3]);
     }
 };
