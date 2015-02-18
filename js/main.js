@@ -27,6 +27,8 @@ window.onload = function () {
     var plat3;
     var plat4;
     var plat5;
+    var plat6;
+    var plat7;
     var cursors;
     var counter = 0;
 
@@ -41,6 +43,8 @@ window.onload = function () {
         plat3 = game.add.sprite(500,400, 'platform');
         plat4 = game.add.sprite(250, 300, 'seeThru');
         plat5 = game.add.sprite(600, 250, 'seeThru');
+        plat6 = game.add.sprite(0, 350, 'seeThru');
+        plat7 = game.add.sprite(700, 150, 'seeThru');
         
         game.physics.arcade.enableBody(police);
         game.physics.arcade.enable(plat1);
@@ -48,6 +52,8 @@ window.onload = function () {
         game.physics.arcade.enable(plat3);
         game.physics.arcade.enable(plat4);
         game.physics.arcade.enable(plat5);
+        game.physics.arcade.enable(plat6);
+        game.physics.arcade.enable(plat7);
         
         police.animations.add('walkRight', [0,1,2]);
         police.animations.add('walkLeft', [3,4,5]);
@@ -58,6 +64,8 @@ window.onload = function () {
         plat3.body.moves = false;
         plat4.body.moves = false;
         plat5.body.moves = false;
+        plat6.body.moves = false;
+        plat7.body.moves = false;
 
         cursors = game.input.keyboard.createCursorKeys();
     }
@@ -86,6 +94,6 @@ window.onload = function () {
         
         police.body.mass = 1;
         
-        game.physics.arcade.collide(police, [plat1, plat2, plat3, plat4, plat5], collision, null, this);
+        game.physics.arcade.collide(police, [plat1, plat2, plat3, plat4, plat5, plat6, plat7], collision, null, this);
     }
 };
