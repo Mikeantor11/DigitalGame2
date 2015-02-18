@@ -69,7 +69,7 @@ window.onload = function () {
         
         cursors = game.input.keyboard.createCursorKeys();
         
-        police.body.collides([plat1, plat2, plat3], collision, this);
+        game.physics.arcade.collide(police, [plat1, plat2, plat3], collision, null, this);
     }
 
     function collision(){
