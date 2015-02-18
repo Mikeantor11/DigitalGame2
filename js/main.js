@@ -68,6 +68,12 @@ window.onload = function () {
         plat3.body.allowGravity = false;
         
         cursors = game.input.keyboard.createCursorKeys();
+        
+        police.body.collides([plat1, plat2, plat3], collision, this);
+    }
+
+    function collision(){
+        counter++;
     }
 
     function update() {
@@ -86,10 +92,6 @@ window.onload = function () {
         if(cursors.up.isDown && counter > 0){
             police.body.velocity.y = -200;
             counter = 0;
-        }
-        
-        if(police.body.onFloor()){
-            counter++;
         }
         
         game.physics.arcade.collide(police, [plat1, plat2, plat3]);
