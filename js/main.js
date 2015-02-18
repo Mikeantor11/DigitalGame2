@@ -55,7 +55,7 @@ window.onload = function () {
         plat8 = game.add.sprite(400, 50, 'seeThru');
         plat9 = game.add.sprite(200, 150, 'seeThru');
         plat10 = game.add.sprite(1, 50, 'seeThru');
-        plat11 = game.add.sprite(250, -50, 'pillar');
+        plat11 = game.add.sprite(250, -100, 'pillar');
         goal = game.add.sprite(0, 0, 'glass');
         
         game.physics.arcade.enableBody(police);
