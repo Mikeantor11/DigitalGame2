@@ -25,6 +25,7 @@ window.onload = function () {
     var plat2;
     var plat3;
     var cursors;
+    var counter = 0;
 
     function create() {
         
@@ -82,10 +83,15 @@ window.onload = function () {
             police.body.velocity.x = 0;
         }
         
-        if(cursors.up.isDown){
+        if(cursors.up.isDown && counter > 0){
             police.body.velocity.y = -200;
+            counter = 0;
         }
         
-        game.physics.arcade.collide(police, plat1);
+        if(police.body.onFloor()){
+            counter++;
+        }
+        
+        game.physics.arcade.collide(police, [plat1, plat2, plat3]);
     }
 };
