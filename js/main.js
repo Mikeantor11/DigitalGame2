@@ -126,6 +126,6 @@ window.onload = function () {
         police.body.mass = 1;
         
         game.physics.arcade.collide(police, [plat1, plat2, plat3, plat4, plat5, plat6, plat7, plat8, plat9, plat10, plat11], collision, null, this);
-        game.physics.overlap(police, goal, win, null, this);
+        game.physics.arcade.overlap(police, goal, win, null, this);
     }
 };
