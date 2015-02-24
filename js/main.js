@@ -16,84 +16,24 @@ window.onload = function () {
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
-        game.load.image('platform', 'assets/Art/platform.png');
-        game.load.spritesheet('police', 'assets/Art/policeOfficer.png', 16, 31);
-        game.load.image('seeThru', 'assets/Art/invisibleTile.png');
-        game.load.image('glass', 'assets/Art/magnifyingGlass.png');
-        game.load.image('pillar', 'assets/Art/invisiblePillar.png');
+        game.load.image('background', '');
     }
-
-    var police;
-    var plat1;
-    var plat2;
-    var plat3;
-    var plat4;
-    var plat5;
-    var plat6;
-    var plat7;
-    var plat8;
-    var plat9;
-    var plat10;
-    var plat11;
-    var goal;
-    var cursors;
-    var counter = 0;
-    var style;
-
+	
+	var question;
+	var cont;
+	var opt1;
+	var opt2;
+	var opt3;
+	var waitResp = false;
+	var progress = 0;
+	
     function create() {
         
-        style = {font: "100px Arial", fill: "#FFFFFF", align: "center"};
+        style = {font: "13px Arial", fill: "#FFFFFF", align: "center"};
+        game.add.sprite(0, 0, 'background');
+        question = game.add.text(50, 420, 'Welcome to the interview.', style);
+        move = game.add.text(50, 435, 'Press SPACE to continue', style);
         
-        game.physics.startSystem(Phaser.Physics.ARCADE);
-        game.physics.arcade.gravity.y = 200;
-        
-        police = game.add.sprite(100,500, 'police');
-        plat1 = game.add.sprite(75,550, 'platform');
-        plat2 = game.add.sprite(200,450, 'platform');
-        plat3 = game.add.sprite(500,400, 'platform');
-        plat4 = game.add.sprite(250, 300, 'seeThru');
-        plat5 = game.add.sprite(600, 250, 'seeThru');
-        plat6 = game.add.sprite(0, 350, 'seeThru');
-        plat7 = game.add.sprite(700, 150, 'seeThru');
-        plat8 = game.add.sprite(400, 50, 'seeThru');
-        plat9 = game.add.sprite(200, 150, 'seeThru');
-        plat10 = game.add.sprite(1, 50, 'seeThru');
-        plat11 = game.add.sprite(275, -100, 'pillar');
-        goal = game.add.sprite(0, 0, 'glass');
-        
-        game.physics.arcade.enableBody(police);
-        game.physics.arcade.enableBody(goal);
-        game.physics.arcade.enable(plat1);
-        game.physics.arcade.enable(plat2);
-        game.physics.arcade.enable(plat3);
-        game.physics.arcade.enable(plat4);
-        game.physics.arcade.enable(plat5);
-        game.physics.arcade.enable(plat6);
-        game.physics.arcade.enable(plat7);
-        game.physics.arcade.enable(plat8);
-        game.physics.arcade.enable(plat9);
-        game.physics.arcade.enable(plat10);
-        game.physics.arcade.enable(plat11);
-        
-        police.animations.add('walkRight', [0,1,2]);
-        police.animations.add('walkLeft', [3,4,5]);
-        police.body.bounce.y = 0.1;
-        goal.body.bounce.y = 1.0;
-        police.body.setSize(20,35);
-        police.body.collideWorldBounds = true;
-        plat1.body.moves = false;
-        plat2.body.moves = false;
-        plat3.body.moves = false;
-        plat4.body.moves = false;
-        plat5.body.moves = false;
-        plat6.body.moves = false;
-        plat7.body.moves = false;
-        plat8.body.moves = false;
-        plat9.body.moves = false;
-        plat10.body.moves = false;
-        plat11.body.moves = false;
-        goal.body.moves = false;
-
         cursors = game.input.keyboard.createCursorKeys();
     }
 
@@ -106,26 +46,19 @@ window.onload = function () {
     }
 
     function update() {
-        if(cursors.left.isDown){
-            police.animations.play('walkLeft', 10);
-            police.body.velocity.x = -150;
-        }
-        else if(cursors.right.isDown){
-            police.animations.play('walkRight', 10);
-            police.body.velocity.x = 150;
-        }
-        else{
-            police.body.velocity.x = 0;
+        if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE) && !waitResp){
+            progress++;
         }
         
-        if(cursors.up.isDown && counter > 0){
-            police.body.velocity.y = -150;
-            counter = 0;
+        if(progress === 1){
+        	question.setText("Tell me a little about yourself.");
+        	move.setText("");
+        	opt1 = game.add.text(50, 450, "1) I'm a hard worker who likes to spend his free time working for the company.", style);
+        	opt2 = game.add.text(50, 465, "2) I always get my work done in a timely manner, in my free time I like socializing with frineds.", style);
+        	opt3 = game.add.text(50, 480, "3) I am from the Underworld hear to enslave the entire human race!", style);
+        	while(true){
+        		if(game.input.keyboard.isDown(Phaser.Keyboard.
+        	}
         }
-        
-        police.body.mass = 1;
-        
-        game.physics.arcade.collide(police, [plat1, plat2, plat3, plat4, plat5, plat6, plat7, plat8, plat9, plat10, plat11], collision, null, this);
-        game.physics.arcade.overlap(police, goal, win, null, this);
     }
 };
