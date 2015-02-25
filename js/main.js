@@ -24,7 +24,7 @@ window.onload = function () {
 	
 	var question;
 	var seen = 0;
-	var job;
+	var job = 0;
 	var opt1;
 	var opt2;
 	var opt3;
