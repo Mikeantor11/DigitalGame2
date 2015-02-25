@@ -20,25 +20,27 @@ window.onload = function () {
         game.load.image('noticed', 'assets/Art/noticedInter.png');
         game.load.image('almost', 'assets/Art/almostCaughtInter.png');
         game.load.image('caught', 'assets/Art/caughtInter.png');
+        game.load.spritesheet("sheet", 'assets/Art/birdInterSpriteSheet.png', 800, 600);
     }
 	
-	var question;
-	var seen = 0;
-	var job = 0;
-	var opt1;
-	var opt2;
-	var opt3;
+    var question;
+    var seen = 0;
+    var job = 0;
+    var opt1;
+    var opt2;
+    var opt3;
     var style;
     var cursors;
-	var waitResp = false;
-	var progress = 0;
+    var waitResp = false;
+    var progress = 0;
     var move;
     var resp = false;
+    var background;
 	
     function create() {
         
         style = {font: "13px Arial", fill: "#FFFFFF", align: "center"};
-        game.add.sprite(0, 0, 'background');
+        background = game.add.sprite(0, 0, 'sheet');
         question = game.add.text(50, 420, 'Welcome to the interview.', style);
         move = game.add.text(75, 435, 'Press Down to continue', style);
         opt1 = game.add.text(50, 450, "", style);
@@ -50,6 +52,8 @@ window.onload = function () {
 
     function update() {
     
+        background.frame = seen;
+        
     	if(progress === 0){
     		if(cursors.down.isDown){
     			progress++;
