@@ -46,7 +46,7 @@ window.onload = function () {
     }
 
     function update() {
-        if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
+        if(game.input.keyboard.isDown(Phaser.Keyboard.A) && !resp){
             progress++;
         }
         
@@ -56,12 +56,14 @@ window.onload = function () {
             opt1 = game.add.text(50, 450, "Left) I'm a hard worker who likes to spend his free time working for the company.", style);
             opt2 = game.add.text(50, 465, "Up) I always get my work done in a timely manner, in my free time I like socializing with frineds.", style);
             opt3 = game.add.text(50, 480, "Right) I am from the Underworld hear to enslave the entire human race!", style);
+            resp = true;
                 if(cursors.left.isDown){
                     job = job + 2;
                     if(seen > 0){
                         seen--;
                     }
                     progress++;
+                    resp = false;
                 }
                 else if(cursors.up.isDown){
                     job = job + 1;
@@ -69,11 +71,13 @@ window.onload = function () {
                         seen--;
                     }
                     progress++;
+                    resp = false;
                 }
                 else if(cursors.right.isDown){
                     job--;
                     seen++;
                     progress++;
+                    resp = false;
                 }
         }
         
