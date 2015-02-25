@@ -53,9 +53,9 @@ window.onload = function () {
         if(progress === 1){
             question.setText("Tell me a little about yourself.");
             move.setText("");
-            opt1.setText(50, 450, "Left) I'm a hard worker who likes to spend his free time working for the company.", style);
-            opt2.setText(50, 465, "Up) I always get my work done in a timely manner, in my free time I like socializing with frineds.", style);
-            opt3.setText(50, 480, "Right) I am from the Underworld hear to enslave the entire human race!", style);
+            opt1.setText("Left) I'm a hard worker who likes to spend his free time working for the company.");
+            opt2.setText("Up) I always get my work done in a timely manner, in my free time I like socializing with friends.");
+            opt3.setText("Right) I am from the Underworld hear to enslave the entire human race!");
             resp = true;
                 if(cursors.left.isDown){
                     job = job + 2;
