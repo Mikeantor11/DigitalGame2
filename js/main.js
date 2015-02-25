@@ -61,16 +61,19 @@ window.onload = function () {
                     if(seen > 0){
                         seen--;
                     }
+                    break;
                 }
                 else if(game.input.keyboard.isDown(Phaser.Keyboard.TWO)){
                     job = job + 1;
                     if(seen === 1){
                         seen--;
                     }
+                    break;
                 }
                 else if(game.input.keyboard.isDown(Phaser.Keyboard.THREE)){
                     job--;
                     seen++;
+                    break;
                 }
             }
             
