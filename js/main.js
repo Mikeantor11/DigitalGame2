@@ -61,7 +61,7 @@ window.onload = function () {
             move.setText("");
             opt1.setText("Left) I'm a hard worker who likes to spend his free time working for the company.");
             opt2.setText("Up) I always get my work done in a timely manner, in my free time I like socializing with friends.");
-            opt3.setText("Right) I am from the Underworld hear to enslave the entire human race!");
+            opt3.setText("Right) I AM FROM THE UNDERWORLD HERE TO ENSALVE THE ENTIRE HUMAN RACE!");
             resp = true;
                 if(cursors.left.isDown){
                     job = job + 2;
@@ -102,6 +102,90 @@ window.onload = function () {
             if(cursors.down.isDown){
             	progress++;
             }
+        }
+        
+        else if(progress === 3){
+        	question.setText("What are some of your strengths?");
+            move.setText("");
+            opt1.setText("Left) I'm a great team player who enjoys working in groups or alone.");
+            opt2.setText("Up) I manage my time pretty well.");
+            opt3.setText("Right) THE FIRE THAT BURNS FROM MY HEART FOR TOTAL DOMINATION!");
+            resp = true;
+                if(cursors.left.isDown){
+                    job = job + 2;
+                    if(seen > 0){
+                        seen--;
+                    }
+                    progress++;
+                }
+                else if(cursors.up.isDown){
+                    job = job + 1;
+                    if(seen === 1){
+                        seen--;
+                    }
+                    progress++;
+                }
+                else if(cursors.right.isDown){
+                    job--;
+                    seen++;
+                    progress++;
+                }
+        }
+        
+        else if(progress === 4){
+            if(seen > 1){
+            	question.setText("Yeaaaaaah.... let's go with that");
+            	move.setText("Press Down to continue.");
+            	opt1.setText("");
+            	opt2.setText("");
+            	opt3.setText("");
+            }
+            else if(seen > 0){
+                question.setText("Riight... let's move on.");
+                move.setText("Press Down to continue.");
+                opt1.setText("");
+                opt2.setText("");
+                opt3.setText("");
+            }
+            else{
+            	question.setText("That's great! Let's go to the next question");
+            	move.setText("Press Down to continue.");
+            	opt1.setText("");
+            	opt2.setText("");
+            	opt3.setText("");
+            }
+            
+            if(cursors.down.isDown){
+            	progress++;
+            }
+        }
+        
+        else if(progress === 5){
+        	question.setText("What are some of your weaknesses?");
+            move.setText("");
+            opt1.setText("Left) I tend to work to much some of the times.");
+            opt2.setText("Up) Sometimes I get overwhelmed with my work.");
+            opt3.setText("Right) THE PUNY HUMANS UNDER MY FEET!");
+            resp = true;
+                if(cursors.left.isDown){
+                    job = job + 2;
+                    if(seen > 0){
+                        seen--;
+                    }
+                    progress++;
+                }
+                else if(cursors.up.isDown){
+                    job = job + 1;
+                    if(seen === 1){
+                        seen--;
+                    }
+                    progress++;
+                }
+                else if(cursors.right.isDown){
+                    job--;
+                    seen++;
+                    progress++;
+                }
         }
     }
 };
