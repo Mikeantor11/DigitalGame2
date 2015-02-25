@@ -85,6 +85,13 @@ window.onload = function () {
                 opt2.setText("");
                 opt3.setText("");
             }
+            else{
+            	question.setText("That's great! Let's go to the next question");
+            	move.setText("Press A to continue.");
+            	opt1.setText("");
+            	opt2.setText("");
+            	opt3.setText("");
+            }
         }
     }
 };
