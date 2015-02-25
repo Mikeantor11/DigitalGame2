@@ -40,10 +40,10 @@ window.onload = function () {
         style = {font: "13px Arial", fill: "#FFFFFF", align: "center"};
         game.add.sprite(0, 0, 'background');
         question = game.add.text(50, 420, 'Welcome to the interview.', style);
-        move = game.add.text(75, 435, 'Press A to continue', style);
-        opt1 = game.add.text(50, 450, "Left) I'm a hard worker who likes to spend his free time working for the company.", style);
-        opt2 = game.add.text(50, 465, "Up) I always get my work done in a timely manner, in my free time I like socializing with frineds.", style);
-        opt3 = game.add.text(50, 480, "Right) I am from the Underworld hear to enslave the entire human race!", style);
+        move = game.add.text(75, 435, 'Press Down to continue', style);
+        opt1 = game.add.text(50, 450, "", style);
+        opt2 = game.add.text(50, 465, "", style);
+        opt3 = game.add.text(50, 480, "", style);
         
         cursors = game.input.keyboard.createCursorKeys();
     }
