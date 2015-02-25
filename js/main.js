@@ -39,13 +39,13 @@ window.onload = function () {
         style = {font: "13px Arial", fill: "#FFFFFF", align: "center"};
         game.add.sprite(0, 0, 'background');
         question = game.add.text(50, 420, 'Welcome to the interview.', style);
-        move = game.add.text(50, 435, 'Press SPACE to continue', style);
+        move = game.add.text(75, 435, 'Press A to continue', style);
         
         cursors = game.input.keyboard.createCursorKeys();
     }
 
     function update() {
-        if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE) && !waitResp){
+        if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
             progress++;
         }
         
