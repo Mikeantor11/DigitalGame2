@@ -93,7 +93,7 @@ window.onload = function () {
                 opt3.setText("");
             }
             else{
-            	question.setText("That's great! Let's go to the next question");
+            	question.setText("That's great! Let's go to the next question.");
             	move.setText("Press Down to continue.");
             	opt1.setText("");
             	opt2.setText("");
@@ -148,7 +148,7 @@ window.onload = function () {
                 opt3.setText("");
             }
             else{
-            	question.setText("That's great! Let's go to the next question");
+            	question.setText("That's great! Let's go to the next question.");
             	move.setText("Press Down to continue.");
             	opt1.setText("");
             	opt2.setText("");
@@ -211,7 +211,7 @@ window.onload = function () {
                 opt3.setText("");
             }
             else{
-            	question.setText("That's great! Let's go to the next question");
+            	question.setText("That's great! Let's move on.");
             	move.setText("Press Down to continue.");
             	opt1.setText("");
             	opt2.setText("");
