@@ -52,22 +52,22 @@ window.onload = function () {
         if(progress === 1){
             question.setText("Tell me a little about yourself.");
             move.setText("");
-            opt1 = game.add.text(50, 450, "1) I'm a hard worker who likes to spend his free time working for the company.", style);
-            opt2 = game.add.text(50, 465, "2) I always get my work done in a timely manner, in my free time I like socializing with frineds.", style);
-            opt3 = game.add.text(50, 480, "3) I am from the Underworld hear to enslave the entire human race!", style);
-                if(game.input.keyboard.isDown(Phaser.Keyboard.ONE)){
+            opt1 = game.add.text(50, 450, "Q) I'm a hard worker who likes to spend his free time working for the company.", style);
+            opt2 = game.add.text(50, 465, "W) I always get my work done in a timely manner, in my free time I like socializing with frineds.", style);
+            opt3 = game.add.text(50, 480, "E) I am from the Underworld hear to enslave the entire human race!", style);
+                if(game.input.keyboard.isDown(Phaser.Keyboard.Q)){
                     job = job + 2;
                     if(seen > 0){
                         seen--;
                     }
                 }
-                else if(game.input.keyboard.isDown(Phaser.Keyboard.TWO)){
+                else if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
                     job = job + 1;
                     if(seen === 1){
                         seen--;
                     }
                 }
-                else if(game.input.keyboard.isDown(Phaser.Keyboard.THREE)){
+                else if(game.input.keyboard.isDown(Phaser.Keyboard.E)){
                     job--;
                     seen++;
                 }
