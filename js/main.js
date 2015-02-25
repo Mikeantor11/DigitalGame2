@@ -24,15 +24,16 @@ window.onload = function () {
 	
 	var question;
 	var seen;
-        var job;
+	var job;
 	var opt1;
 	var opt2;
 	var opt3;
-        var style;
-        var cursors;
+    var style;
+    var cursors;
 	var waitResp = false;
 	var progress = 0;
-        var move;
+    var move;
+    var resp = false;
 	
     function create() {
         
@@ -55,23 +56,28 @@ window.onload = function () {
             opt1 = game.add.text(50, 450, "Q) I'm a hard worker who likes to spend his free time working for the company.", style);
             opt2 = game.add.text(50, 465, "W) I always get my work done in a timely manner, in my free time I like socializing with frineds.", style);
             opt3 = game.add.text(50, 480, "E) I am from the Underworld hear to enslave the entire human race!", style);
+            resp = true;
+            while(resp){
                 if(game.input.keyboard.isDown(Phaser.Keyboard.Q)){
                     job = job + 2;
                     if(seen > 0){
                         seen--;
                     }
+                    resp = false;
                 }
                 else if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
                     job = job + 1;
                     if(seen === 1){
                         seen--;
                     }
+                    resp = false;
                 }
                 else if(game.input.keyboard.isDown(Phaser.Keyboard.E)){
                     job--;
                     seen++;
+                    resp = false;
                 }
-            
+            }
             progress++;
         }
         
