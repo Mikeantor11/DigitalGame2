@@ -23,7 +23,7 @@ window.onload = function () {
     }
 	
 	var question;
-	var seen;
+	var seen = 0;
 	var job;
 	var opt1;
 	var opt2;
