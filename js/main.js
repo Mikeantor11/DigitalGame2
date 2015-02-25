@@ -18,7 +18,7 @@ window.onload = function () {
     function preload() {
         game.load.image('background', 'assets/Art/birdInterScene.png');
         game.load.image('noticed', 'assets/Art/noticedInter.png');
-        game.load.image('almost', 'assets/Art/almostcaughtInter.png');
+        game.load.image('almost', 'assets/Art/almostCaughtInter.png');
         game.load.image('caught', 'assets/Art/caughtInter.png');
     }
 	
