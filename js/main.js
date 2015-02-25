@@ -31,7 +31,7 @@ window.onload = function () {
     var style;
     var cursors;
 	var waitResp = false;
-	var progress = 1;
+	var progress = 0;
     var move;
     var resp = false;
 	
@@ -49,6 +49,12 @@ window.onload = function () {
     }
 
     function update() {
+    
+    	if(progress === 0){
+    		if(cursors.down.isDown){
+    			progress++;
+    		}
+    	}
         
         if(progress === 1){
             question.setText("Tell me a little about yourself.");
@@ -81,17 +87,20 @@ window.onload = function () {
         else if(progress === 2){
             if(seen > 0){
                 question.setText("Riight... let's move on.");
-                move.setText("Press A to continue.");
+                move.setText("Press Down to continue.");
                 opt1.setText("");
                 opt2.setText("");
                 opt3.setText("");
             }
             else{
             	question.setText("That's great! Let's go to the next question");
-            	move.setText("Press A to continue.");
+            	move.setText("Press Down to continue.");
             	opt1.setText("");
             	opt2.setText("");
             	opt3.setText("");
+            }
+            if(cursors.down.isDown){
+            	progress++;
             }
         }
     }
