@@ -31,7 +31,7 @@ window.onload = function () {
     var style;
     var cursors;
 	var waitResp = false;
-	var progress = 0;
+	var progress = 1;
     var move;
     var resp = false;
 	
@@ -46,9 +46,6 @@ window.onload = function () {
     }
 
     function update() {
-        if(game.input.keyboard.isDown(Phaser.Keyboard.A) && !resp){
-            progress++;
-        }
         
         if(progress === 1){
             question.setText("Tell me a little about yourself.");
@@ -63,7 +60,6 @@ window.onload = function () {
                         seen--;
                     }
                     progress++;
-                    resp = false;
                 }
                 else if(cursors.up.isDown){
                     job = job + 1;
@@ -71,13 +67,11 @@ window.onload = function () {
                         seen--;
                     }
                     progress++;
-                    resp = false;
                 }
                 else if(cursors.right.isDown){
                     job--;
                     seen++;
                     progress++;
-                    resp = false;
                 }
         }
         
