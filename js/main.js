@@ -134,7 +134,7 @@ window.onload = function () {
         
         else if(progress === 4){
             if(seen > 1){
-            	question.setText("Yeaaaaaah.... let's go with that");
+            	question.setText("Yeaaaaaah.... let's go with that.");
             	move.setText("Press Down to continue.");
             	opt1.setText("");
             	opt2.setText("");
@@ -186,6 +186,56 @@ window.onload = function () {
                     seen++;
                     progress++;
                 }
+        }
+        
+        else if(progress === 6){
+        	if(seen > 2){
+        		question.setText("Ummm.... we're gonna need you to come with us.");
+        		move.setText("");
+        		opt1.setText("");
+        		opt2.setText("");
+        		opt3.setText("");
+        	}
+            else if(seen > 1){
+            	question.setText("Yeaaaaaah.... let's go with that.");
+            	move.setText("Press Down to continue.");
+            	opt1.setText("");
+            	opt2.setText("");
+            	opt3.setText("");
+            }
+            else if(seen > 0){
+                question.setText("Riight... let's move on.");
+                move.setText("Press Down to continue.");
+                opt1.setText("");
+                opt2.setText("");
+                opt3.setText("");
+            }
+            else{
+            	question.setText("That's great! Let's go to the next question");
+            	move.setText("Press Down to continue.");
+            	opt1.setText("");
+            	opt2.setText("");
+            	opt3.setText("");
+            }
+            
+            if(cursors.down.isDown){
+            	progress++;
+            }
+        }
+        
+        else if(progress === 7){
+        	if(job > 5){
+        		question.setText("Well we really like you and would like to offer you a job, you start tomorrow!");
+        		move.setText("Congratulations!");
+        	}
+        	else if(job > 2){
+        		question.setText("Well thank you for your time. We will be contacting you within the week.");
+        		move.setText("Good Work!");
+        	}
+        	else{
+        		question.setText("Well ummm... thank you for your time. Don't call us we'll call you.");
+        		move.setText("In case you didn't know...you didn't get the job.");
+        	}
         }
     }
 };
