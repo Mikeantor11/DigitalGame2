@@ -94,7 +94,7 @@ window.onload = function () {
         	
         	if (show){
         		for(var i = 0; i < numbers.length; i++){
-        			display = display + numbers[i].toString + ' ';
+        			display = display + numbers[i].toString() + ' ';
         		}
         		opt2.setText(display);
         		show  = false;
