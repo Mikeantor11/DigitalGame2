@@ -16,11 +16,7 @@ window.onload = function () {
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
-        game.load.image('background', 'assets/Art/birdInterScene.png');
-        game.load.image('noticed', 'assets/Art/noticedInter.png');
-        game.load.image('almost', 'assets/Art/almostCaughtInter.png');
-        game.load.image('caught', 'assets/Art/caughtInter.png');
-        game.load.spritesheet("sheet", 'assets/Art/birdInterSpriteSheet.png', 800, 600);
+        game.load.image('phone', 'assets/Art/cellPhone.png');
     }
 	
     var instructions;
@@ -29,7 +25,7 @@ window.onload = function () {
     var style;
     var cursors;
     var move;
-    var background;
+    var phone;
     var numbers = [];
     var response = [];
 	var progress = 1;
@@ -57,7 +53,7 @@ window.onload = function () {
     function create() {
         
         style = {font: "25px Arial", fill: "#FFFFFF", align: "center"};
-        background = game.add.sprite(0, 0, 'sheet');
+        phone = game.add.sprite(400, 400, 'phone');
         instructions = game.add.text(50, 20, 'Remember the Numbers shown!', style);
         move = game.add.text(75, 50, 'Press Down to continue', style);
         opt1 = game.add.text(50, 80, "", style);
@@ -117,10 +113,8 @@ window.onload = function () {
 	   	
         if(input){
         	if(key0.isDown){
-        	if(!key0.isDown){
         		response[counter] = 0;
         		counter++;
-        		}
         	}
         	
         	if(key1.isDown){
@@ -139,10 +133,8 @@ window.onload = function () {
         	}
         	
         	if(key4.isDown){
-        	if(!key4.isDown){
         		response[counter] = 4;
         		counter++;
-        		}
         	}
         	
         	if(key5.isDown){
@@ -177,7 +169,7 @@ window.onload = function () {
         }
         
         if(compare){
-        	if(response === numbers){
+        	if(response == numbers){
         		opt2.setText("Congratulations!");
         		generate = true;
         	}
