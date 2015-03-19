@@ -184,7 +184,7 @@ window.onload = function () {
         }
         
         if(compare){
-        	if(replay === numbers){
+        	if(replay.equals(numbers)){
         		opt2.setText("Congratulations!");
         		generate = true;
         	}
