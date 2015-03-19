@@ -87,6 +87,7 @@ window.onload = function () {
         		replay = [];
         		generate = false;
         		show = true;
+        		counter = 0;
         	}
         	}
         	
