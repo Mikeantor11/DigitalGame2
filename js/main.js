@@ -83,7 +83,7 @@ window.onload = function () {
 			if(cursors.down.isDown){
 			if(generate){
 				numbers = [];
-				for(int i = 0; i < progress; i++){
+				for(var i = 0; i < progress; i++){
         			numbers[i] = random.between(0,9);
         		}
         		response = [];
@@ -93,7 +93,7 @@ window.onload = function () {
         	}
         	
         	if (show){
-        		for(int i = 0; i < numbers.length; i++){
+        		for(var i = 0; i < numbers.length; i++){
         			display = display + numbers[i].toString + ' ';
         		}
         		opt1.setText(display);
