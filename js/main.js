@@ -91,6 +91,7 @@ window.onload = function () {
         	}
         	
         	if (show && !cursors.down.isDown){
+        		display = '';
         		for(var i = 0; i < numbers.length; i++){
         			display = display + numbers[i].toString() + ' ';
         		}
@@ -187,6 +188,7 @@ window.onload = function () {
         	if(replay.equals(numbers)){
         		opt2.setText("Congratulations!");
         		generate = true;
+        		progress++;
         	}
         	
         	else{
