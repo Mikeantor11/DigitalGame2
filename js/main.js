@@ -190,7 +190,6 @@ window.onload = function () {
         if(compare && !cursors.down.isDown){
         	if(replay.equals(numbers)){
         		opt2.setText("Congratulations!");
-        		generate = true;
         		progress++;
         	}
         	
