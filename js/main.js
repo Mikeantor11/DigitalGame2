@@ -105,9 +105,10 @@ window.onload = function () {
         		if(cursors.right.isDown){
         			wait = false;
         			input = true;
+        			opt2.setText('');
         		}
         	}
-	   /*	
+	   	
         while(input){
         	if(key0.isDown){
         		response[counter] = 0;
@@ -164,7 +165,7 @@ window.onload = function () {
         		compare = true;
         	}
         }
-        */
+        
         if(compare){
         	if(response = numbers){
         		opt2.setText("Congratulations!");
