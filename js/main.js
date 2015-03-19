@@ -100,12 +100,12 @@ window.onload = function () {
         	}
         	
         	if(wait){
-        		if(cursors.down.isDown){
+        		if(cursors.right.isDown){
         			wait = false;
         			input = true;
         		}
         	}
-	   	
+	   /*	
         while(input){
         	if(key0.isDown){
         		response[counter] = 0;
@@ -162,7 +162,7 @@ window.onload = function () {
         		compare = true;
         	}
         }
-        
+        */
         if(compare){
         	if(response = numbers){
         		opt1.setText("Congratulations!");
