@@ -38,7 +38,7 @@ window.onload = function () {
 	var wait = false;
 	var input = false;
 	var compare = false;
-	var display;
+	var display = '';
 	var random = new Phaser.RandomDataGenerator();
 	var key0;
 	var key1;
