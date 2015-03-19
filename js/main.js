@@ -35,6 +35,7 @@ window.onload = function () {
 	var input = false;
 	var compare = false;
 	var delay = false;
+	var response = false;
 	var display = '';
 	var random = new Phaser.RandomDataGenerator();
 	var key0;
@@ -53,7 +54,7 @@ window.onload = function () {
     function create() {
         
         style = {font: "25px Arial", fill: "#FFFFFF", align: "center"};
-        phone = game.add.sprite(400, 400, 'phone');
+        phone = game.add.sprite(400, 200, 'phone');
         instructions = game.add.text(50, 20, 'Remember the Numbers shown!', style);
         move = game.add.text(75, 50, 'Press Down to continue', style);
         opt1 = game.add.text(50, 80, "", style);
@@ -112,54 +113,68 @@ window.onload = function () {
         	}
 	   	
         if(input){
-        	if(key0.isDown){
+        	if(!key0.isDown && !key1.isDown && !key2.isDown && !key3.isDown && !key4.isDown && !key5.isDown && !key6.isDown && !key7.isDown && !key8.isDown && !key9.isDown){
+        		response = true;
+        	}
+        	
+        	if(key0.isDown && response){
         		response[counter] = 0;
         		counter++;
+        		response = false;
         	}
         	
-        	if(key1.isDown){
+        	if(key1.isDown && response){
         		response[counter] = 1;
         		counter++;
+        		response = false;
         	}
         	
-        	if(key2.isDown){
+        	if(key2.isDown && response){
         		response[counter] = 2;
         		counter++;
+        		response = false;
         	}
         	
-        	if(key3.isDown){
+        	if(key3.isDown && response){
         		response[counter] = 3;
         		counter++;
+        		response = false;
         	}
         	
-        	if(key4.isDown){
+        	if(key4.isDown && response){
         		response[counter] = 4;
         		counter++;
+        		response = false;
         	}
         	
-        	if(key5.isDown){
+        	if(key5.isDown && response){
         		response[counter] = 5;
         		counter++;
+        		response = false;
         	}
         	
-        	if(key6.isDown){
+        	if(key6.isDown && response){
         		response[counter] = 6;
         		counter++;
+        		response = false;
         	}
         	
-        	if(key7.isDown){
+        	if(key7.isDown && response){
         		response[counter] = 7;
         		counter++;
+        		response = false;
         	}
         	
-        	if(key8.isDown){
+        	if(key8.isDown && response){
         		response[counter] = 8;
         		counter++;
+        		response = false;
         	}
         	
-        	if(key9.isDown){
+        	if(key9.isDown && response){
         		response[counter] = 9;
         		counter++;
+        		response = false;
         	}
         	
         	if(cursors.down.isDown){
