@@ -54,11 +54,11 @@ window.onload = function () {
 	
     function create() {
         
-        style = {font: "13px Arial", fill: "#FFFFFF", align: "center"};
+        style = {font: "25px Arial", fill: "#FFFFFF", align: "center"};
         background = game.add.sprite(0, 0, 'sheet');
         instructions = game.add.text(50, 20, 'Remember the Numbers shown!', style);
-        move = game.add.text(75, 35, 'Press Down to continue', style);
-        opt1 = game.add.text(50, 50, "", style);
+        move = game.add.text(75, 50, 'Press Down to continue', style);
+        opt1 = game.add.text(50, 80, "", style);
         
         cursors = game.input.keyboard.createCursorKeys();
         key0 = game.input.keyboard.addKey(Phaser.Keyboard.ZERO);
