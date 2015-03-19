@@ -39,16 +39,16 @@ window.onload = function () {
 	var compare = false;
 	var diplay;
 	var random = new RandomDataGenerator();
-	var 0key;
-	var 1key;
-	var 2key;
-	var 3key;
-	var 4key;
-	var 5key;
-	var 6key;
-	var 7key;
-	var 8key;
-	var 9key;
+	var key0;
+	var key1;
+	var key2;
+	var key3;
+	var key4;
+	var key5;
+	var key6;
+	var key7;
+	var key8;
+	var key9;
 	var enter;
 	var counter = 0;
 	
@@ -61,16 +61,16 @@ window.onload = function () {
         opt1 = game.add.text(50, 50, "", style);
         
         cursors = game.input.keyboard.createCursorKeys();
-        0key = game.input.keyboard.addKey(Phaser.Keyboard.ZERO);
-        1key = game.input.keyboard.addKey(Phaser.Keyboard.ONE);
-        2key = game.input.keyboard.addKey(Phaser.Keyboard.TWO);
-        3key = game.input.keyboard.addKey(Phaser.Keyboard.THREE);
-        4key = game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
-        5key = game.input.keyboard.addKey(Phaser.Keyboard.FIVE);
-        6key = game.input.keyboard.addKey(Phaser.Keyboard.SIX);
-        7key = game.input.keyboard.addKey(Phaser.Keyboard.SEVEN);
-        8key = game.input.keyboard.addKey(Phaser.Keyboard.EIGHT);
-        9key = game.input.keyboard.addKey(Phaser.Keyboard.NINE);
+        key0 = game.input.keyboard.addKey(Phaser.Keyboard.ZERO);
+        key1 = game.input.keyboard.addKey(Phaser.Keyboard.ONE);
+        key2 = game.input.keyboard.addKey(Phaser.Keyboard.TWO);
+        key3 = game.input.keyboard.addKey(Phaser.Keyboard.THREE);
+        key4 = game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
+        key5 = game.input.keyboard.addKey(Phaser.Keyboard.FIVE);
+        key6 = game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+        key7 = game.input.keyboard.addKey(Phaser.Keyboard.SEVEN);
+        key8 = game.input.keyboard.addKey(Phaser.Keyboard.EIGHT);
+        key9 = game.input.keyboard.addKey(Phaser.Keyboard.NINE);
         enter = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         
     }
@@ -109,52 +109,52 @@ window.onload = function () {
         	}
 	   	
         while(input){
-        	if(0key.isDown){
+        	if(key0.isDown){
         		response[counter] = 0;
         		counter++;
         	}
         	
-        	if(1key.isDown){
+        	if(key1.isDown){
         		response[counter] = 1;
         		counter++;
         	}
         	
-        	if(2key.isDown){
+        	if(key2.isDown){
         		response[counter] = 2;
         		counter++;
         	}
         	
-        	if(3key.isDown){
+        	if(key3.isDown){
         		response[counter] = 3;
         		counter++;
         	}
         	
-        	if(4key.isDown){
+        	if(key4.isDown){
         		response[counter] = 4;
         		counter++;
         	}
         	
-        	if(5key.isDown){
+        	if(key5.isDown){
         		response[counter] = 5;
         		counter++;
         	}
         	
-        	if(6key.isDown){
+        	if(key6.isDown){
         		response[counter] = 6;
         		counter++;
         	}
         	
-        	if(7key.isDown){
+        	if(key7.isDown){
         		response[counter] = 7;
         		counter++;
         	}
         	
-        	if(8key.isDown){
+        	if(key8.isDown){
         		response[counter] = 8;
         		counter++;
         	}
         	
-        	if(9key.isDown){
+        	if(key9.isDown){
         		response[counter] = 9;
         		counter++;
         	}
