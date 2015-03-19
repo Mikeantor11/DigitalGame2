@@ -36,6 +36,7 @@ window.onload = function () {
 	var compare = false;
 	var delay = false;
 	var response = false;
+	var wait2 = false;
 	var display = '';
 	var random = new Phaser.RandomDataGenerator();
 	var key0;
@@ -77,9 +78,8 @@ window.onload = function () {
 
     function update() {
 
-			opt1.setText("Press the corresponding numbers in order.");
-			if(cursors.down.isDown){
 			if(generate){
+				opt1.setText('');
 				numbers = [];
 				for(var i = 0; i < progress; i++){
         			numbers[i] = random.between(0,9);
@@ -88,7 +88,7 @@ window.onload = function () {
         		generate = false;
         		show = true;
         		counter = 0;
-        	}
+        		wait2 = false;
         	}
         	
         	if (show && !cursors.down.isDown){
@@ -115,6 +115,8 @@ window.onload = function () {
         	}
 	   	
         if(input){
+			opt1.setText("Press the corresponding numbers in order.");
+
         	if(!key0.isDown && !key1.isDown && !key2.isDown && !key3.isDown && !key4.isDown && !key5.isDown && !key6.isDown && !key7.isDown && !key8.isDown && !key9.isDown){
         		response = true;
         	}
@@ -196,6 +198,15 @@ window.onload = function () {
         		opt2.setText("I'm sorry you got it wrong :(");
         	}
         	compare  = false;
+        	wait2 = true;
+        }
+        
+        if(wait2){
+        	if(cursors.down.isDown){
+        		wait2 = false;
+        		generate = true;
+        		opt2.setText('');
+        	}
         }
     }
     
