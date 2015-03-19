@@ -109,7 +109,7 @@ window.onload = function () {
         		}
         	}
 	   	
-        while(input){
+        if(input){
         	if(key0.isDown){
         		response[counter] = 0;
         		counter++;
