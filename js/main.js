@@ -76,8 +76,6 @@ window.onload = function () {
     }
 
     function update() {
-    
-        background.frame = seen;
 
 			opt1.setText("Press the corresponding numbers in order.");
 			if(cursors.down.isDown){
