@@ -38,6 +38,7 @@ window.onload = function () {
 	var wait = false;
 	var input = false;
 	var compare = false;
+	var delay = false;
 	var display = '';
 	var random = new Phaser.RandomDataGenerator();
 	var key0;
@@ -92,7 +93,7 @@ window.onload = function () {
         	}
         	}
         	
-        	if (show){
+        	if (show && !cursors.down.isDown){
         		for(var i = 0; i < numbers.length; i++){
         			display = display + numbers[i].toString() + ' ';
         		}
@@ -104,9 +105,14 @@ window.onload = function () {
         	if(wait){
         		if(cursors.down.isDown){
         			wait = false;
-        			input = true;
+        			delay = true;
         			opt2.setText('');
         		}
+        	}
+        	
+        	if(delay && !cursors.down.isDown){
+        		delay = false;
+        		input = true;
         	}
 	   	
         if(input){
