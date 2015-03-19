@@ -117,8 +117,10 @@ window.onload = function () {
 	   	
         if(input){
         	if(key0.isDown){
+        	if(!key0.isDown){
         		response[counter] = 0;
         		counter++;
+        		}
         	}
         	
         	if(key1.isDown){
@@ -137,8 +139,10 @@ window.onload = function () {
         	}
         	
         	if(key4.isDown){
+        	if(!key4.isDown){
         		response[counter] = 4;
         		counter++;
+        		}
         	}
         	
         	if(key5.isDown){
