@@ -25,6 +25,7 @@ window.onload = function () {
 	
     var instructions;
     var opt1;
+    var opt2;
     var style;
     var cursors;
     var move;
@@ -59,6 +60,7 @@ window.onload = function () {
         instructions = game.add.text(50, 20, 'Remember the Numbers shown!', style);
         move = game.add.text(75, 50, 'Press Down to continue', style);
         opt1 = game.add.text(50, 80, "", style);
+        opt2 = game.add.text(50, 110, "", style);
         
         cursors = game.input.keyboard.createCursorKeys();
         key0 = game.input.keyboard.addKey(Phaser.Keyboard.ZERO);
@@ -94,7 +96,7 @@ window.onload = function () {
         		for(var i = 0; i < numbers.length; i++){
         			display = display + numbers[i].toString + ' ';
         		}
-        		opt1.setText(display);
+        		opt2.setText(display);
         		show  = false;
         		wait = true;
         	}
@@ -165,12 +167,12 @@ window.onload = function () {
         */
         if(compare){
         	if(response = numbers){
-        		opt1.setText("Congratulations!");
+        		opt2.setText("Congratulations!");
         		generate = true;
         	}
         	
         	else{
-        		opt1.setText("I'm sorry you got it wrong :(");
+        		opt2.setText("I'm sorry you got it wrong :(");
         	}
         	compare  = false;
         }
