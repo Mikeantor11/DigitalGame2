@@ -50,7 +50,7 @@ window.onload = function () {
 	var key7;
 	var key8;
 	var key9;
-	var enter;
+	var keyF;
 	var counter = 0;
 	
     function create() {
@@ -73,7 +73,7 @@ window.onload = function () {
         key7 = game.input.keyboard.addKey(Phaser.Keyboard.SEVEN);
         key8 = game.input.keyboard.addKey(Phaser.Keyboard.EIGHT);
         key9 = game.input.keyboard.addKey(Phaser.Keyboard.NINE);
-        enter = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        keyF = game.input.keyboard.addKey(Phaser.Keyboard.F);
         
     }
 
@@ -160,7 +160,7 @@ window.onload = function () {
         		counter++;
         	}
         	
-        	if(enter.isDown){
+        	if(keyF.isDown){
         		input = false;
         		compare = true;
         	}
