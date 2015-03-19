@@ -160,7 +160,7 @@ window.onload = function () {
         		counter++;
         	}
         	
-        	if(keyF.isDown){
+        	if(cursors.left.isDown){
         		input = false;
         		compare = true;
         	}
