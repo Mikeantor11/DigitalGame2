@@ -27,7 +27,7 @@ window.onload = function () {
     var move;
     var phone;
     var numbers = [];
-    var response = [];
+    var replay = [];
 	var progress = 1;
 	var generate = true;
 	var show = false;
@@ -84,7 +84,7 @@ window.onload = function () {
 				for(var i = 0; i < progress; i++){
         			numbers[i] = random.between(0,9);
         		}
-        		response = [];
+        		replay = [];
         		generate = false;
         		show = true;
         	}
@@ -118,61 +118,61 @@ window.onload = function () {
         	}
         	
         	if(key0.isDown && response){
-        		response[counter] = 0;
+        		replay[counter] = 0;
         		counter++;
         		response = false;
         	}
         	
         	if(key1.isDown && response){
-        		response[counter] = 1;
+        		replay[counter] = 1;
         		counter++;
         		response = false;
         	}
         	
         	if(key2.isDown && response){
-        		response[counter] = 2;
+        		replay[counter] = 2;
         		counter++;
         		response = false;
         	}
         	
         	if(key3.isDown && response){
-        		response[counter] = 3;
+        		replay[counter] = 3;
         		counter++;
         		response = false;
         	}
         	
         	if(key4.isDown && response){
-        		response[counter] = 4;
+        		replay[counter] = 4;
         		counter++;
         		response = false;
         	}
         	
         	if(key5.isDown && response){
-        		response[counter] = 5;
+        		replay[counter] = 5;
         		counter++;
         		response = false;
         	}
         	
         	if(key6.isDown && response){
-        		response[counter] = 6;
+        		replay[counter] = 6;
         		counter++;
         		response = false;
         	}
         	
         	if(key7.isDown && response){
-        		response[counter] = 7;
+        		replay[counter] = 7;
         		counter++;
         		response = false;
         	}
         	
         	if(key8.isDown && response){
-        		response[counter] = 8;
+        		replay[counter] = 8;
         		counter++;
         		response = false;
         	}
         	
         	if(key9.isDown && response){
-        		response[counter] = 9;
+        		replay[counter] = 9;
         		counter++;
         		response = false;
         	}
