@@ -102,7 +102,7 @@ window.onload = function () {
         	}
         	
         	if(wait){
-        		if(cursors.right.isDown){
+        		if(cursors.down.isDown){
         			wait = false;
         			input = true;
         			opt2.setText('');
@@ -160,7 +160,7 @@ window.onload = function () {
         		counter++;
         	}
         	
-        	if(cursors.left.isDown){
+        	if(cursors.down.isDown){
         		input = false;
         		compare = true;
         	}
