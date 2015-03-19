@@ -167,7 +167,7 @@ window.onload = function () {
         }
         
         if(compare){
-        	if(response = numbers){
+        	if(response == numbers){
         		opt2.setText("Congratulations!");
         		generate = true;
         	}
