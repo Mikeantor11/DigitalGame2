@@ -44,10 +44,11 @@ window.onload = function () {
     }
     
     function round (){
+    	text5.setText("Get Ready!");
     	var start = Date.now();
     	var wait = Math.floor((Math.random() * 5000) + 1000);
     	while(Date.now() - start < wait){}
-    	text5.setText("thing!");
+    	text5.setText("Now!");
     	game.stage.backgroundColor = "#00FF1E";
     	compare = Date.now();
     	response = true;
@@ -56,7 +57,6 @@ window.onload = function () {
 
     function update() {
 		if(game.input.keyboard.isDown(Phaser.Keyboard.ENTER)){
-			text5.setText("Now!");
 			out = round();
 		}
 		
@@ -65,7 +65,7 @@ window.onload = function () {
 			output = output/1000;
 			game.stage.backgroundColor = "#000000";
 			text4.setText("Your time was: " + output + "!");
-			//text5.setText("");
+			text5.setText("");
 			response = false;
 		}
 		
