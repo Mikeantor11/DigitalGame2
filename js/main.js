@@ -46,7 +46,6 @@ window.onload = function () {
     function round (){
     	var start = Date.now();
     	var wait = Math.floor((Math.random() * 5000) + 1000);
-    	text5.setText("Get Ready!");
     	while(Date.now() - start < wait){}
     	text5.setText("Now!");
     	game.stage.backgroundColor = "#00FF1E";
@@ -57,6 +56,7 @@ window.onload = function () {
 
     function update() {
 		if(game.input.keyboard.isDown(Phaser.Keyboard.ENTER)){
+			text5.setText("Get Ready!");
 			out = round();
 		}
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && response){
