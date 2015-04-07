@@ -56,9 +56,10 @@ window.onload = function () {
 
     function update() {
 		if(game.input.keyboard.isDown(Phaser.Keyboard.ENTER)){
-			text5.setText("Get Ready!");
+			text5.setText("Now!");
 			out = round();
 		}
+		
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && response){
 			output = Date.now() - out;
 			output = output/1000;
