@@ -65,7 +65,7 @@ window.onload = function () {
 			output = output/1000;
 			game.stage.backgroundColor = "#000000";
 			text4.setText("Your time was: " + output + "!");
-			text5.setText("");
+			//text5.setText("");
 			response = false;
 		}
 		
