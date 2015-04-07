@@ -59,6 +59,7 @@ window.onload = function () {
 		}
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && response){
 			output = Date.now() - out;
+			output = output/1000;
 			game.stage.backgroundColor = "#000000";
 			text4.setText("Your time was: " + output + "!");
 			response = false;	
