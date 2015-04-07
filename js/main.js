@@ -40,11 +40,10 @@ window.onload = function () {
         text2 = game.add.text(10, 40, "Press ENTER to begin.", style);
         text3 = game.add.text(5, 75, "", style);
         text4 = game.add.text(5, 110, "", style);
-        text5 = game.add.text(5, 145, "", style);
+        text5 = game.add.text(5, 145, "Get Ready!", style);
     }
     
     function round (){
-    	text5.setText("Get Ready!");
     	var start = Date.now();
     	var wait = Math.floor((Math.random() * 5000) + 1000);
     	while(Date.now() - start < wait){}
