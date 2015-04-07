@@ -46,7 +46,7 @@ window.onload = function () {
     function round (){
     	var start = Date.now();
     	var wait = Math.floor((Math.random() * 5000) + 1000);
-    	while(Date.now() - start < wait){text5.setText("Get Ready!"}
+    	while(Date.now() - start < wait){text5.setText("Get Ready!");}
     	text5.setText("Now!");
     	game.stage.backgroundColor = "#00FF1E";
     	compare = Date.now();
