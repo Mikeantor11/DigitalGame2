@@ -44,11 +44,11 @@ window.onload = function () {
     }
     
     function round (){
-    	var start = timer.time;
+    	var start = Date.now();
     	var wait = Math.floor((Math.random() * 10) + 1);
-    	while(timer.elapsedSecondsSince(start) < wait){}
+    	while(Date.now() - start < wait){}
     	game.stage.background = "#00ff1e";
-    	compare = timer.time;
+    	compare = Date.now();
     	response = true;
     	return compare;
 	}
@@ -58,7 +58,7 @@ window.onload = function () {
 			out = round();
 		}
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE) && response){
-			output = timer.elapsedSince(out);
+			output = Date.now() - out;
 			text4.setText("Your time was: " + output + "!");
 			response = false;	
 		}
