@@ -57,13 +57,13 @@ window.onload = function () {
 		}
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE) && response){
 			output = timer.elapsedSince(out);
-			text4.setText("Your time was: " + output + "!";
+			text4.setText("Your time was: " + output + "!");
 			response = false;	
 		}
 		
 		if(output < highscore){
 			highscore = output;
-			text3.setText("Highscore: " + highscore;
+			text3.setText("Highscore: " + highscore);
 		}
 	} 
 };
