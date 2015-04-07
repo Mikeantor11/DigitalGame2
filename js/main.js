@@ -27,6 +27,7 @@ window.onload = function () {
 	var text2;
 	var text3;
 	var text4;
+	var text5;
 	var style;
 	var response = false;
 	
@@ -35,18 +36,18 @@ window.onload = function () {
         style = {font: "25px Arial", fill: "#FFFFFF", align: "center"};
         
         game.stage.backgroundColor = "#000000";
-        //timer = game.time.create(false);
         text = game.add.text(5, 5, "Press SPACE when the screen changes color!", style);
         text2 = game.add.text(10, 40, "Press ENTER to begin.", style);
         text3 = game.add.text(5, 75, "", style);
         text4 = game.add.text(5, 110, "", style);
-        //timer.start();
+        text5 = game.add.text(5, 145, "", style);
     }
     
     function round (){
     	var start = Date.now();
     	var wait = Math.floor((Math.random() * 5000) + 1000);
-    	while(Date.now() - start < wait){}
+    	while(Date.now() - start < wait){text5.setText("Get Ready!"}
+    	text5.setText("Now!");
     	game.stage.backgroundColor = "#00FF1E";
     	compare = Date.now();
     	response = true;
@@ -62,7 +63,8 @@ window.onload = function () {
 			output = output/1000;
 			game.stage.backgroundColor = "#000000";
 			text4.setText("Your time was: " + output + "!");
-			response = false;	
+			text5.setText("");
+			response = false;
 		}
 		
 		if(output < highscore){
