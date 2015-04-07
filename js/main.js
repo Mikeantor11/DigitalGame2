@@ -46,7 +46,7 @@ window.onload = function () {
     function round (){
     	var start = timer.time;
     	var wait = Math.floor((Math.random() * 10) + 1);
-    	while(time.elapsedSecondsSince(start) < wait){}
+    	while(timer.elapsedSecondsSince(start) < wait){}
     	game.stage.background = "#00ff1e";
     	compare = timer.time;
     	response = true;
