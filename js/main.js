@@ -18,7 +18,7 @@ window.onload = function () {
     function preload() {
     }
 	
-	var timer = new Timer(game);
+	var timer = new Time(game);
 	var compare;
 	var out;
 	var output;
