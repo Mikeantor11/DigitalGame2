@@ -34,7 +34,7 @@ window.onload = function () {
         
         style = {font: "25px Arial", fill: "#FFFFFF", align: "center"};
         
-        game.stage.background = "#FFFFFF";
+        game.stage.backgroundColor = "#FFFFFF";
         //timer = game.time.create(false);
         text = game.add.text(5, 5, "Press SPACE when the screen changes color!", style);
         text2 = game.add.text(10, 40, "Press ENTER to begin.", style);
