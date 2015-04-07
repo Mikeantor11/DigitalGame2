@@ -45,7 +45,7 @@ window.onload = function () {
     
     function round (){
     	var start = Date.now();
-    	var wait = Math.floor((Math.random() * 10) + 1);
+    	var wait = Math.floor((Math.random() * 10000) + 1000);
     	while(Date.now() - start < wait){}
     	game.stage.backgroundColor = "#00FF1E";
     	compare = Date.now();
@@ -57,7 +57,7 @@ window.onload = function () {
 		if(game.input.keyboard.isDown(Phaser.Keyboard.ENTER)){
 			out = round();
 		}
-		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE) && response){
+		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && response){
 			output = Date.now() - out;
 			game.stage.backgroundColor = "#000000";
 			text4.setText("Your time was: " + output + "!");
