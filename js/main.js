@@ -16,221 +16,54 @@ window.onload = function () {
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
-        game.load.image('phone', 'assets/Art/cellPhone.png');
     }
 	
-    var instructions;
-    var opt1;
-    var opt2;
-    var style;
-    var cursors;
-    var move;
-    var phone;
-    var numbers = [];
-    var replay = [];
-	var progress = 1;
-	var generate = true;
-	var show = false;
-	var wait = false;
-	var input = false;
-	var compare = false;
-	var delay = false;
+	var timer = new Time();
+	var compare;
+	var out;
+	var output;
+	var highscore = 10000000000;
+	var text;
+	var text2;
+	var text3;
+	var text4;
+	var style;
 	var response = false;
-	var wait2 = false;
-	var display = '';
-	var random = new Phaser.RandomDataGenerator();
-	var key0;
-	var key1;
-	var key2;
-	var key3;
-	var key4;
-	var key5;
-	var key6;
-	var key7;
-	var key8;
-	var key9;
-	var keyF;
-	var counter = 0;
 	
     function create() {
         
         style = {font: "25px Arial", fill: "#FFFFFF", align: "center"};
-        phone = game.add.sprite(400, 200, 'phone');
-        instructions = game.add.text(50, 20, 'Remember the Numbers shown!', style);
-        move = game.add.text(75, 50, 'Press Down to continue', style);
-        opt1 = game.add.text(50, 80, "", style);
-        opt2 = game.add.text(50, 110, "", style);
         
-        cursors = game.input.keyboard.createCursorKeys();
-        key0 = game.input.keyboard.addKey(Phaser.Keyboard.ZERO);
-        key1 = game.input.keyboard.addKey(Phaser.Keyboard.ONE);
-        key2 = game.input.keyboard.addKey(Phaser.Keyboard.TWO);
-        key3 = game.input.keyboard.addKey(Phaser.Keyboard.THREE);
-        key4 = game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
-        key5 = game.input.keyboard.addKey(Phaser.Keyboard.FIVE);
-        key6 = game.input.keyboard.addKey(Phaser.Keyboard.SIX);
-        key7 = game.input.keyboard.addKey(Phaser.Keyboard.SEVEN);
-        key8 = game.input.keyboard.addKey(Phaser.Keyboard.EIGHT);
-        key9 = game.input.keyboard.addKey(Phaser.Keyboard.NINE);
-        keyF = game.input.keyboard.addKey(Phaser.Keyboard.F);
-        
-    }
-
-    function update() {
-
-			if(generate){
-				opt1.setText('');
-				numbers = [];
-				for(var i = 0; i < progress; i++){
-        			numbers[i] = random.between(0,9);
-        		}
-        		replay = [];
-        		generate = false;
-        		show = true;
-        		counter = 0;
-        		wait2 = false;
-        	}
-        	
-        	if (show && !cursors.down.isDown){
-        		display = '';
-        		for(var i = 0; i < numbers.length; i++){
-        			display = display + numbers[i].toString() + ' ';
-        		}
-        		opt2.setText(display);
-        		show  = false;
-        		wait = true;
-        	}
-        	
-        	if(wait){
-        		if(cursors.down.isDown){
-        			wait = false;
-        			delay = true;
-        			opt2.setText('');
-        		}
-        	}
-        	
-        	if(delay && !cursors.down.isDown){
-        		delay = false;
-        		input = true;
-        	}
-	   	
-        if(input){
-			opt1.setText("Press the corresponding numbers in order.");
-
-        	if(!key0.isDown && !key1.isDown && !key2.isDown && !key3.isDown && !key4.isDown && !key5.isDown && !key6.isDown && !key7.isDown && !key8.isDown && !key9.isDown){
-        		response = true;
-        	}
-        	
-        	if(key0.isDown && response){
-        		replay[counter] = 0;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(key1.isDown && response){
-        		replay[counter] = 1;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(key2.isDown && response){
-        		replay[counter] = 2;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(key3.isDown && response){
-        		replay[counter] = 3;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(key4.isDown && response){
-        		replay[counter] = 4;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(key5.isDown && response){
-        		replay[counter] = 5;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(key6.isDown && response){
-        		replay[counter] = 6;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(key7.isDown && response){
-        		replay[counter] = 7;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(key8.isDown && response){
-        		replay[counter] = 8;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(key9.isDown && response){
-        		replay[counter] = 9;
-        		counter++;
-        		response = false;
-        	}
-        	
-        	if(cursors.down.isDown){
-        		input = false;
-        		compare = true;
-        	}
-        }
-        
-        if(compare && !cursors.down.isDown){
-        	if(replay.equals(numbers)){
-        		opt2.setText("Congratulations!");
-        		progress++;
-        	}
-        	
-        	else{
-        		opt2.setText("I'm sorry you got it wrong :(");
-        	}
-        	compare  = false;
-        	wait2 = true;
-        }
-        
-        if(wait2){
-        	if(cursors.down.isDown){
-        		wait2 = false;
-        		generate = true;
-        		opt2.setText('');
-        	}
-        }
+        game.stage.background = "#000000";
+        text = game.add.text(5, 5, "Press SPACE when the screen changes color!", style);
+        text2 = game.add.text(10, 40, "Press ENTER to begin.", style);
+        text3 = game.add.text(5, 75, "", style);
+        text4 = game.add.text(5, 110, "", style);
     }
     
-    // attach the .equals method to Array's prototype to call it on any array
-Array.prototype.equals = function (array) {
-    // if the other array is a falsy value, return
-    if (!array)
-        return false;
+    function round (){
+    	var start = timer.time;
+    	var wait = Math.floor((Math.random() * 10) + 1);
+    	while(time.elapsedSecondsSince(start) < wait){}
+    	game.stage.background = "#00ff1e";
+    	compare = timer.time;
+    	response = true;
+    	return compare;
+	}
 
-    // compare lengths - can save a lot of time 
-    if (this.length != array.length)
-        return false;
-
-    for (var i = 0, l=this.length; i < l; i++) {
-        // Check if we have nested arrays
-        if (this[i] instanceof Array && array[i] instanceof Array) {
-            // recurse into the nested arrays
-            if (!this[i].equals(array[i]))
-                return false;       
-        }           
-        else if (this[i] != array[i]) { 
-            // Warning - two different object instances will never be equal: {x:20} != {x:20}
-            return false;   
-        }           
-    }       
-    return true;
-} 
+    function update() {
+		if(game.input.keyboard.isDown(Phaser.Keyboard.ENTER)){
+			out = round();
+		}
+		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE) && response){
+			output = timer.elapsedSince(out);
+			text4.setText("Your time was: " + output + "!";
+			response = false;	
+		}
+		
+		if(output < highscore){
+			highscore = output;
+			text3.setText("Highscore: " + highscore;
+		}
+	} 
 };
