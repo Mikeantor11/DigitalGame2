@@ -18,7 +18,7 @@ window.onload = function () {
     function preload() {
     }
 	
-	var timer = new Time(game);
+	var timer = game.time();
 	var compare;
 	var out;
 	var output;
@@ -35,12 +35,12 @@ window.onload = function () {
         style = {font: "25px Arial", fill: "#FFFFFF", align: "center"};
         
         game.stage.background = "#000000";
-        timer = game.time.create(false);
+        //timer = game.time.create(false);
         text = game.add.text(5, 5, "Press SPACE when the screen changes color!", style);
         text2 = game.add.text(10, 40, "Press ENTER to begin.", style);
         text3 = game.add.text(5, 75, "", style);
         text4 = game.add.text(5, 110, "", style);
-        timer.start();
+        //timer.start();
     }
     
     function round (){
