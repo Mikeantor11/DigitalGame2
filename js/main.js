@@ -309,11 +309,7 @@ window.onload = function() {
         
         //Need help here!
         if(reset){
-            wolf.body.static = true;
-        }
-        
-        else{
-            wolf.body.static = false;
+            wolf.body.velocity.y = 0;
         }
     }
 
