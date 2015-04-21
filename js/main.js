@@ -44,6 +44,7 @@ window.onload = function() {
     var time;
     var last = 0;
     var gravityVar = 0;
+    var reset = true;
 
     function create() {
         //Loading in and Playing the Background Music
@@ -187,6 +188,8 @@ window.onload = function() {
 
     //Resets the game
     function restart(){
+        reset = true;
+        
         //Revives and Resets the Wolf
         wolf.revive();
         wolf.body.x = 300;
@@ -283,6 +286,7 @@ window.onload = function() {
         }
         //If up is pressed jump and decrement the Jump counter
         if(cursors.up.isDown && counter > 0){
+            reset = false;
             wolf.body.velocity.y = -250 - (100 * Math.floor(score/50));
             counter--;
         }
@@ -295,6 +299,14 @@ window.onload = function() {
         //If R is pressed Reset the game
         if(game.input.keyboard.isDown(Phaser.Keyboard.R)){
             restart();
+        }
+        
+        if(reset){
+            wolf.body.STATIC = true;
+        }
+        
+        else{
+            wolf.body.STATIC = false;
         }
     }
 
