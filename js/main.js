@@ -166,7 +166,7 @@ window.onload = function() {
                 pastX = xPos;
             }
             
-            wolf.body.velociy.y = jumpVelocity;
+            wolf.body.velocity.y = jumpVelocity;
     }
 
     //Spawns a new Set of Balls, Making sure their not to close to the Wolf
