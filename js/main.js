@@ -112,7 +112,7 @@ window.onload = function() {
         var pastX;
             for (var i = 0; i <4; i++){
                 var xPos = game.world.randomX;
-                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 50)
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 100)
                 {
                     xPos = game.world.randomX;
                 }
@@ -153,7 +153,7 @@ window.onload = function() {
             var pastX;
             for (var i = 0; i <4; i++){
                 var xPos = game.world.randomX;
-                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 50)
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 100)
                 {
                     xPos = game.world.randomX;
                 }
@@ -175,7 +175,7 @@ window.onload = function() {
         var pastX;
             for (var i = 0; i <4; i++){
                 var xPos = game.world.randomX;
-                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 50)
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 100)
                 {
                     xPos = game.world.randomX;
                 }
