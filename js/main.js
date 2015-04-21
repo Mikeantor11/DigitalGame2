@@ -109,20 +109,20 @@ window.onload = function() {
         wolf.animations.play('walkRight');
 
         //Spawns Initial Balls Falling
-        var xPos = Math.abs(game.world.randomX - 400);
+        var pastX;
             for (var i = 0; i <4; i++){
-                //var xPos = game.world.randomX;
-                //while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 100)
-                //{
-                    xPos = xPos + 100;
-                //}
+                var xPos = game.world.randomX;
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 100)
+                {
+                    xPos = game.world.randomX;
+                }
                 var ball = balls.create(xPos, 0, 'ball');
                 ball.body.setCircle(10);
 
                 ball.body.setCollisionGroup(ballCollisionGroup);
 
                 ball.body.collides(wolfCollisionGroup);
-                //pastX = xPos;
+                pastX = xPos;
             }
 
         //Sets more balls to fall every second
@@ -150,20 +150,20 @@ window.onload = function() {
 
             //Spawns a new Set of Balls, Making sure their not to close to the Wolf
             //Or the Previous Ball
-            var xPos = Math.abs(game.world.randomX - 400);
+            var pastX;
             for (var i = 0; i <4; i++){
-                //var xPos = game.world.randomX;
-                //while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 100)
-                //{
-                    xPos = xPos + 100;
-                //}
+                var xPos = game.world.randomX;
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 100)
+                {
+                    xPos = game.world.randomX;
+                }
                 var ball = balls.create(xPos, 0, 'ball');
                 ball.body.setCircle(10);
 
                 ball.body.setCollisionGroup(ballCollisionGroup);
 
                 ball.body.collides(wolfCollisionGroup);
-                //pastX = xPos;
+                pastX = xPos;
             }
             
             wolf.body.velocity.y = jumpVelocity;
@@ -172,20 +172,20 @@ window.onload = function() {
     //Spawns a new Set of Balls, Making sure their not to close to the Wolf
     //Or the Previous Ball
     function moreBalls(){
-        var xPos = Math.abs(game.world.randomX - 400);
+        var pastX;
             for (var i = 0; i <4; i++){
-                //var xPos = game.world.randomX;
-                //while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 100)
-                //{
-                    xPos = xPos + 100;
-                //}
+                var xPos = game.world.randomX;
+                while(Math.abs(xPos - wolf.body.x) < 100 && Math.abs(xPos - pastX) < 100)
+                {
+                    xPos = game.world.randomX;
+                }
                 var ball = balls.create(xPos, 0, 'ball');
                 ball.body.setCircle(10);
 
                 ball.body.setCollisionGroup(ballCollisionGroup);
 
                 ball.body.collides(wolfCollisionGroup);
-                //pastX = xPos;
+                pastX = xPos;
             }
     }
 
