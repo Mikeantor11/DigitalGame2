@@ -277,7 +277,7 @@ window.onload = function() {
         }
 
         //If "A" is pressed do the bite Animation
-        if(game.input.keyboard.isDown(Phaser.Keyboard.A) && wolf.animations.currentAnim != 'biteLeft'){
+        if(game.input.keyboard.isDown(Phaser.Keyboard.A) && wolf.animations.currentAnim !== 'biteLeft'){
             wolf.animations.play('biteRight', 10);
 
             if(!bite.isPlaying){
@@ -302,11 +302,11 @@ window.onload = function() {
         }
         
         if(reset){
-            wolf.body.STATIC = true;
+            wolf.body.static = true;
         }
         
         else{
-            wolf.body.STATIC = false;
+            wolf.body.static = false;
         }
     }
 
