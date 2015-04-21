@@ -300,7 +300,7 @@ window.onload = function() {
         if(game.input.keyboard.isDown(Phaser.Keyboard.R)){
             restart();
         }
-        
+        /*
         if(reset){
             wolf.body.static = true;
         }
@@ -308,6 +308,7 @@ window.onload = function() {
         else{
             wolf.body.static = false;
         }
+        */
     }
 
     function render() {
