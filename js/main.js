@@ -44,6 +44,7 @@ window.onload = function() {
     var time;
     var last = 0;
     var gravityVar = 0;
+    var jumpVelocity;
     var reset = true;
 
     function create() {
@@ -56,7 +57,7 @@ window.onload = function() {
 
         //Starts the Physics and Impliments them on the Dog
         game.physics.startSystem(Phaser.Physics.P2JS);
-        //game.physics.p2.setImpactEvents(true);
+        game.physics.p2.setImpactEvents(true);
         game.physics.p2.gravity.y = 200;
 
         //Collision Groups
@@ -134,7 +135,7 @@ window.onload = function() {
     }
 
     //Called if the Wolf hits a Ball
-    function ateBall(){
+    function ateBall(){            
             //Allow the User to have another Jump
             counter++;
 
@@ -164,6 +165,8 @@ window.onload = function() {
                 ball.body.collides(wolfCollisionGroup);
                 pastX = xPos;
             }
+            
+            wolf.body.velociy.y = jumpVelocity;
     }
 
     //Spawns a new Set of Balls, Making sure their not to close to the Wolf
@@ -238,6 +241,8 @@ window.onload = function() {
     }
    
     function update() {
+        jumpVelocity = wolf.body.velociy.y;
+        
         //Movement
 
         //If left is pressed move left and play running Animation
