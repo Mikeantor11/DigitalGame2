@@ -241,7 +241,7 @@ window.onload = function() {
     }
    
     function update() {
-        jumpVelocity = wolf.body.velociy.y;
+        jumpVelocity = wolf.body.velocity.y;
         
         //Movement
 
